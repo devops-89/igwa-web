@@ -1,7 +1,9 @@
 "use client";
 
 import React from "react";
-import Navbar from "../widgets/Navbar";
+import dynamic from "next/dynamic";
+
+const Navbar = dynamic(() => import("../widgets/Navbar"), { ssr: false });
 
 const Layoutwrapper = ({ children }: { children: React.ReactNode }) => {
   return (
