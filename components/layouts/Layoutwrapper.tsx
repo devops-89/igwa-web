@@ -1,16 +1,20 @@
 "use client";
 
+import theme from "@/lib/theme";
+import CssBaseline from "@mui/material/CssBaseline";
+import { ThemeProvider } from "@mui/material/styles";
 import React from "react";
-import dynamic from "next/dynamic";
-
-const Navbar = dynamic(() => import("../widgets/Navbar"), { ssr: false });
+import FooterSection from "../widgets/FooterSection";
+import Navbar from "../widgets/Navbar";
 
 const Layoutwrapper = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
       <Navbar />
       {children}
-    </div>
+      <FooterSection />
+    </ThemeProvider>
   );
 };
 

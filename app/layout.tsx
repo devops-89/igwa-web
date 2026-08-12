@@ -1,16 +1,12 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { DM_Sans } from "next/font/google";
 import "./globals.css";
 import Layoutwrapper from "@/components/layouts/Layoutwrapper";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const dmSans = DM_Sans({
+  variable: "--font-dm-sans",
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "900"],
 });
 
 export const metadata: Metadata = {
@@ -23,10 +19,15 @@ import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en">
+<<<<<<< HEAD
       <body>
         <AppRouterCacheProvider>
           <Layoutwrapper>{children}</Layoutwrapper>
         </AppRouterCacheProvider>
+=======
+      <body className={dmSans.variable}>
+        <Layoutwrapper>{children}</Layoutwrapper>
+>>>>>>> 79fd69e147d95a56afc2c3fd7547df6a24e3604c
       </body>
     </html>
   );
