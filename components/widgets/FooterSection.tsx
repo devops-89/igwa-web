@@ -9,21 +9,22 @@ import {
   Link as MuiLink,
 } from "@mui/material";
 import { COLORS } from "@/lib/enum";
+import { hindiFooterData } from "@/constants/hindiGenericData";
 
 const FOOTER_LINKS = [
   [
-    "How It Works",
-    "For Citizens",
-    "For Police Departments",
-    "Security & Compliance",
+    hindiFooterData.productLinks[0],
+    hindiFooterData.productLinks[1],
+    hindiFooterData.productLinks[2],
+    hindiFooterData.securityTitle,
   ],
   [
-    "Legal Grounding (BNSS/BNS)",
-    "Privacy Policy",
-    "Terms of Use",
-    "Data Protection",
+    hindiFooterData.legalLinks[0],
+    hindiFooterData.securityLinks[1],
+    hindiFooterData.securityLinks[2],
+    hindiFooterData.securityLinks[0],
   ],
-  ["Partner With Us", "Request a Pilot", "Support"],
+  hindiFooterData.contactLinks,
 ];
 
 export default function FooterSection() {
@@ -71,7 +72,7 @@ export default function FooterSection() {
               mb: 3,
             }}
           >
-            AI-assisted drafting, Human-verified justice.
+            {hindiFooterData.tagline}
           </Typography>
           <Typography
             sx={{
@@ -83,10 +84,7 @@ export default function FooterSection() {
               lineHeight: 1.14,
             }}
           >
-            IGWA is a decision-support and drafting-assistance tool. It does not
-            replace the statutory judgment of a police officer or magistrate,
-            and no AI-generated output carries legal status until a human
-            officer explicitly reviews and signs off on it.
+            {hindiFooterData.importantNotice1} {hindiFooterData.importantNotice2} {hindiFooterData.importantNotice3}
           </Typography>
         </Box>
 
@@ -113,7 +111,7 @@ export default function FooterSection() {
             color: COLORS.WHITE_90,
           }}
         >
-          © 2026 IGWA. All rights reserved.
+          {hindiFooterData.copyright}
         </Typography>
       </Container>
     </Box>

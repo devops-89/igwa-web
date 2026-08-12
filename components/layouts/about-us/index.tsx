@@ -6,6 +6,8 @@ import Hero from "./Hero";
 import OurStory from "./OurStory";
 import WhatWeBelieve from "./WhatWeBelieve";
 import WeAreBuilding from "./WeAreBuilding";
+import SharedBannerSection from "../SharedBannerSection";
+import { aboutSharedBannerData } from "@/constants/genericData";
 
 export default function AboutUsIndex() {
   return (
@@ -14,7 +16,7 @@ export default function AboutUsIndex() {
       sx={{
         width: "100%",
         overflowX: "hidden",
-        backgroundColor: "#04070D",
+        backgroundColor: "#000000",
         color: "#FFFFFF",
       }}
     >
@@ -22,6 +24,12 @@ export default function AboutUsIndex() {
       <OurStory />
       <WhatWeBelieve />
       <WeAreBuilding />
+      <SharedBannerSection
+        trailingTitle={aboutSharedBannerData.trailingTitle}
+        trailingSubtitle={aboutSharedBannerData.trailingSubtitle}
+        buttons={aboutSharedBannerData.buttons}
+        textAlign="center"
+      />
     </Box>
   );
 }

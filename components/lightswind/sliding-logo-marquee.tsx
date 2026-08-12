@@ -41,13 +41,17 @@ const marqueeVertical = keyframes`
   to { transform: translateY(-50%); }
 `;
 
-const MarqueeContainer = styled(Box)<{ scaleval: number; bg: string }>(({ scaleval, bg }) => ({
+const MarqueeContainer = styled(Box, {
+  shouldForwardProp: (prop) => prop !== 'scaleval' && prop !== 'bg'
+})<{ scaleval: number; bg: string }>(({ scaleval, bg }) => ({
   position: "relative",
   background: bg,
   scale: scaleval,
 }));
 
-const MarqueeResizable = styled(Box)<{ h: string; spill: boolean }>(({ h, spill }) => ({
+const MarqueeResizable = styled(Box, {
+  shouldForwardProp: (prop) => prop !== 'h' && prop !== 'spill'
+})<{ h: string; spill: boolean }>(({ h, spill }) => ({
   overflow: "hidden",
   width: "100%",
   height: h,
@@ -55,7 +59,9 @@ const MarqueeResizable = styled(Box)<{ h: string; spill: boolean }>(({ h, spill 
   ...(spill && { containerType: "size" }),
 }));
 
-const MarqueeInner = styled(Box)<{ scaleval: number; spill: boolean }>(({ scaleval, spill }) => ({
+const MarqueeInner = styled(Box, {
+  shouldForwardProp: (prop) => prop !== 'scaleval' && prop !== 'spill'
+})<{ scaleval: number; spill: boolean }>(({ scaleval, spill }) => ({
   height: "100%",
   width: "100%",
   position: "relative",

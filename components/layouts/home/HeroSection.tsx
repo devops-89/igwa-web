@@ -10,18 +10,19 @@ import AppButton from "./components/AppButton";
 import Image from "next/image";
 import apple from "@/images/icons/apple.svg";
 import google from "@/images/icons/playstore.svg";
+import { hindiHeroData } from "@/constants/hindiGenericData";
 
 export default function HeroSection() {
   const appStoreButtons = [
     {
       img: apple,
-      title: "Download on the",
-      heading: "App Store",
+      title: "",
+      heading: hindiHeroData.appStoreBtn,
     },
     {
       img: google,
-      title: "Get it on",
-      heading: "Google Play",
+      title: "",
+      heading: hindiHeroData.googlePlayBtn,
     },
   ];
   return (
@@ -51,51 +52,74 @@ export default function HeroSection() {
                 <Typography
                   sx={{
                     textAlign: "center",
-                    fontSize: 85,
+                    fontSize: { xs: 48, md: 64 },
                     fontWeight: 700,
-                    lineHeight: "82.8px",
+                    lineHeight: 1.1,
                     letterSpacing: "-2.4px",
                   }}
+                  data-aos="fade-up"
                 >
-                  Paperwork, Drafted Faster. Investigation, Uninterrupted.
+                  {hindiHeroData.title}
                 </Typography>
                 <Typography
                   sx={{
                     fontSize: 24,
                     fontWeight: 500,
-                    lineHeight: "28.8px",
+                    lineHeight: 1.4,
                     letterSpacing: "-1.44px",
                     textAlign: "center",
-                    mt: 1,
+                    mt: 3,
                   }}
+                  data-aos="fade-up"
+                  data-aos-delay="100"
                 >
-                  IGWA is an AI-assisted platform that helps police officers
-                  turn a citizen's statement into a legally sound FIR, daily
-                  case diary, and chargesheet — grounded in the Bharatiya Nyaya
-                  Sanhita (BNS) and Bharatiya Nagarik Suraksha Sanhita (BNSS),
-                  2023 — in minutes, not hours.
+                  {hindiHeroData.subtitle}
                 </Typography>
                 <Typography
                   sx={{
-                    fontSize: 17,
+                    fontSize: 18,
                     fontWeight: 500,
-                    lineHeight: "28.8px",
+                    lineHeight: 1.5,
                     letterSpacing: "-1.44px",
-                    mt: 2,
                     textAlign: "center",
+                    mt: 3,
+                    color: "rgba(255, 255, 255, 0.9)",
+                    maxWidth: 900,
+                    mx: "auto",
                   }}
+                  data-aos="fade-up"
+                  data-aos-delay="200"
                 >
-                  Every AI-drafted document is reviewed and approved by the
-                  officer before it carries any legal weight.
+                  {hindiHeroData.description1}
+                  <br />
+                  {hindiHeroData.description2}
+                </Typography>
+                <Typography
+                  sx={{
+                    fontSize: 14,
+                    fontWeight: 500,
+                    lineHeight: 1.5,
+                    mt: 3,
+                    textAlign: "center",
+                    color: "rgba(255, 255, 255, 0.7)",
+                    maxWidth: 800,
+                    mx: "auto",
+                  }}
+                  data-aos="fade-up"
+                  data-aos-delay="400"
+                >
+                  {hindiHeroData.description4}
                 </Typography>
 
                 <Stack
                   direction={"row"}
                   sx={{ alignItems: "center", justifyContent: "center", mt: 4 }}
                   spacing={2}
+                  data-aos="fade-up"
+                  data-aos-delay="300"
                 >
                   {appStoreButtons.map((val, i) => (
-                    <AppButton>
+                    <AppButton key={i}>
                       <Stack
                         direction={"row"}
                         sx={{

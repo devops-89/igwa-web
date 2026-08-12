@@ -10,7 +10,7 @@ export default function WeAreBuilding() {
       component="section"
       sx={{
         width: "100%",
-        backgroundColor: "#04070D",
+        backgroundColor: "#000000",
         color: "#FFFFFF",
         py: { xs: 8, md: 16 },
         px: { xs: 2, sm: 3 },

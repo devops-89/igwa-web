@@ -22,7 +22,7 @@ export default function Hero() {
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        backgroundImage: `linear-gradient(180deg, rgba(0, 0, 0, 0.45) 0%, rgba(4, 7, 13, 0.65) 50%, rgba(4, 7, 13, 0.92) 80%, #04070D 100%), url('/images/about/about-hero.png')`,
+        backgroundImage: `linear-gradient(180deg, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0.65) 50%, rgba(0, 0, 0, 0.92) 80%, #000000 100%), url('/images/about/about-hero.png')`,
         backgroundSize: "cover",
         backgroundPosition: "center 20%",
         backgroundRepeat: "no-repeat",

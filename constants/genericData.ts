@@ -106,3 +106,12 @@ export const citizensWhatIgwaDoesData = {
     { text: 'Start your report', width: '163px' }
   ]
 };
+
+export const aboutSharedBannerData = {
+  trailingTitle: "If you're trying to make this process better too, we'd like to talk.",
+  trailingSubtitle: "",
+  buttons: [
+    { text: "Partner with Us" },
+    { text: "Request a Pilot" }
+  ]
+};

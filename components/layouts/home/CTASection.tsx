@@ -3,13 +3,14 @@
 import React from "react";
 import Image from "next/image";
 import { Box, Typography, Container, Grid, Button } from "@mui/material";
+import { hindiCtaData } from "@/constants/hindiGenericData";
 
 export default function CTASection() {
   return (
     <Box sx={{ bgcolor: "#000", color: "white", py: { xs: 8, md: 12 } }}>
       <Container maxWidth="lg">
         <Grid container spacing={6} sx={{ alignItems: "center" }}>
-          <Grid size={{ xs: 12, md: 6 }}>
+          <Grid size={{ xs: 12, md: 6 }} data-aos="fade-right">
             <Typography
               variant="h2"
               sx={{
@@ -20,7 +21,7 @@ export default function CTASection() {
                 mb: 3,
               }}
             >
-              Give your officers back the hours paperwork was taking.
+              {hindiCtaData.title}
             </Typography>
 
             <Typography
@@ -33,9 +34,9 @@ export default function CTASection() {
                 maxWidth: 665,
               }}
             >
-              Whether it&apos;s an FIR that needs registering, a diary entry due today,
-              or a chargesheet deadline closing in IGWA meets your station where the
-              caseload actually is.
+              {hindiCtaData.description3}
+              <br />
+              {hindiCtaData.description4}
             </Typography>
 
             <Button
@@ -53,11 +54,11 @@ export default function CTASection() {
                 "&:hover": { backgroundColor: "rgba(255,255,255,0.32)" },
               }}
             >
-              Bring IGWA to Your Station
+              {hindiCtaData.btnText}
             </Button>
           </Grid>
 
-          <Grid size={{ xs: 12, md: 6 }}>
+          <Grid size={{ xs: 12, md: 6 }} data-aos="fade-left" data-aos-delay="100">
             <Box
               sx={{
                 display: "flex",
@@ -71,7 +72,7 @@ export default function CTASection() {
                   width: "100%",
                   maxWidth: 420,
                   aspectRatio: "416 / 456",
-                  transform: "rotate(10.56deg)",
+                  transform: "scale(1.6) rotate(10.56deg)",
                 }}
               >
                 <Image

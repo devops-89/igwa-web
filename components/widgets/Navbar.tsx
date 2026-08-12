@@ -1,25 +1,37 @@
 "use client";
 
+import { hindiNavData } from "@/constants/hindiGenericData";
 import { COLORS } from "@/lib/enum";
+import CloseIcon from "@mui/icons-material/Close";
+import MenuIcon from "@mui/icons-material/Menu";
 import {
   AppBar,
   Box,
   Button,
   Container,
-  Divider,
+  Drawer,
+  IconButton,
+  List,
+  ListItem,
   Toolbar,
-  Typography,
+  Typography
 } from "@mui/material";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useState } from "react";
 
 export default function Navbar() {
   const pathname = usePathname();
+  const [mobileOpen, setMobileOpen] = useState(false);
 
-  const navLinks = [
-    { label: "Home", href: "/" },
-    { label: "About us", href: "/about" },
-    { label: "Our Product", href: "/#product" },
-  ];
+  const handleDrawerToggle = () => {
+    setMobileOpen((prevState) => !prevState);
+  };
+
+  const navLinks = hindiNavData.slice(0, 4).map(link => ({
+    label: link.name,
+    href: link.path
+  }));
 
   return (
     <AppBar
@@ -66,7 +78,7 @@ export default function Navbar() {
               Intelligent Governance Workflow Automation
             </Typography>
           </Box>
-          <Divider sx={{ color: COLORS.WHITE }} />
+          <Box sx={{ flexGrow: 1, height: '1px', backgroundColor: 'rgba(255, 255, 255, 0.5)', display: { xs: 'none', md: 'block' }, mx: { xs: 2, md: 4 } }} />
           <Box
             sx={{
               display: { xs: "none", md: "flex" },
@@ -82,66 +94,119 @@ export default function Navbar() {
             }}
           >
             <Box sx={{ display: "flex", gap: 4, mr: 4, alignItems: "center" }}>
-              <Link href="#" style={{ textDecoration: "none" }}>
-                <Typography
-                  sx={{ fontWeight: 600, color: COLORS.DARK_TEXT, fontSize: "0.875rem" }}
-                >
-                  Home
-                </Typography>
-              </Link>
-              <Link href="#" style={{ textDecoration: "none" }}>
-                <Typography
-                  sx={{ fontWeight: 600, color: COLORS.DARK_TEXT, fontSize: "0.875rem" }}
-                >
-                  About us
-                </Typography>
-              </Link>
-              <Link
-                href="#"
-                style={{
-                  textDecoration: "none",
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 6,
+              {navLinks.map((item, index) => {
+                const isActive = pathname === item.href;
+                return (
+                  <Link key={index} href={item.href} style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: 6 }}>
+                    {isActive && (
+                      <Box
+                        component="span"
+                        sx={{
+                          width: 4,
+                          height: 4,
+                          bgcolor: COLORS.DARK_TEXT,
+                          borderRadius: "50%",
+                          display: "inline-block",
+                        }}
+                      />
+                    )}
+                    <Typography
+                      sx={{ fontWeight: isActive ? 700 : 600, color: COLORS.DARK_TEXT, fontSize: "0.875rem" }}
+                    >
+                      {item.label}
+                    </Typography>
+                  </Link>
+                );
+              })}
+            </Box>
+            <Link href={hindiNavData[4]?.path || "/contact-us"} passHref>
+              <Button
+                variant="contained"
+                disableElevation
+                sx={{
+                  borderRadius: "9999px",
+                  textTransform: "none",
+                  bgcolor: COLORS.PRIMARY,
+                  "&:hover": { bgcolor: COLORS.PRIMARY_HOVER },
+                  fontWeight: 700,
+                  fontSize: "0.875rem",
+                  px: 3,
+                  py: 1.25,
+                  minWidth: 100,
                 }}
               >
-                <Box
-                  component="span"
-                  sx={{
-                    width: 4,
-                    height: 4,
-                    bgcolor: COLORS.DARK_TEXT,
-                    borderRadius: "50%",
-                    display: "inline-block",
-                  }}
-                />
-                <Typography
-                  sx={{ fontWeight: 600, color: COLORS.DARK_TEXT, fontSize: "0.875rem" }}
-                >
-                  Our Product
-                </Typography>
-              </Link>
-            </Box>
-            <Button
-              variant="contained"
-              disableElevation
-              sx={{
-                borderRadius: "9999px",
-                textTransform: "none",
-                bgcolor: COLORS.PRIMARY,
-                "&:hover": { bgcolor: COLORS.PRIMARY_HOVER },
-                fontWeight: 700,
-                fontSize: "0.875rem",
-                px: 3,
-                py: 1.25,
-                minWidth: 100,
-              }}
-            >
-              Let&apos;s talk!
-            </Button>
+                {hindiNavData[4]?.name || "बात करें"}
+              </Button>
+            </Link>
           </Box>
+          <IconButton
+            color="inherit"
+            aria-label="open drawer"
+            edge="end"
+            onClick={handleDrawerToggle}
+            sx={{ display: { md: "none" }, color: COLORS.WHITE }}
+          >
+            <MenuIcon />
+          </IconButton>
         </Toolbar>
       </Container>
+      
+      <Drawer
+        anchor="right"
+        open={mobileOpen}
+        onClose={handleDrawerToggle}
+        ModalProps={{
+          keepMounted: true, 
+        }}
+        sx={{
+          display: { xs: "block", md: "none" },
+          "& .MuiDrawer-paper": { 
+            boxSizing: "border-box", 
+            width: 280, 
+            bgcolor: "rgba(0, 0, 0, 0.7)", 
+            backdropFilter: "blur(12px)",
+            color: "white" 
+          },
+        }}
+      >
+        <Box sx={{ p: 2, display: "flex", justifyContent: "flex-end" }}>
+          <IconButton onClick={handleDrawerToggle} sx={{ color: "white" }}>
+            <CloseIcon />
+          </IconButton>
+        </Box>
+        <List sx={{ px: 2 }}>
+          {navLinks.map((item, index) => (
+            <ListItem key={index} disablePadding sx={{ mb: 2 }}>
+              <Link href={item.href} style={{ textDecoration: "none", width: "100%" }} onClick={handleDrawerToggle}>
+                <Typography sx={{ fontWeight: 600, color: "white", fontSize: "1.125rem" }}>
+                  {item.label}
+                </Typography>
+              </Link>
+            </ListItem>
+          ))}
+          <ListItem disablePadding sx={{ mt: 4 }}>
+            <Link href={hindiNavData[4]?.path || "/contact-us"} passHref style={{ width: "100%" }}>
+              <Button
+                variant="contained"
+                fullWidth
+                disableElevation
+                sx={{
+                  borderRadius: "9999px",
+                  textTransform: "none",
+                  bgcolor: COLORS.PRIMARY,
+                  "&:hover": { bgcolor: COLORS.PRIMARY_HOVER },
+                  fontWeight: 700,
+                  fontSize: "1rem",
+                  py: 1.5,
+                }}
+                onClick={handleDrawerToggle}
+              >
+                {hindiNavData[4]?.name || "बात करें"}
+              </Button>
+            </Link>
+          </ListItem>
+        </List>
+      </Drawer>
     </AppBar>
   );
 }

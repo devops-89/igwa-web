@@ -3,12 +3,13 @@
 import React from "react";
 import Image from "next/image";
 import { Box, Typography, Container, Grid } from "@mui/material";
+import { hindiWhatIgwaDoesData } from "@/constants/hindiGenericData";
 
 export default function WhatIGWADoesSection() {
   return (
     <Box sx={{ bgcolor: "#000", color: "white", py: { xs: 8, md: 12 } }}>
       <Container maxWidth="lg">
-        <Box sx={{ textAlign: "center", mb: 6 }}>
+        <Box sx={{ textAlign: "center", mb: 6 }} data-aos="fade-up">
           <Typography
             variant="h2"
             sx={{
@@ -18,7 +19,7 @@ export default function WhatIGWADoesSection() {
               mb: 2,
             }}
           >
-            What IGWA Does
+            {hindiWhatIgwaDoesData.section2.title}
           </Typography>
           <Typography
             sx={{
@@ -27,13 +28,12 @@ export default function WhatIGWADoesSection() {
               color: "rgba(255,255,255,0.9)",
             }}
           >
-            One platform. Every hour it gives back is an hour your officers get to
-            investigate.
+            {hindiWhatIgwaDoesData.section2.subtitle}
           </Typography>
         </Box>
 
         <Grid container spacing={2.5}>
-          <Grid size={{ xs: 12, md: 5 }}>
+          <Grid size={{ xs: 12, md: 5 }} data-aos="fade-right" data-aos-delay="100">
             <Box
               sx={{
                 bgcolor: "#fff",
@@ -53,12 +53,11 @@ export default function WhatIGWADoesSection() {
                   fontSize: { xs: "1.75rem", md: "2.25rem" },
                   letterSpacing: "-0.044em",
                   lineHeight: 1.08,
+                  color: "#000",
                   mb: 3,
                 }}
               >
-                Chargesheet,
-                <br />
-                Assembled Not Written
+                {hindiWhatIgwaDoesData.section2.features[1].title}
               </Typography>
 
               <Box
@@ -79,11 +78,7 @@ export default function WhatIGWADoesSection() {
                   mb: 4,
                 }}
               >
-                FIR, Diary, and Evidence pulled into one structured draft
-                automatically, Flagged against statutory filing deadlines
-                <br />
-                <br />
-                Ready for your counter signature, not a rewrite.
+                {hindiWhatIgwaDoesData.section2.features[1].description}
               </Typography>
 
               <Box
@@ -99,21 +94,54 @@ export default function WhatIGWADoesSection() {
                     bottom: 0,
                     left: 0,
                     width: 175,
-                    height: 100,
+                    height: 191,
                   }}
                 >
-                  <Image
-                    src="/images/home/features/chargesheet-stars.png"
-                    alt=""
-                    fill
-                    style={{ objectFit: "contain" }}
+                  <Box 
+                    component="img" 
+                    src="/images/police/star.png" 
+                    sx={{ 
+                      position: 'absolute', 
+                      top: 0, 
+                      left: 0, 
+                      width: '175px', 
+                      height: '191px', 
+                      objectFit: 'contain',
+                      opacity: 0.4
+                    }} 
+                  />
+                  <Box 
+                    component="img" 
+                    src="/images/police/star2.png" 
+                    sx={{ 
+                      position: 'absolute', 
+                      top: '80px', 
+                      left: '88px', 
+                      width: '99px', 
+                      height: '100px', 
+                      objectFit: 'contain',
+                      opacity: 0.4
+                    }} 
+                  />
+                  <Box 
+                    component="img" 
+                    src="/images/police/star2.png" 
+                    sx={{ 
+                      position: 'absolute', 
+                      top: '130px', 
+                      left: '14px', 
+                      width: '99px', 
+                      height: '100px', 
+                      objectFit: 'contain',
+                      opacity: 0.4
+                    }} 
                   />
                 </Box>
                 <Typography
                   sx={{
                     position: "absolute",
-                    right: -20,
-                    bottom: 20,
+                    right: -60,
+                    bottom: 100,
                     fontWeight: 900,
                     fontSize: "6.25rem",
                     color: "#dedede",
@@ -163,7 +191,7 @@ export default function WhatIGWADoesSection() {
                       zIndex: 1,
                     }}
                   >
-                    Smart FIR Creation
+                    {hindiWhatIgwaDoesData.section2.features[0].title}
                   </Typography>
                   <Box
                     sx={{
@@ -190,9 +218,7 @@ export default function WhatIGWADoesSection() {
                       letterSpacing: "-0.045em",
                     }}
                   >
-                    A citizen&apos;s statement — typed or spoken, in Hindi or English
-                    becomes a ready-to-confirm FIR draft, with the relevant legal
-                    sections already identified and cited.
+                    {hindiWhatIgwaDoesData.section2.features[0].description}
                   </Typography>
                 </Box>
               </Box>
@@ -224,9 +250,7 @@ export default function WhatIGWADoesSection() {
                       mb: 2,
                     }}
                   >
-                    Case Diary,
-                    <br />
-                    Auto Started
+                    {hindiWhatIgwaDoesData.section2.features[2].title}
                   </Typography>
                   <Box
                     sx={{
@@ -262,9 +286,7 @@ export default function WhatIGWADoesSection() {
                       letterSpacing: "-0.045em",
                     }}
                   >
-                    The first diary entry drafts itself from uploaded documents. Every
-                    day after, add an update by voice. Once finalized, entries lock —
-                    nothing gets rewritten, nothing gets lost.
+                    {hindiWhatIgwaDoesData.section2.features[2].description}
                   </Typography>
                 </Box>
               </Box>

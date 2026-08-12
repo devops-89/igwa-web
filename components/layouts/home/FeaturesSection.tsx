@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Box, Typography, Container, Grid } from "@mui/material";
 import { COLORS } from "@/lib/enum";
 import phoneHand from "@/images/home/phone_in_hand.png";
+import { hindiProblemData, hindiWhatIgwaDoesData } from "@/constants/hindiGenericData";
 export default function FeaturesSection() {
   return (
     <Box
@@ -16,44 +17,46 @@ export default function FeaturesSection() {
           spacing={{ xs: 6, md: 10 }}
           sx={{ alignItems: "center" }}
         >
-          <Grid size={{ xs: 12, md: 6 }}>
+          <Grid size={{ xs: 12, md: 6 }} data-aos="fade-up">
             <Typography
               variant="h2"
               sx={{
                 fontWeight: 700,
                 mb: 4,
-                fontSize: 48,
-                lineHeight: "52.8px",
-                letterSpacing: "-2.4px",
+                fontSize: { xs: 32, md: 48 },
+                lineHeight: { xs: 1.2, md: "52.8px" },
+                letterSpacing: { xs: "-1px", md: "-2.4px" },
               }}
             >
-              Paperwork shouldn&apos;t be the hardest part of the job.
+              {hindiProblemData.title}
             </Typography>
 
             <Typography
               sx={{
                 mb: 3,
                 color: COLORS.WHITE,
-                fontSize: 24,
-                lineHeight: "27px",
+                fontSize: { xs: 18, md: 24 },
+                lineHeight: { xs: 1.4, md: "27px" },
                 letterSpacing: "-1.08px",
                 textAlign: "justify",
                 fontWeight: 400,
               }}
             >
-              FIRs, daily case diaries, chargesheets, each one hand-typed, each
-              one repetitive, each one a chance to lose an hour that should've
-              gone to the actual investigation. Add statutory deadlines under
-              BNSS on top of an already heavy caseload, and it's easy to see why
-              paperwork backs up faster than cases close.
+              {hindiProblemData.stats.join(" ")}
+              <br />
+              <br />
+              {hindiProblemData.description1}
+              <br />
+              <br />
+              {hindiProblemData.description2}
             </Typography>
 
             <Typography
               sx={{
                 mb: 3,
                 color: COLORS.WHITE,
-                fontSize: 24,
-                lineHeight: "27px",
+                fontSize: { xs: 18, md: 24 },
+                lineHeight: { xs: 1.4, md: "27px" },
                 letterSpacing: "-1.08px",
                 textAlign: "justify",
                 fontWeight: 400,
@@ -63,61 +66,67 @@ export default function FeaturesSection() {
                 component={"span"}
                 sx={{
                   color: COLORS.WHITE,
-                  fontSize: 24,
-                  lineHeight: "27px",
+                  fontSize: { xs: 18, md: 24 },
+                  lineHeight: { xs: 1.4, md: "27px" },
                   letterSpacing: "-1.08px",
                   fontWeight: 700,
                 }}
               >
                 IGWA{" "}
               </Typography>
-              doesn&apos;t touch an officer&apos;s judgment or the legal
-              process. It just takes the drafting weight off it.
+              {hindiProblemData.conclusion.replace("IGWA ", "")} {hindiProblemData.note}
             </Typography>
 
             <Typography
               variant="h2"
               sx={{
-                fontSize: 48,
+                fontSize: { xs: 32, md: 48 },
                 fontWeight: 700,
-                lineHeight: "52.8px",
-                letterSpacing: "-2.4px",
+                lineHeight: { xs: 1.2, md: "52.8px" },
+                letterSpacing: { xs: "-1px", md: "-2.4px" },
                 color: COLORS.WHITE,
               }}
             >
-              Diary Entries, Dictated Not Typed
+              {hindiWhatIgwaDoesData.section1.title}
             </Typography>
 
             <Typography
               sx={{
-                fontSize: 24,
+                fontSize: { xs: 18, md: 24 },
                 fontWeight: 400,
-                lineHeight: "27px",
+                lineHeight: { xs: 1.4, md: "27px" },
                 letterSpacing: "-1.08px",
                 mt: 2,
               }}
             >
-              Update a case diary the way you actually work, on your feet, not
-              at a desk.
+              {hindiWhatIgwaDoesData.section1.point1}
             </Typography>
 
             <Typography
               sx={{
                 color: COLORS.WHITE,
-                fontSize: 24,
-                lineHeight: "27px",
+                fontSize: { xs: 18, md: 24 },
+                lineHeight: { xs: 1.4, md: "27px" },
                 letterSpacing: "-1.08px",
                 textAlign: "justify",
               }}
             >
-              Speak your update, in Hindi or English, right from the field. IGWA
-              turns it into a structured, dated diary entry — no re-typing after
-              a long shift, no formatting to get right, no risk of it slipping
-              to tomorrow.
+              {hindiWhatIgwaDoesData.section1.point2}
+              <br />
+              <br />
+              {hindiWhatIgwaDoesData.section1.point3}
+              <br />
+              <br />
+              {hindiWhatIgwaDoesData.section1.point4.split('। ').join('।\\n').split('\\n').map((sentence, index) => (
+                <React.Fragment key={index}>
+                  {sentence}
+                  <br />
+                </React.Fragment>
+              ))}
             </Typography>
           </Grid>
 
-          <Grid size={{ xs: 12, md: 6 }}>
+          <Grid size={{ xs: 12, md: 6 }} data-aos="fade-left">
             <Box
               sx={{
                 position: "relative",
