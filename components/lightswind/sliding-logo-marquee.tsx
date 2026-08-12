@@ -1,11 +1,9 @@
 "use client";
 
-import React, { useRef, useEffect, useState, useMemo } from "react";
-// Import your actual utility
-import { cn } from "@/lib/utils"; // Assuming this is your actual path
+import React, { useState } from "react";
 import { Pause, Play } from "lucide-react";
+import { Box, IconButton, styled, keyframes } from "@mui/material";
 
-// --- Interfaces (Kept for completeness) ---
 export interface SlidingLogoMarqueeItem {
   id: string;
   content: React.ReactNode;
@@ -33,6 +31,130 @@ export interface SlidingLogoMarqueeProps {
   showControls?: boolean;
 }
 
+const marqueeHorizontal = keyframes`
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); } 
+`;
+
+const marqueeVertical = keyframes`
+  from { transform: translateY(0); }
+  to { transform: translateY(-50%); }
+`;
+
+const MarqueeContainer = styled(Box)<{ scaleval: number; bg: string }>(({ scaleval, bg }) => ({
+  position: "relative",
+  background: bg,
+  scale: scaleval,
+}));
+
+const MarqueeResizable = styled(Box)<{ h: string; spill: boolean }>(({ h, spill }) => ({
+  overflow: "hidden",
+  width: "100%",
+  height: h,
+  position: "relative",
+  ...(spill && { containerType: "size" }),
+}));
+
+const MarqueeInner = styled(Box)<{ scaleval: number; spill: boolean }>(({ scaleval, spill }) => ({
+  height: "100%",
+  width: "100%",
+  position: "relative",
+  mask: "linear-gradient(90deg, transparent, black 15% 85%, transparent)",
+  WebkitMask: "linear-gradient(90deg, transparent, black 15% 85%, transparent)",
+  display: "flex",
+  pointerEvents: "none",
+  ...(spill && {
+    "&::after": {
+      content: '""',
+      position: "fixed",
+      top: "50%",
+      left: "50%",
+      width: `calc(${scaleval} * 10000vw)`,
+      height: `calc(${scaleval} * 10000vh)`,
+      pointerEvents: "none",
+      translate: "-50% -50%",
+      mask: "linear-gradient(white, white) 50% 50% / 100% 100% no-repeat, linear-gradient(white, white) 50% 50% / 100cqi 100cqh no-repeat",
+      WebkitMask: "linear-gradient(white, white) 50% 50% / 100% 100% no-repeat, linear-gradient(white, white) 50% 50% / 100cqi 100cqh no-repeat",
+      maskComposite: "exclude",
+      WebkitMaskComposite: "source-out",
+    },
+  }),
+}));
+
+const MarqueeList = styled("ul")<{
+  direction: string;
+  duration: string;
+  gap: string;
+  isPlaying: boolean;
+}>(({ direction, duration, gap, isPlaying }) => ({
+  display: "flex",
+  flexShrink: 0,
+  minWidth: direction === "vertical" ? "unset" : "200%",
+  minHeight: direction === "vertical" ? "200%" : "unset",
+  width: direction === "vertical" ? "100%" : "unset",
+  flexDirection: direction === "vertical" ? "column" : "row",
+  gap: gap,
+  height: "100%",
+  alignItems: "center",
+  listStyleType: "none",
+  paddingInline: 0,
+  margin: 0,
+  pointerEvents: "auto",
+  animation: `${direction === "vertical" ? marqueeVertical : marqueeHorizontal} ${duration} linear infinite`,
+  animationPlayState: isPlaying ? "running" : "paused",
+  transform: "translateZ(0)",
+  willChange: "transform",
+}));
+
+const MarqueeItem = styled("li")({
+  minWidth: "clamp(100px, 15vw, 250px)",
+  height: "80%",
+  aspectRatio: "16 / 9",
+  fontSize: "clamp(1rem, 1vw + 0.5rem, 2rem)",
+  display: "grid",
+  placeItems: "center",
+  cursor: "pointer",
+  transition: "transform 200ms ease-in-out",
+  backdropFilter: "blur(4px)",
+  "&:hover": {
+    transform: "scale(1.05)",
+  },
+  "&:focus": {
+    transform: "scale(1.05)",
+    outline: "none",
+  },
+});
+
+const BlurDiv = styled(Box)<{ indexval: number; blurs: number; blurval: number }>(({ indexval, blurs, blurval }) => ({
+  position: "absolute",
+  inset: 0,
+  zIndex: indexval,
+  mask: `linear-gradient(90deg,
+      transparent calc(${indexval} * calc((100 / ${blurs}) * 1%)),
+      black calc((${indexval} + 1) * calc((100 / ${blurs}) * 1%)),
+      black calc((${indexval} + 2) * calc((100 / ${blurs}) * 1%)),
+      transparent calc((${indexval} + 3) * calc((100 / ${blurs}) * 1%)))`,
+  WebkitMask: `linear-gradient(90deg,
+      transparent calc(${indexval} * calc((100 / ${blurs}) * 1%)),
+      black calc((${indexval} + 1) * calc((100 / ${blurs}) * 1%)),
+      black calc((${indexval} + 2) * calc((100 / ${blurs}) * 1%)),
+      transparent calc((${indexval} + 3) * calc((100 / ${blurs}) * 1%)))`,
+  backdropFilter: `blur(calc((${indexval} * ${blurval}) * 1px))`,
+  WebkitBackdropFilter: `blur(calc((${indexval} * ${blurval}) * 1px))`,
+}));
+
+const BlurContainer = styled(Box)<{ position: "left" | "right" }>(({ position }) => ({
+  position: "absolute",
+  top: 0,
+  bottom: 0,
+  width: "25%",
+  zIndex: 2,
+  pointerEvents: "none",
+  left: position === "left" ? 0 : "auto",
+  right: position === "right" ? 0 : "auto",
+  rotate: position === "left" ? "180deg" : "0deg",
+}));
+
 export function SlidingLogoMarquee({
   items,
   speed = 1,
@@ -45,7 +167,7 @@ export function SlidingLogoMarquee({
   scale = 1,
   direction = "horizontal",
   autoPlay = true,
-  backgroundColor = '!transparent',
+  backgroundColor = "transparent",
   showGridBackground = false,
   className,
   onItemClick,
@@ -53,11 +175,9 @@ export function SlidingLogoMarquee({
   animationSteps = 8,
   showControls = true,
 }: SlidingLogoMarqueeProps) {
-  const containerRef = useRef<HTMLDivElement>(null);
   const [isPlaying, setIsPlaying] = useState(autoPlay);
 
-  // CORE FIX: Duplicating the items for a seamless loop
-  const duplicatedItems = useMemo(() => [...items, ...items], [items]);
+  const duration = `${200 / speed}s`;
 
   const handleItemClick = (item: SlidingLogoMarqueeItem) => {
     if (item.href) {
@@ -71,19 +191,12 @@ export function SlidingLogoMarquee({
   };
 
   const blurDivs = Array.from({ length: animationSteps }, (_, index) => (
-    <div key={index} style={{ "--index": index } as React.CSSProperties} className="absolute inset-0 z-[var(--index)]" />
+    <BlurDiv key={index} indexval={index} blurs={animationSteps} blurval={blurIntensity} />
   ));
 
   const itemRenderer = (item: SlidingLogoMarqueeItem, index: number, isDuplicate: boolean) => (
-    <li
-      // Use original ID plus index/flag for unique keys
-      key={`${item.id}-${index}-${isDuplicate ? 'dup' : 'orig'}`}
-      className={cn(
-        "sliding-marquee-item text-foreground",
-        "grid place-items-center cursor-pointer transition-transform duration-200 ease-in-out",
-        "hover:scale-[1.05] focus:scale-[1.05] focus:outline-none focus:ring-2 focus:ring-primary",
-        " backdrop-blur-sm",
-      )}
+    <MarqueeItem
+      key={`${item.id}-${index}-${isDuplicate ? "dup" : "orig"}`}
       onClick={() => handleItemClick(item)}
       role="button"
       tabIndex={0}
@@ -93,180 +206,67 @@ export function SlidingLogoMarquee({
         }
       }}
     >
-      <div className="h-4/5 w-auto">{item.content}</div>
-    </li>
+      <Box sx={{ height: "80%", width: "auto" }}>{item.content}</Box>
+    </MarqueeItem>
   );
 
   return (
-    <>
-      <style>
-        {`
-        .sliding-marquee-container {
-          --speed: ${speed};
-          --gap: ${gap};
-          --blur: ${blurIntensity};
-          --blurs: ${animationSteps};
-          /* Dynamic Duration: Higher speed (e.g., 60) results in a shorter duration */
-          /* Use a large fixed distance (e.g., 200vw) divided by speed to control rate */
-          --duration: calc(200s / var(--speed)); 
-        }
+    <MarqueeContainer
+      className={className}
+      sx={{ width }}
+      scaleval={scale}
+      bg={backgroundColor}
+      onMouseEnter={() => pauseOnHover && setIsPlaying(false)}
+      onMouseLeave={() => pauseOnHover && setIsPlaying(true)}
+    >
+      {showGridBackground && (
+        <Box
+          sx={{
+            position: "absolute",
+            inset: 0,
+            pointerEvents: "none",
+            opacity: 0.05,
+            backgroundImage: "radial-gradient(#4b5563 1px, transparent 1px)",
+            backgroundSize: "16px 16px",
+          }}
+        />
+      )}
 
-        /* ------------------------------------------------ */
-        /* --- CORE INFINITE LOOP FIX: Animating by -50% -- */
-        /* ------------------------------------------------ */
-        @keyframes marquee-horizontal {
-          /* Translates the doubled content by exactly half its length to loop seamlessly */
-          from { transform: translateX(0); }
-          to { transform: translateX(-50%); } 
-        }
-        
-        @keyframes marquee-vertical {
-          from { transform: translateY(0); }
-          to { transform: translateY(-50%); }
-        }
+      <MarqueeResizable h={height} spill={enableSpillEffect}>
+        <MarqueeInner scaleval={scale} spill={enableSpillEffect}>
+          {enableBlur && <BlurContainer position="left">{blurDivs}</BlurContainer>}
 
-        .sliding-marquee-list {
-          display: flex;
-          flex-shrink: 0; 
-          min-width: 200%;
-          gap: var(--gap);
-          height: 100%;
-          align-items: center;
-          list-style-type: none;
-          padding-inline: 0;
-          margin: 0;
-          pointer-events: auto;
-          animation: marquee-horizontal var(--duration) linear infinite paused;
-          transform: translateZ(0); /* Add this for mobile GPU layer */
-          will-change: transform;    /* Hint browser to optimize for animation */
-        }
+          <MarqueeList direction={direction} duration={duration} gap={gap} isPlaying={isPlaying}>
+            {items.map((item, index) => itemRenderer(item, index, false))}
+            {items.map((item, index) => itemRenderer(item, index, true))}
+          </MarqueeList>
 
-        /* Conditional Animation based on Direction */
-        .sliding-marquee-resizable[data-direction="vertical"] .sliding-marquee-list {
-            flex-direction: column;
-            min-width: unset;
-            min-height: 200%;
-            width: 100%;
-            animation: marquee-vertical var(--duration) linear infinite paused;
-        }
+          {enableBlur && <BlurContainer position="right">{blurDivs}</BlurContainer>}
+        </MarqueeInner>
+      </MarqueeResizable>
 
-
-        .sliding-marquee-item {
-          /* Ensure item size is well-defined to calculate total list width accurately */
-          min-width: clamp(100px, 15vw, 250px); 
-          height: 80%;
-          aspect-ratio: 16 / 9;
-          font-size: clamp(1rem, 1vw + 0.5rem, 2rem);
-        }
-        
-        /* Play State Controls */
-        [data-play-state="running"] .sliding-marquee-list {
-          animation-play-state: running !important;
-        }
-        [data-play-state="paused"] .sliding-marquee-list {
-          animation-play-state: paused !important;
-        }
-
-        /* --- Layout & Effects (Tailwind-Ready/Hybrid) --- */
-        .sliding-marquee-resizable {
-          overflow: hidden;
-          scale: var(--scale);
-          width: 100%;
-          height: ${height};
-          position: relative;
-        }
-
-        .sliding-marquee-inner {
-          height: 100%;
-          width: 100%;
-          position: relative;
-          mask: linear-gradient(90deg, transparent, black 15% 85%, transparent);
-          display: flex; 
-          pointer-events: none;
-        }
-
-        /* The rest of the blur and spill effect CSS... */
-        .sliding-marquee-blur { position: absolute; top: 0; bottom: 0; width: 25%; z-index: 2; pointer-events: none; }
-        .sliding-marquee-blur--right { right: 0; }
-        .sliding-marquee-blur--left { left: 0; rotate: 180deg; }
-        .sliding-marquee-blur div {
-            mask: linear-gradient(90deg,
-                transparent calc(var(--index) * calc((100 / var(--blurs)) * 1%)),
-                black calc((var(--index) + 1) * calc((100 / var(--blurs)) * 1%)),
-                black calc((var(--index) + 2) * calc((100 / var(--blurs)) * 1%)),
-                transparent calc((var(--index) + 3) * calc((100 / var(--blurs)) * 1%)));
-            backdrop-filter: blur(calc((var(--index, 0) * var(--blur, 0)) * 1px));
-        }
-        .sliding-marquee-resizable[data-spill="true"] { container-type: size; }
-        .sliding-marquee-resizable[data-spill="true"] .sliding-marquee-inner::after {
-            content: ""; position: fixed; top: 50%; left: 50%; width: calc(var(--scale) * 10000vw); height: calc(var(--scale) * 10000vh);
-            pointer-events: none; translate: -50% -50%;
-            mask: linear-gradient(white, white) 50% 50% / 100% 100% no-repeat, linear-gradient(white, white) 50% 50% / 100cqi 100cqh no-repeat;
-            mask-composite: exclude;
-        }
-        `}
-      </style>
-
-      <div
-        ref={containerRef}
-        className={cn("sliding-marquee-container relative", className)}
-        style={{ width, background: backgroundColor, scale: scale }}
-        onMouseEnter={() => pauseOnHover && setIsPlaying(false)}
-        onMouseLeave={() => pauseOnHover && setIsPlaying(true)}
-      >
-        {showGridBackground && (
-          <div className="absolute inset-0 pointer-events-none opacity-5">
-            <div className="h-full w-full bg-[radial-gradient(#4b5563_1px,transparent_1px)]
-             [background-size:16px_16px]"/>
-          </div>
-        )}
-
-        <div
-          className="sliding-marquee-resizable"
-          data-direction={direction}
-          data-blurring={enableBlur}
-          data-play-state={isPlaying ? "running" : "paused"}
-          data-spill={enableSpillEffect}
+      {showControls && (
+        <IconButton
+          onClick={togglePlayState}
+          aria-label={isPlaying ? "Pause animation" : "Play animation"}
+          sx={{
+            position: "absolute",
+            top: "50%",
+            right: 8,
+            transform: "translateY(-50%)",
+            zIndex: 10,
+            backgroundColor: "rgba(31, 41, 55, 0.5)",
+            color: "white",
+            "&:hover": {
+              backgroundColor: "rgba(55, 65, 81, 0.7)",
+            },
+            padding: 1,
+          }}
         >
-          <div className="sliding-marquee-inner">
-            {enableBlur && (
-              <div className="sliding-marquee-blur sliding-marquee-blur--left">
-                {blurDivs}
-              </div>
-            )}
-
-            {/* Rendered Items: Original Set + Duplicate Set */}
-            <ul className="sliding-marquee-list text-foreground" aria-hidden={false}>
-              {items.map((item, index) => itemRenderer(item, index, false))}
-
-              {/* Duplicate is key to the seamless loop */}
-              {items.map((item, index) => itemRenderer(item, index, true))}
-            </ul>
-
-            {enableBlur && (
-              <div className="sliding-marquee-blur sliding-marquee-blur--right">
-                {blurDivs}
-              </div>
-            )}
-          </div>
-        </div>
-
-        {showControls && (
-          <button
-            onClick={togglePlayState}
-            className={cn(
-              "absolute top-1/2 right-2 transform -translate-y-1/2 z-10 p-2 text-xs",
-              "bg-gray-800/50 text-white",
-              "rounded-full hover:bg-gray-700/70 transition-colors",
-              "focus:outline-none focus:ring-2 focus:ring-primary"
-            )}
-            aria-label={isPlaying ? "Pause animation" : "Play animation"}
-          >
-            {isPlaying ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4" />}
-          </button>
-        )}
-      </div>
-    </>
+          {isPlaying ? <Pause size={16} /> : <Play size={16} />}
+        </IconButton>
+      )}
+    </MarqueeContainer>
   );
 }
 

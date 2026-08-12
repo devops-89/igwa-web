@@ -1,54 +1,136 @@
 "use client";
 
-import React from 'react';
-import { AppBar, Toolbar, Typography, Button, Box, Container } from '@mui/material';
-import Link from 'next/link';
+import React from "react";
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  Button,
+  Box,
+  Container,
+  Divider,
+} from "@mui/material";
+import Link from "next/link";
+import { COLORS } from "@/lib/enum";
 
 export default function Navbar() {
   return (
-    <AppBar position="absolute" color="transparent" elevation={0} sx={{ top: 20 }}>
-      <Container maxWidth="lg">
-        <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', p: 0 }}>
-          <Box sx={{ display: 'flex', gap: 1, alignItems: 'center' }}>
-            <Box sx={{ width: 4, height: 40, backgroundColor: 'white' }} />
-            <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-              <Typography variant="h6" sx={{ fontWeight: 700, color: 'white', lineHeight: 1.1, fontSize: '1.1rem' }}>
-                Intelligent Governance
-              </Typography>
-              <Typography variant="h6" sx={{ fontWeight: 700, color: 'white', lineHeight: 1.1, fontSize: '1.1rem' }}>
-                Workflow Automation
-              </Typography>
-            </Box>
-          </Box>
-          
-          <Box sx={{ display: 'flex', alignItems: 'center', backgroundColor: 'white', borderRadius: '50px', pl: 3, pr: 1, py: 1 }}>
-            <Box sx={{ display: 'flex', gap: 4, mr: 4 }}>
-              <Link href="#" passHref style={{ textDecoration: 'none' }}>
-                <Typography variant="body2" sx={{ fontWeight: 700, color: '#1E293B', fontSize: '0.85rem' }}>Home</Typography>
-              </Link>
-              <Link href="#" passHref style={{ textDecoration: 'none' }}>
-                <Typography variant="body2" sx={{ fontWeight: 700, color: '#52525B', fontSize: '0.85rem' }}>About us</Typography>
-              </Link>
-              <Link href="#" passHref style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                <Box sx={{ width: 4, height: 4, backgroundColor: '#52525B', borderRadius: '50%' }} />
-                <Typography variant="body2" sx={{ fontWeight: 700, color: '#52525B', fontSize: '0.85rem' }}>Our Product</Typography>
-              </Link>
-            </Box>
-            <Button 
-              variant="contained" 
-              disableElevation
-              sx={{ 
-                borderRadius: '50px', 
-                textTransform: 'none', 
-                backgroundColor: '#007BFF',
-                '&:hover': { backgroundColor: '#0056b3' },
-                fontWeight: 700,
-                fontSize: '0.85rem',
-                px: 3,
-                py: 1
+    <AppBar
+      position="absolute"
+      color="transparent"
+      elevation={0}
+      sx={{ top: { xs: 12, md: 20 }, bgcolor: "transparent" }}
+    >
+      <Container maxWidth={"lg"}>
+        <Toolbar
+          disableGutters
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            minHeight: 74,
+          }}
+        >
+          <Box
+            sx={{
+              display: "flex",
+              gap: 1.5,
+              alignItems: "center",
+              maxWidth: 280,
+            }}
+          >
+            <Box
+              sx={{
+                width: 3,
+                height: 48,
+                backgroundColor: COLORS.WHITE,
+                flexShrink: 0,
+              }}
+            />
+            <Typography
+              sx={{
+                fontWeight: 900,
+                color: COLORS.WHITE,
+                lineHeight: 1.16,
+                fontSize: { xs: "1rem", md: "1.5625rem" },
+                letterSpacing: "-0.046em",
               }}
             >
-              Let's talk!
+              Intelligent Governance Workflow Automation
+            </Typography>
+          </Box>
+          <Divider sx={{ color: COLORS.WHITE }} />
+          <Box
+            sx={{
+              display: { xs: "none", md: "flex" },
+              alignItems: "center",
+              bgcolor: COLORS.LIGHT_BG,
+              borderRadius: "9999px",
+              pl: 4,
+              pr: 1,
+              py: 1,
+              boxShadow:
+                "0px 8px 16px rgba(0,0,0,0.2), 0px 4px 8px rgba(0,0,0,0.2)",
+              minHeight: 74,
+            }}
+          >
+            <Box sx={{ display: "flex", gap: 4, mr: 4, alignItems: "center" }}>
+              <Link href="#" style={{ textDecoration: "none" }}>
+                <Typography
+                  sx={{ fontWeight: 600, color: COLORS.DARK_TEXT, fontSize: "0.875rem" }}
+                >
+                  Home
+                </Typography>
+              </Link>
+              <Link href="#" style={{ textDecoration: "none" }}>
+                <Typography
+                  sx={{ fontWeight: 600, color: COLORS.DARK_TEXT, fontSize: "0.875rem" }}
+                >
+                  About us
+                </Typography>
+              </Link>
+              <Link
+                href="#"
+                style={{
+                  textDecoration: "none",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 6,
+                }}
+              >
+                <Box
+                  component="span"
+                  sx={{
+                    width: 4,
+                    height: 4,
+                    bgcolor: COLORS.DARK_TEXT,
+                    borderRadius: "50%",
+                    display: "inline-block",
+                  }}
+                />
+                <Typography
+                  sx={{ fontWeight: 600, color: COLORS.DARK_TEXT, fontSize: "0.875rem" }}
+                >
+                  Our Product
+                </Typography>
+              </Link>
+            </Box>
+            <Button
+              variant="contained"
+              disableElevation
+              sx={{
+                borderRadius: "9999px",
+                textTransform: "none",
+                bgcolor: COLORS.PRIMARY,
+                "&:hover": { bgcolor: COLORS.PRIMARY_HOVER },
+                fontWeight: 700,
+                fontSize: "0.875rem",
+                px: 3,
+                py: 1.25,
+                minWidth: 100,
+              }}
+            >
+              Let&apos;s talk!
             </Button>
           </Box>
         </Toolbar>
