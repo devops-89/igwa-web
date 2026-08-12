@@ -13,6 +13,14 @@ import {
 import Link from "next/link";
 
 export default function Navbar() {
+  const pathname = usePathname();
+
+  const navLinks = [
+    { label: "Home", href: "/" },
+    { label: "About us", href: "/about" },
+    { label: "Our Product", href: "/#product" },
+  ];
+
   return (
     <AppBar
       position="absolute"
@@ -137,3 +145,4 @@ export default function Navbar() {
     </AppBar>
   );
 }
+
