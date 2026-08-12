@@ -28,159 +28,136 @@ const steps = [
 
 export default function HowEngineWorksSection() {
   return (
-    <Box
-      sx={{
-        backgroundColor: '#000000',
-        color: '#FFFFFF',
-        py: { xs: 8, md: 12, lg: 14 },
-        position: 'relative',
-        overflow: 'hidden',
-        boxSizing: 'border-box',
-        width: '100%',
-        borderTop: '1px solid rgba(255, 255, 255, 0.08)',
-      }}
-    >
-      <Box
-        sx={{
-          width: '100%',
-          maxWidth: '1440px',
-          mx: 'auto',
-          display: 'flex',
-          flexDirection: { xs: 'column', lg: 'row' },
-          alignItems: 'center',
-          justifyContent: 'space-between',
-        }}
-      >
-        {/* Left Column: Title & Timeline with Exact Baseline Left Padding */}
-        <Box
+    <Box sx={{ backgroundColor: '#000000', py: { xs: 8, md: 15 }, width: '100%', position: 'relative', minHeight: { xs: 'auto', md: '1000px' }, display: 'flex', alignItems: 'center', overflow: 'hidden' }}>
+      {/* Desktop Absolute Track & Sticky Image */}
+      <Box sx={{ 
+        position: 'absolute', 
+        top: '120px', 
+        bottom: 0, 
+        left: 0, 
+        width: { xs: '0', lg: '547px' }, 
+        display: { xs: 'none', lg: 'block' }, 
+        zIndex: 1 
+      }}>
+        <Box 
+          component="img"
+          src="/images/product2.png"
+          alt="IGWA Engine"
           sx={{
-            pl: { xs: 3, sm: 6, md: '95px', lg: '119px' },
-            pr: { xs: 3, lg: 4 },
-            py: { xs: 4, lg: 0 },
-            width: { xs: '100%', lg: '52%' },
-            boxSizing: 'border-box',
+            position: 'sticky',
+            top: '120px',
+            width: '100%',
+            height: 'auto',
           }}
-        >
-          {/* Title with Underline */}
-          <Box sx={{ display: 'inline-block', mb: { xs: 5, md: 7 } }}>
-            <Box
+          data-aos="fade-right"
+        />
+      </Box>
+
+      <Box sx={{ width: '100%', maxWidth: '1440px', mx: 'auto', position: 'relative', zIndex: 2 }}>
+        <Box sx={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center' }}>
+          {/* Left Column - Image Spacer on Desktop */}
+          <Box sx={{ width: { xs: '100%', lg: '41.666%' }, px: { xs: 2, lg: 0 } }}>
+            <Box 
+              component="img"
+              src="/images/product2.png"
+              alt="IGWA Engine"
               sx={{
-                borderBottom: '2px solid rgba(255, 255, 255, 0.85)',
-                pb: 1,
-                display: 'inline-block',
+                width: '100%',
+                maxWidth: '547px',
+                height: 'auto',
+                display: { xs: 'block', lg: 'none' }, // Hide on desktop since absolute image is used
+                margin: '0 auto',
+                mb: { xs: 6, lg: 0 }
               }}
-            >
-              <Typography
-                variant="h2"
-                sx={{
-                  fontWeight: 800,
-                  fontSize: { xs: '2.2rem', sm: '3rem', md: '3.4rem', lg: '3.8rem' },
-                  lineHeight: 1.1,
-                  letterSpacing: '-0.035em',
-                  color: '#FFFFFF',
-                  fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif",
-                  whiteSpace: { sm: 'nowrap' },
+              data-aos="fade-right"
+            />
+          </Box>
+          
+          {/* Right Column - Timeline */}
+          <Box sx={{ width: { xs: '100%', lg: '58.333%' }, px: { xs: 2, lg: 4 } }}>
+            <Box sx={{ mb: { xs: 6, md: 10 }, ml: { xs: 2, md: '44px' } }}>
+              <Typography 
+                variant="h2" 
+                sx={{ 
+                  color: '#FFFFFF', 
+                  fontWeight: 700, 
+                  mb: 4,
+                  fontSize: { xs: '32px', md: '48px' },
+                  lineHeight: { xs: 1.2, md: '52.8px' },
+                  letterSpacing: '-2.4px'
                 }}
+                data-aos="fade-left"
               >
                 How the engine works
               </Typography>
+              <Box sx={{ width: '100%', maxWidth: '660px', height: '1px', backgroundColor: '#FFFFFF' }} />
+            </Box>
+            
+            <Box sx={{ display: 'flex', flexDirection: 'column', position: 'relative', pl: { xs: 2, md: '44px' } }}>
+              {/* Continuous vertical line */}
+              <Box 
+                sx={{ 
+                  position: 'absolute',
+                  top: '26px',
+                  bottom: 0, 
+                  left: { xs: '21px', md: '49px' },
+                  width: '2px',
+                  backgroundColor: '#FFFFFF',
+                  zIndex: 0
+                }} 
+              />
+              
+              {steps.map((step, index) => (
+                <Box key={index} sx={{ display: 'flex', mb: index !== steps.length - 1 ? { xs: 4, md: 8 } : 0, position: 'relative', zIndex: 1 }}>
+                  {/* Dot */}
+                  <Box sx={{ mr: { xs: 2, md: 4 }, mt: '20px' }}>
+                    <Box 
+                      sx={{ 
+                        width: '12px', 
+                        height: '12px', 
+                        borderRadius: '50%', 
+                        backgroundColor: '#FFFFFF' 
+                      }} 
+                    />
+                  </Box>
+                  
+                  {/* Content */}
+                  <Box>
+                    <Typography 
+                      variant="h6" 
+                      sx={{ 
+                        color: '#FFFFFF', 
+                        fontWeight: 700, 
+                        mb: 1,
+                        fontSize: { xs: 18, md: 24 },
+                        lineHeight: { xs: 1.4, md: '27px' },
+                        letterSpacing: '-1.08px'
+                      }}
+                      data-aos="fade-up"
+                      data-aos-delay={`${index * 100}`}
+                    >
+                      {step.title}
+                    </Typography>
+                    <Typography 
+                      variant="body2" 
+                      sx={{ 
+                        color: 'rgba(255, 255, 255, 0.72)', 
+                        fontWeight: 400,
+                        lineHeight: { xs: 1.4, md: '27px' },
+                        fontSize: { xs: 18, md: 24 },
+                        letterSpacing: '-1.08px',
+                        maxWidth: '520px'
+                      }}
+                      data-aos="fade-up"
+                      data-aos-delay={`${index * 100 + 50}`}
+                    >
+                      {step.description}
+                    </Typography>
+                  </Box>
+                </Box>
+              ))}
             </Box>
           </Box>
-
-          {/* Timeline Steps */}
-          <Box sx={{ position: 'relative', pl: 3.5 }}>
-            {/* Vertical Timeline Line */}
-            <Box
-              sx={{
-                position: 'absolute',
-                top: '10px',
-                bottom: '24px',
-                left: '5px',
-                width: '2px',
-                backgroundColor: 'rgba(255, 255, 255, 0.5)',
-              }}
-            />
-
-            {steps.map((step, index) => (
-              <Box
-                key={index}
-                sx={{
-                  position: 'relative',
-                  mb: index === steps.length - 1 ? 0 : 5,
-                }}
-              >
-                {/* Timeline Node Dot */}
-                <Box
-                  sx={{
-                    position: 'absolute',
-                    left: '-28px',
-                    top: '6px',
-                    width: '12px',
-                    height: '12px',
-                    borderRadius: '50%',
-                    backgroundColor: '#FFFFFF',
-                  }}
-                />
-
-                {/* Step Title */}
-                <Typography
-                  variant="h6"
-                  sx={{
-                    fontWeight: 700,
-                    fontSize: { xs: '1.1rem', md: '1.3rem' },
-                    mb: 1,
-                    color: '#FFFFFF',
-                    lineHeight: 1.3,
-                    fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif",
-                  }}
-                >
-                  {step.title}
-                </Typography>
-
-                {/* Step Description */}
-                <Typography
-                  variant="body1"
-                  sx={{
-                    color: 'rgba(255, 255, 255, 0.72)',
-                    fontSize: { xs: '0.92rem', md: '1.02rem' },
-                    lineHeight: 1.6,
-                    fontWeight: 400,
-                    fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif",
-                    maxWidth: '520px',
-                  }}
-                >
-                  {step.description}
-                </Typography>
-              </Box>
-            ))}
-          </Box>
-        </Box>
-
-        {/* Right Column: Phone Image extending to the rightmost edge */}
-        <Box
-          sx={{
-            width: { xs: '100%', lg: '48%' },
-            display: 'flex',
-            justifyContent: 'flex-end',
-            alignItems: 'center',
-            pr: 0,
-            overflow: 'hidden',
-          }}
-        >
-          <Box
-            component="img"
-            src="/images/product2.png"
-            alt="How the IGWA engine works on smartphone"
-            sx={{
-              maxWidth: { xs: '100%', lg: '115%' },
-              height: 'auto',
-              maxHeight: { xs: '550px', md: '750px', lg: '850px' },
-              objectFit: 'contain',
-              display: 'block',
-              marginRight: { xs: 'auto', lg: 0 },
-              marginLeft: { xs: 'auto', lg: 0 },
-            }}
-          />
         </Box>
       </Box>
     </Box>

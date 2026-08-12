@@ -24,12 +24,12 @@ export default function WhyThisMattersSection() {
           variant="body2"
           sx={{
             fontWeight: 400,
-            fontSize: { xs: '0.95rem', md: '1.15rem' },
+            fontSize: { xs: '16px', md: '24px' },
             color: 'rgba(255, 255, 255, 0.85)',
             mb: 2.5,
-            fontFamily: 'inherit',
-            letterSpacing: '-0.01em',
+            letterSpacing: '-1.08px',
           }}
+          data-aos="fade-up"
         >
           Why this matters
         </Typography>
@@ -38,15 +38,16 @@ export default function WhyThisMattersSection() {
         <Typography
           variant="h2"
           sx={{
-            fontWeight: 800,
-            fontSize: { xs: '2.4rem', sm: '3.4rem', md: '4.2rem', lg: '4.8rem' },
-            lineHeight: 1.08,
-            letterSpacing: '-0.04em',
+            fontWeight: 700,
+            fontSize: { xs: '2.5rem', md: '48px' },
+            lineHeight: { xs: 1.2, md: '52.8px' },
+            letterSpacing: '-2.4px',
             color: '#FFFFFF',
             mb: { xs: 3, md: 5 },
-            fontFamily: 'inherit',
             maxWidth: '920px',
           }}
+          data-aos="fade-up"
+          data-aos-delay="100"
         >
           In a legal document, "probably right"<br />
           isn't good enough.
@@ -57,12 +58,14 @@ export default function WhyThisMattersSection() {
           variant="body1"
           sx={{
             fontWeight: 400,
-            fontSize: { xs: '1rem', sm: '1.08rem', md: '1.2rem' },
-            lineHeight: 1.65,
+            fontSize: { xs: 18, md: 24 },
+            lineHeight: { xs: 1.4, md: '27px' },
+            letterSpacing: '-1.08px',
             color: 'rgba(255, 255, 255, 0.75)',
-            fontFamily: 'inherit',
             maxWidth: '780px',
           }}
+          data-aos="fade-up"
+          data-aos-delay="200"
         >
           A general-purpose AI model can produce a fluent, confident answer that's still legally wrong. IGWA's engine is deliberately constrained to prevent exactly that — it can only ever surface what's actually in the legal database, and it can never register, finalize, or file anything without an explicit human action.
         </Typography>

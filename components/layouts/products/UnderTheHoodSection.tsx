@@ -8,64 +8,62 @@ export default function UnderTheHoodSection() {
   return (
     <Box
       sx={{
-        position: 'relative',
         width: '100%',
-        minHeight: { xs: '100vh', md: '1075px' },
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        px: { xs: 3, sm: 6, md: '95px' },
-        pt: { xs: 16, md: '180px' },
-        pb: { xs: 6, md: '52px' },
-        backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.65) 100%), url(/images/product1.png)`,
+        minHeight: { xs: '100vh', md: '1025px' },
+        backgroundImage: 'url(/images/product1.png)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        color: '#FFFFFF',
-        fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif",
-        boxSizing: 'border-box',
-        overflow: 'hidden'
+        position: 'relative',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'flex-start',
+        alignItems: 'center',
+        textAlign: 'center',
+        '&::before': {
+          content: '""',
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          backgroundColor: 'rgba(0, 0, 0, 0.2)', // Base dark overlay
+          backgroundImage: 'linear-gradient(180deg, rgba(0,0,0,0.31) 0%, rgba(0,0,0,0.16) 16%, rgba(0,0,0,0.16) 70%, rgba(0,0,0,1) 100%)', // Fade gradient
+          zIndex: 1
+        }
       }}
     >
       {/* Centered Content Overlay */}
       <Container
         maxWidth="lg"
-        sx={{
-          textAlign: 'center',
-          zIndex: 2,
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          my: 'auto'
-        }}
+        sx={{ maxWidth: '1233px !important', position: 'relative', zIndex: 2, pt: { xs: '150px', md: '350px' }, px: { xs: 2, xl: 0 } }}
       >
         <Typography
           variant="h1"
-          sx={{
-            fontWeight: 800,
-            mb: 2,
-            fontSize: { xs: '2.5rem', sm: '3.8rem', md: '4.8rem' },
-            lineHeight: 1.05,
-            letterSpacing: '-0.035em',
-            color: '#FFFFFF',
-            fontFamily: 'inherit',
-            textShadow: '0 4px 20px rgba(0,0,0,0.6)'
+          sx={{ 
+            fontWeight: 700, 
+            color: 'white', 
+            mb: { xs: 2, md: '5px' },
+            letterSpacing: '-2.4px',
+            fontSize: { xs: '3rem', md: '88px' },
+            lineHeight: { xs: 1.1, md: '100%' }
           }}
+          data-aos="fade-up"
         >
           What's Actually Under the Hood
         </Typography>
 
         <Typography
           variant="h5"
-          sx={{
-            fontWeight: 600,
-            mb: 3,
-            fontSize: { xs: '1.2rem', md: '1.6rem' },
-            color: 'rgba(255, 255, 255, 0.95)',
-            fontFamily: 'inherit',
-            textShadow: '0 2px 10px rgba(0,0,0,0.6)'
+          sx={{ 
+            fontWeight: 600, 
+            color: 'white', 
+            mb: { xs: 5, md: '40px' },
+            letterSpacing: '-1.44px',
+            fontSize: { xs: '1.5rem', md: '35px' },
+            lineHeight: { xs: 1.4, md: '28.8px' }
           }}
+          data-aos="fade-up"
+          data-aos-delay="100"
         >
           The AI drafts. It never decides.
         </Typography>
@@ -73,14 +71,15 @@ export default function UnderTheHoodSection() {
         <Box sx={{ maxWidth: '850px', mx: 'auto' }}>
           <Typography
             variant="body1"
-            sx={{
-              fontWeight: 400,
-              fontSize: { xs: '0.95rem', md: '1.1rem' },
-              lineHeight: 1.65,
-              color: 'rgba(255, 255, 255, 0.9)',
-              fontFamily: 'inherit',
-              textShadow: '0 2px 10px rgba(0,0,0,0.6)'
+            sx={{ 
+              fontWeight: 400, 
+              color: 'rgba(255, 255, 255, 0.9)', 
+              fontSize: { xs: 18, md: 24 },
+              lineHeight: { xs: 1.4, md: '27px' },
+              letterSpacing: '-1.08px',
             }}
+            data-aos="fade-up"
+            data-aos-delay="200"
           >
             IGWA's engine is built on one hard rule: no legal fact is ever freely generated. Every section number, citation, and statutory reference comes from a verified, versioned legal database — the AI's job is to find and explain it, not to invent it.
           </Typography>

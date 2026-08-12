@@ -11,7 +11,6 @@ export default function HumanInTheLoopSection() {
         color: '#FFFFFF',
         py: { xs: 12, md: '180px', lg: '240px' },
         px: { xs: 3, sm: 6, md: '40px' },
-        fontFamily: '"DM Sans", "Inter", -apple-system, BlinkMacSystemFont, sans-serif',
         position: 'relative',
         overflow: 'hidden',
         boxSizing: 'border-box',
@@ -34,14 +33,14 @@ export default function HumanInTheLoopSection() {
           variant="h2"
           sx={{
             fontWeight: 400,
-            fontSize: { xs: '1.8rem', sm: '2.8rem', md: '3.4rem', lg: '64px' },
+            fontSize: { xs: '2.5rem', md: '64px' },
             lineHeight: 1.25,
-            letterSpacing: '-0.03em',
+            letterSpacing: '-2.4px',
             color: '#FFFFFF',
-            fontFamily: 'inherit',
             textAlign: 'center',
             display: 'inline-block',
           }}
+          data-aos="fade-up"
         >
           This is what{' '}
           <Box

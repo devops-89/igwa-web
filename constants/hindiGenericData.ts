@@ -1,7 +1,7 @@
 export const hindiNavData = [
   { name: 'होम', path: '/' },
   { name: 'हमारे बारे में', path: '/about' },
-  { name: 'हमारा प्रोडक्ट', path: '/product' },
+  { name: 'हमारा प्रोडक्ट', path: '/products' },
   { name: 'सुरक्षा', path: '/police-dept' },
   { name: 'बात करें', path: '/contact-us' }
 ];
