@@ -35,17 +35,17 @@ export default function HeroSection() {
           
           {/* Main Content */}
           <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', pt: { xs: '150px', md: '426px' } }}>
-            <Typography sx={{ color: '#FFFFFF', fontWeight: 700, fontSize: { xs: '48px', md: '88px' }, fontFamily: '"DM Sans", sans-serif', maxWidth: '731px', letterSpacing: '-2.4px', lineHeight: { xs: 1.1, md: '52.8px' }, mb: { xs: 3, md: '14px' } }}>
+            <Typography data-aos="fade-up" sx={{ color: '#FFFFFF', fontWeight: 700, fontSize: { xs: '40px', sm: '48px', md: '88px' }, fontFamily: '"DM Sans", sans-serif', maxWidth: '731px', letterSpacing: '-2.4px', lineHeight: { xs: 1.1, md: '52.8px' }, mb: { xs: 3, md: '14px' } }}>
               IGWA for Citizens
             </Typography>
-            <Typography sx={{ color: '#FFFFFF', fontWeight: 500, fontSize: { xs: '20px', md: '35px' }, fontFamily: '"DM Sans", sans-serif', maxWidth: '932px', letterSpacing: '-1.44px', lineHeight: { xs: 1.4, md: '58.8px' }, mb: { xs: 3, md: '44px' } }}>
+            <Typography data-aos="fade-up" data-aos-delay="100" sx={{ color: '#FFFFFF', fontWeight: 500, fontSize: { xs: '20px', md: '35px' }, fontFamily: '"DM Sans", sans-serif', maxWidth: '932px', letterSpacing: '-1.44px', lineHeight: { xs: 1.4, md: '58.8px' }, mb: { xs: 3, md: '44px' } }}>
               Report what happened. We'll help you say it right.
             </Typography>
-            <Typography sx={{ color: 'rgba(255,255,255,0.8)', fontWeight: 500, fontSize: { xs: '16px', md: '24px' }, fontFamily: '"DM Sans", sans-serif', maxWidth: '832px', mx: 'auto', mb: { xs: 5, md: '87px' }, lineHeight: { xs: 1.5, md: '28.8px' }, letterSpacing: '-1.44px' }}>
+            <Typography data-aos="fade-up" data-aos-delay="200" sx={{ color: 'rgba(255,255,255,0.8)', fontWeight: 500, fontSize: { xs: '16px', md: '24px' }, fontFamily: '"DM Sans", sans-serif', maxWidth: '832px', mx: 'auto', mb: { xs: 5, md: '87px' }, lineHeight: { xs: 1.5, md: '28.8px' }, letterSpacing: '-1.44px' }}>
               You shouldn't need to know the law to report a crime. Describe it in your own words. IGWA handles the legal language and drafts your FIR application for you.
             </Typography>
 
-            <Box sx={{ display: 'flex', gap: '10px', flexWrap: 'wrap', justifyContent: 'center', mb: { xs: 5, md: '57px' } }}>
+            <Box data-aos="fade-up" data-aos-delay="300" sx={{ display: 'flex', gap: '10px', flexWrap: 'wrap', justifyContent: 'center', mb: { xs: 5, md: '57px' } }}>
               <Box 
                 component="button"
                 sx={{ 

@@ -54,6 +54,7 @@ export default function Hero() {
             mb: { xs: 2, md: 2.5 },
             fontFamily: "inherit",
           }}
+          data-aos="fade-up"
         >
           About IGWA
         </Typography>
@@ -70,6 +71,8 @@ export default function Hero() {
             maxWidth: "850px",
             fontFamily: "inherit",
           }}
+          data-aos="fade-up"
+          data-aos-delay="100"
         >
           We're not trying to automate justice, We're trying to remove what
           slows it down.
@@ -87,6 +90,8 @@ export default function Hero() {
             mb: { xs: 12, md: 8 },
             fontFamily: "inherit",
           }}
+          data-aos="fade-up"
+          data-aos-delay="200"
         >
           IGWA started with a simple observation: the law doesn't move slowly
           because people don't care. It moves slowly because the paperwork

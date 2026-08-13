@@ -31,6 +31,7 @@ export default function WeAreBuilding() {
               letterSpacing: "0.02em",
               fontFamily: "inherit",
             }}
+            data-aos="fade-up"
           >
             What We're Building Toward.......
           </Typography>
@@ -48,6 +49,8 @@ export default function WeAreBuilding() {
               fontFamily: "inherit",
               maxWidth: "850px",
             }}
+            data-aos="fade-up"
+            data-aos-delay="100"
           >
             A system that grows with the process it serves.
           </Typography>
@@ -62,6 +65,8 @@ export default function WeAreBuilding() {
               color: "rgba(255, 255, 255, 0.8)",
               fontFamily: "inherit",
             }}
+            data-aos="fade-up"
+            data-aos-delay="200"
           >
             IGWA today handles FIR drafting, case diaries, and chargesheets.
             What's next — CCTNS integration, direct court e-filing, and broader
@@ -148,6 +153,7 @@ export default function WeAreBuilding() {
                 mb: { xs: 2, md: 3.5 },
                 fontFamily: "inherit",
               }}
+              data-aos="fade-left"
             >
               Grounded in the people who'll actually rely on it.
             </Typography>
@@ -161,6 +167,8 @@ export default function WeAreBuilding() {
                 color: "rgba(255, 255, 255, 0.8)",
                 fontFamily: "inherit",
               }}
+              data-aos="fade-left"
+              data-aos-delay="100"
             >
               Every statutory mapping and document format in{" "}
               <Box component="span" sx={{ fontWeight: 800, color: "#FFFFFF" }}>

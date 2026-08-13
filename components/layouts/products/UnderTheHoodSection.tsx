@@ -44,8 +44,8 @@ export default function UnderTheHoodSection() {
             color: 'white', 
             mb: { xs: 2, md: '5px' },
             letterSpacing: '-2.4px',
-            fontSize: { xs: '3rem', md: '88px' },
-            lineHeight: { xs: 1.1, md: '100%' }
+            fontSize: { xs: '2.5rem', sm: '3rem', md: '72px', lg: '88px' },
+            lineHeight: { xs: 1.2, md: '100%' }
           }}
           data-aos="fade-up"
         >
@@ -59,7 +59,7 @@ export default function UnderTheHoodSection() {
             color: 'white', 
             mb: { xs: 5, md: '40px' },
             letterSpacing: '-1.44px',
-            fontSize: { xs: '1.5rem', md: '35px' },
+            fontSize: { xs: '1.25rem', sm: '1.5rem', md: '35px' },
             lineHeight: { xs: 1.4, md: '28.8px' }
           }}
           data-aos="fade-up"
@@ -74,8 +74,8 @@ export default function UnderTheHoodSection() {
             sx={{ 
               fontWeight: 400, 
               color: 'rgba(255, 255, 255, 0.9)', 
-              fontSize: { xs: 18, md: 24 },
-              lineHeight: { xs: 1.4, md: '27px' },
+              fontSize: { xs: 16, sm: 18, md: 24 },
+              lineHeight: { xs: 1.5, md: '27px' },
               letterSpacing: '-1.08px',
             }}
             data-aos="fade-up"

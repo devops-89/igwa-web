@@ -10,12 +10,11 @@ export default function WhyThisMattersSection() {
         backgroundColor: '#000000',
         color: '#FFFFFF',
         py: { xs: 10, md: 16 },
-        px: { xs: 3, sm: 6, md: '95px', lg: '119px' },
+        px: { xs: 2, sm: 4, md: '95px', lg: '119px' },
         fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif",
         position: 'relative',
         overflow: 'hidden',
         boxSizing: 'border-box',
-        borderTop: '1px solid rgba(255, 255, 255, 0.08)',
       }}
     >
       <Box sx={{ maxWidth: '1440px', mx: 'auto' }}>
@@ -39,7 +38,7 @@ export default function WhyThisMattersSection() {
           variant="h2"
           sx={{
             fontWeight: 700,
-            fontSize: { xs: '2.5rem', md: '48px' },
+            fontSize: { xs: '2rem', sm: '2.5rem', md: '48px' },
             lineHeight: { xs: 1.2, md: '52.8px' },
             letterSpacing: '-2.4px',
             color: '#FFFFFF',
@@ -49,7 +48,7 @@ export default function WhyThisMattersSection() {
           data-aos="fade-up"
           data-aos-delay="100"
         >
-          In a legal document, "probably right"<br />
+          In a legal document, "probably right"<Box component="br" sx={{ display: { xs: 'none', md: 'block' } }} />
           isn't good enough.
         </Typography>
 
@@ -58,8 +57,8 @@ export default function WhyThisMattersSection() {
           variant="body1"
           sx={{
             fontWeight: 400,
-            fontSize: { xs: 18, md: 24 },
-            lineHeight: { xs: 1.4, md: '27px' },
+            fontSize: { xs: 16, sm: 18, md: 24 },
+            lineHeight: { xs: 1.5, md: '27px' },
             letterSpacing: '-1.08px',
             color: 'rgba(255, 255, 255, 0.75)',
             maxWidth: '780px',

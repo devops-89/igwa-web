@@ -52,7 +52,7 @@ export default function HeroSection() {
                 <Typography
                   sx={{
                     textAlign: "center",
-                    fontSize: { xs: 48, md: 64 },
+                    fontSize: { xs: 40, sm: 48, md: 64 },
                     fontWeight: 700,
                     lineHeight: 1.1,
                     letterSpacing: "-2.4px",
@@ -63,7 +63,7 @@ export default function HeroSection() {
                 </Typography>
                 <Typography
                   sx={{
-                    fontSize: 24,
+                    fontSize: { xs: 18, sm: 20, md: 24 },
                     fontWeight: 500,
                     lineHeight: 1.4,
                     letterSpacing: "-1.44px",
@@ -77,7 +77,7 @@ export default function HeroSection() {
                 </Typography>
                 <Typography
                   sx={{
-                    fontSize: 18,
+                    fontSize: { xs: 16, md: 18 },
                     fontWeight: 500,
                     lineHeight: 1.5,
                     letterSpacing: "-1.44px",

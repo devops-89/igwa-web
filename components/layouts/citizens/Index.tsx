@@ -11,7 +11,7 @@ import { citizensProblemData, citizensHowItWorksData, citizensWhatIgwaDoesData }
 
 export default function CitizensIndex() {
   return (
-    <Box>
+    <Box sx={{ overflowX: "hidden", bgcolor: "#000" }}>
       <HeroSection />
       <ProblemSection {...citizensProblemData} />
       <HowItWorksSection {...citizensHowItWorksData} />

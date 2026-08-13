@@ -35,6 +35,8 @@ export default function ContactInfo() {
         rowGap: { xs: 3, md: 4 }, 
         pb: 10 
       }}
+      data-aos="fade-up"
+      data-aos-delay="400"
     >
       {/* 1. Office hours (Left Top) */}
       <Typography

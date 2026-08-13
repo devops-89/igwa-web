@@ -1,9 +1,8 @@
 "use client";
 
-import React from "react";
-import Image from "next/image";
-import { Box, Typography, Container, Grid } from "@mui/material";
 import { hindiWhatIgwaDoesData } from "@/constants/hindiGenericData";
+import { Box, Container, Grid, Typography } from "@mui/material";
+import Image from "next/image";
 
 export default function WhatIGWADoesSection() {
   return (
@@ -73,7 +72,7 @@ export default function WhatIGWADoesSection() {
                 sx={{
                   color: "#767680",
                   fontSize: { xs: "1.125rem", md: "1.5rem" },
-                  lineHeight: 1.125,
+                  lineHeight: 1.5,
                   letterSpacing: "-0.045em",
                   mb: 4,
                 }}
@@ -157,7 +156,7 @@ export default function WhatIGWADoesSection() {
             </Box>
           </Grid>
 
-          <Grid size={{ xs: 12, md: 7 }}>
+          <Grid size={{ xs: 12, md: 7 }} data-aos="fade-left">
             <Box sx={{ display: "flex", flexDirection: "column", gap: 2.5, height: "100%" }}>
               <Box
                 sx={{
@@ -214,7 +213,7 @@ export default function WhatIGWADoesSection() {
                   <Typography
                     sx={{
                       fontSize: { xs: "1.125rem", md: "1.5rem" },
-                      lineHeight: 1.125,
+                      lineHeight: 1.5,
                       letterSpacing: "-0.045em",
                     }}
                   >
@@ -282,7 +281,7 @@ export default function WhatIGWADoesSection() {
                   <Typography
                     sx={{
                       fontSize: { xs: "1.125rem", md: "1.5rem" },
-                      lineHeight: 1.125,
+                      lineHeight: 1.5,
                       letterSpacing: "-0.045em",
                     }}
                   >

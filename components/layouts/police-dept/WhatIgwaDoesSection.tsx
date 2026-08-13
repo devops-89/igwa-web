@@ -108,10 +108,10 @@ export default function WhatIgwaDoesSection({ features, title, subtitle, trailin
           {/* Right Side - Accordion List */}
           <Box sx={{ width: '100%', maxWidth: '634px', ml: 'auto', mt: { xs: 6, md: 0 }, zIndex: 2, position: 'relative' }}>
             <Box sx={{ mb: '21px' }}>
-              <Typography variant="h3" sx={{ color: '#000000', fontWeight: 700, fontFamily: '"DM Sans", sans-serif', fontSize: { xs: '28px', md: '48px' }, letterSpacing: '-2.4px', lineHeight: { xs: 1.2, md: '52.8px' }, mb: '6px' }}>
+              <Typography variant="h3" data-aos="fade-up" sx={{ color: '#000000', fontWeight: 700, fontFamily: '"DM Sans", sans-serif', fontSize: { xs: '28px', md: '48px' }, letterSpacing: '-2.4px', lineHeight: { xs: 1.2, md: '52.8px' }, mb: '6px' }}>
                 {title}
               </Typography>
-              <Typography sx={{ color: 'rgba(0,0,0,0.4)', fontWeight: 400, fontFamily: '"DM Sans", sans-serif', fontSize: { xs: '16px', md: '24px' }, letterSpacing: '-1.08px' }}>
+              <Typography data-aos="fade-up" data-aos-delay="100" sx={{ color: 'rgba(0,0,0,0.4)', fontWeight: 400, fontFamily: '"DM Sans", sans-serif', fontSize: { xs: '16px', md: '24px' }, letterSpacing: '-1.08px' }}>
                 {subtitle}
               </Typography>
             </Box>

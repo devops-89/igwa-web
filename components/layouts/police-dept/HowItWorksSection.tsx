@@ -67,6 +67,7 @@ export default function HowItWorksSection({ steps, image }: HowItWorksSectionPro
                   fontSize: { xs: '32px', md: '48px' },
                   lineHeight: { xs: 1.2, md: '52.8px' }
                 }}
+                data-aos="fade-right"
               >
                 How it works
               </Typography>
@@ -113,6 +114,7 @@ export default function HowItWorksSection({ steps, image }: HowItWorksSectionPro
                         lineHeight: { xs: 1.4, md: '52.8px' },
                         letterSpacing: '-1px'
                       }}
+                      data-aos="fade-up"
                     >
                       {step.title}
                     </Typography>
@@ -125,6 +127,8 @@ export default function HowItWorksSection({ steps, image }: HowItWorksSectionPro
                         fontSize: { xs: '16px', md: '24px' },
                         letterSpacing: '0.6px'
                       }}
+                      data-aos="fade-up"
+                      data-aos-delay="100"
                     >
                       {step.description}
                     </Typography>

@@ -105,6 +105,7 @@ export default function WhatWeBelieve() {
               whiteSpace: { xs: "normal", sm: "nowrap" },
               fontFamily: "inherit",
             }}
+            data-aos="fade-up"
           >
             What We Believe
           </Typography>
@@ -146,7 +147,7 @@ export default function WhatWeBelieve() {
             width: "100%",
           }}
         >
-          {cardsData.map((card) => (
+          {cardsData.map((card, index) => (
             <Box
               key={card.id}
               sx={{
@@ -166,6 +167,8 @@ export default function WhatWeBelieve() {
                   boxShadow: "0 15px 40px rgba(0, 0, 0, 0.35)",
                 },
               }}
+              data-aos="fade-up"
+              data-aos-delay={`${index * 100}`}
             >
               {/* Faint IGWA Watermark */}
               {card.watermarkOrientation === "horizontal" ? (

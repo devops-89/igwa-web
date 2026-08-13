@@ -7,12 +7,11 @@ export default function HumanInTheLoopSection() {
       sx={{
         backgroundColor: '#000000',
         color: '#FFFFFF',
-        py: { xs: 12, md: '180px', lg: '240px' },
-        px: { xs: 3, sm: 6, md: '40px' },
+        py: { xs: 8, sm: 12, md: '180px', lg: '240px' },
+        px: { xs: 2, sm: 4, md: '40px' },
         position: 'relative',
         overflow: 'hidden',
         boxSizing: 'border-box',
-        borderTop: '1px solid rgba(255, 255, 255, 0.08)',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
@@ -31,7 +30,7 @@ export default function HumanInTheLoopSection() {
           variant="h2"
           sx={{
             fontWeight: 400,
-            fontSize: { xs: '2.5rem', md: '64px' },
+            fontSize: { xs: '2rem', sm: '2.5rem', md: '56px', lg: '64px' },
             lineHeight: 1.25,
             letterSpacing: '-2.4px',
             color: '#FFFFFF',
@@ -50,8 +49,8 @@ export default function HumanInTheLoopSection() {
           >
             "Human in the loop"
           </Box>{' '}
-          means at<br />
-          IGWA, not a disclaimer, but the actual<br />
+          means at<Box component="br" sx={{ display: { xs: 'none', md: 'block' } }} />
+          IGWA, not a disclaimer, but the actual<Box component="br" sx={{ display: { xs: 'none', md: 'block' } }} />
           architecture.
         </Typography>
       </Box>

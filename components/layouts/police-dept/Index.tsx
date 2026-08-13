@@ -15,7 +15,7 @@ import {
 
 export default function PoliceDeptIndex() {
   return (
-    <Box>
+    <Box sx={{ overflowX: "hidden", bgcolor: "#000" }}>
       <HeroSection />
       <ProblemSection {...policeDeptProblemData} />
       <HowItWorksSection {...policeDeptHowItWorksData} />

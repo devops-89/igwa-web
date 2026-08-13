@@ -16,7 +16,7 @@ export default function AboutUsIndex() {
       sx={{
         width: "100%",
         overflowX: "hidden",
-        backgroundColor: "#000000",
+        bgcolor: "#000",
         color: "#FFFFFF",
       }}
     >

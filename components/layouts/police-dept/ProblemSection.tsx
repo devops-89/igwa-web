@@ -24,6 +24,7 @@ export default function ProblemSection({ overline, title, description }: Problem
             lineHeight: { xs: 1.5, md: '27px' },
             textTransform: 'none'
           }}
+          data-aos="fade-up"
         >
           {overline}
         </Typography>
@@ -40,6 +41,8 @@ export default function ProblemSection({ overline, title, description }: Problem
               letterSpacing: '-2.4px',
               lineHeight: { xs: 1.2, md: '52.8px' }
             }}
+            data-aos="fade-up"
+            data-aos-delay="100"
           />
         </Box>
         
@@ -54,6 +57,8 @@ export default function ProblemSection({ overline, title, description }: Problem
               letterSpacing: '-1.08px',
               fontWeight: 400
             }}
+            data-aos="fade-up"
+            data-aos-delay="200"
           />
         </Box>
       </Container>

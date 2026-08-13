@@ -65,7 +65,7 @@ export default function HowEngineWorksSection() {
                   color: '#FFFFFF', 
                   fontWeight: 700, 
                   mb: 4,
-                  fontSize: { xs: '32px', md: '48px' },
+                  fontSize: { xs: '28px', sm: '32px', md: '48px' },
                   lineHeight: { xs: 1.2, md: '52.8px' },
                   letterSpacing: '-2.4px'
                 }}
@@ -112,7 +112,7 @@ export default function HowEngineWorksSection() {
                         color: '#FFFFFF', 
                         fontWeight: 700, 
                         mb: 1,
-                        fontSize: { xs: 18, md: 24 },
+                        fontSize: { xs: 16, sm: 18, md: 24 },
                         lineHeight: { xs: 1.4, md: '27px' },
                         letterSpacing: '-1.08px'
                       }}
@@ -126,8 +126,8 @@ export default function HowEngineWorksSection() {
                       sx={{ 
                         color: 'rgba(255, 255, 255, 0.72)', 
                         fontWeight: 400,
-                        lineHeight: { xs: 1.4, md: '27px' },
-                        fontSize: { xs: 18, md: 24 },
+                        lineHeight: { xs: 1.5, md: '27px' },
+                        fontSize: { xs: 16, sm: 18, md: 24 },
                         letterSpacing: '-1.08px',
                         maxWidth: '520px'
                       }}

@@ -31,6 +31,7 @@ export default function OurStory() {
               textTransform: "uppercase",
               fontFamily: "inherit",
             }}
+            data-aos="fade-up"
           >
             OUR STORY
           </Typography>
@@ -48,6 +49,8 @@ export default function OurStory() {
               fontFamily: "inherit",
               maxWidth: "900px",
             }}
+            data-aos="fade-up"
+            data-aos-delay="100"
           >
             Built from watching the process, not guessing at it.
           </Typography>
@@ -63,6 +66,8 @@ export default function OurStory() {
               mb: { xs: 2.5, md: 3.5 },
               fontFamily: "inherit",
             }}
+            data-aos="fade-up"
+            data-aos-delay="200"
           >
             Filing an FIR sounds simple until you're the one doing it, either as
             someone who doesn't know which section of law applies to what just
@@ -82,6 +87,8 @@ export default function OurStory() {
               color: "rgba(255, 255, 255, 0.8)",
               fontFamily: "inherit",
             }}
+            data-aos="fade-up"
+            data-aos-delay="300"
           >
             <Box component="span" sx={{ fontWeight: 800, color: "#FFFFFF" }}>
               IGWA

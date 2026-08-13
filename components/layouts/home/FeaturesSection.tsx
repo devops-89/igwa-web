@@ -1,11 +1,10 @@
 "use client";
 
-import React from "react";
-import Image from "next/image";
-import { Box, Typography, Container, Grid } from "@mui/material";
-import { COLORS } from "@/lib/enum";
-import phoneHand from "@/images/home/phone_in_hand.png";
 import { hindiProblemData, hindiWhatIgwaDoesData } from "@/constants/hindiGenericData";
+import phoneHand from "@/images/home/phone_in_hand.png";
+import { COLORS } from "@/lib/enum";
+import { Box, Container, Grid, Typography } from "@mui/material";
+import Image from "next/image";
 export default function FeaturesSection() {
   return (
     <Box
@@ -21,11 +20,11 @@ export default function FeaturesSection() {
             <Typography
               variant="h2"
               sx={{
-                fontWeight: 700,
-                mb: 4,
-                fontSize: { xs: 32, md: 48 },
-                lineHeight: { xs: 1.2, md: "52.8px" },
-                letterSpacing: { xs: "-1px", md: "-2.4px" },
+                fontWeight: 800,
+                mb: 5,
+                fontSize: { xs: 16, md: 18 },
+                lineHeight: { xs: 1.2, md: "0.03px" },
+                letterSpacing: { xs: "-1px", md: "1px" },
               }}
             >
               {hindiProblemData.title}
@@ -33,43 +32,65 @@ export default function FeaturesSection() {
 
             <Typography
               sx={{
-                mb: 3,
+                mb: 1.2,
                 color: COLORS.WHITE,
-                fontSize: { xs: 18, md: 24 },
-                lineHeight: { xs: 1.4, md: "27px" },
-                letterSpacing: "-1.08px",
+                fontSize: { xs: 16, md: 18 },
+                lineHeight: 1,
+                letterSpacing: ".8px",
                 textAlign: "justify",
-                fontWeight: 400,
+                fontWeight: 300,
               }}
             >
               {hindiProblemData.stats.join(" ")}
-              <br />
-              <br />
+            </Typography>
+
+            <Typography
+              sx={{
+                mb: 1.2,
+                color: COLORS.WHITE,
+                fontSize: { xs: 16, md: 18 },
+                lineHeight: 1,
+                letterSpacing: ".8px",
+                textAlign: "justify",
+                fontWeight: 300,
+              }}
+            >
               {hindiProblemData.description1}
-              <br />
-              <br />
-              {hindiProblemData.description2}
             </Typography>
 
             <Typography
               sx={{
                 mb: 3,
                 color: COLORS.WHITE,
-                fontSize: { xs: 18, md: 24 },
-                lineHeight: { xs: 1.4, md: "27px" },
-                letterSpacing: "-1.08px",
+                fontSize: { xs: 16, md: 18 },
+                lineHeight: 1.7,
+                letterSpacing: ".8px",
                 textAlign: "justify",
-                fontWeight: 400,
+                fontWeight: 300,
+              }}
+            >
+              {hindiProblemData.description2}
+            </Typography>
+
+            <Typography
+              sx={{
+                mb: 5,
+                color: COLORS.WHITE,
+                fontSize: { xs: 14, md: 16 },
+                lineHeight: 1.7,
+                letterSpacing: "0.8px",
+                textAlign: "justify",
+                fontWeight: 300,
               }}
             >
               <Typography
                 component={"span"}
                 sx={{
                   color: COLORS.WHITE,
-                  fontSize: { xs: 18, md: 24 },
-                  lineHeight: { xs: 1.4, md: "27px" },
-                  letterSpacing: "-1.08px",
-                  fontWeight: 700,
+                  fontSize: { xs: 14, md: 16 },
+                  lineHeight: 1.7,
+                  letterSpacing: "0.8px",
+                  fontWeight: 800,
                 }}
               >
                 IGWA{" "}
@@ -80,11 +101,13 @@ export default function FeaturesSection() {
             <Typography
               variant="h2"
               sx={{
-                fontSize: { xs: 32, md: 48 },
-                fontWeight: 700,
-                lineHeight: { xs: 1.2, md: "52.8px" },
-                letterSpacing: { xs: "-1px", md: "-2.4px" },
+                fontSize: { xs: 16, md: 18 },
+                fontWeight: 800,
+                lineHeight: { xs: 1.2, md: "30px" },
+                letterSpacing: { xs: ".5px", md: "1px" },
                 color: COLORS.WHITE,
+                mt: 4,
+                mb: 2,
               }}
             >
               {hindiWhatIgwaDoesData.section1.title}
@@ -92,11 +115,11 @@ export default function FeaturesSection() {
 
             <Typography
               sx={{
-                fontSize: { xs: 18, md: 24 },
-                fontWeight: 400,
-                lineHeight: { xs: 1.4, md: "27px" },
-                letterSpacing: "-1.08px",
-                mt: 2,
+                fontSize: { xs: 14, md: 16 },
+                fontWeight: 300,
+                lineHeight: 1.7,
+                letterSpacing: "0.8px",
+                mb: 2.5,
               }}
             >
               {hindiWhatIgwaDoesData.section1.point1}
@@ -105,25 +128,45 @@ export default function FeaturesSection() {
             <Typography
               sx={{
                 color: COLORS.WHITE,
-                fontSize: { xs: 18, md: 24 },
-                lineHeight: { xs: 1.4, md: "27px" },
-                letterSpacing: "-1.08px",
+                fontSize: { xs: 14, md: 16 },
+                lineHeight: 1.7,
+                letterSpacing: "0.8px",
                 textAlign: "justify",
+                mb: 2.5,
               }}
             >
               {hindiWhatIgwaDoesData.section1.point2}
-              <br />
-              <br />
-              {hindiWhatIgwaDoesData.section1.point3}
-              <br />
-              <br />
-              {hindiWhatIgwaDoesData.section1.point4.split('। ').join('।\\n').split('\\n').map((sentence, index) => (
-                <React.Fragment key={index}>
-                  {sentence}
-                  <br />
-                </React.Fragment>
-              ))}
             </Typography>
+
+            <Typography
+              sx={{
+                color: COLORS.WHITE,
+                fontSize: { xs: 14, md: 16 },
+                lineHeight: 1.7,
+                letterSpacing: "0.8px",
+                textAlign: "justify",
+                mb: 2.5,
+              }}
+            >
+              {hindiWhatIgwaDoesData.section1.point3}
+            </Typography>
+
+            <Box sx={{ display: "flex", flexDirection: "column", gap: 2.5 }}>
+              {hindiWhatIgwaDoesData.section1.point4.split('।').filter(s => s.trim().length > 0).map((sentence, index) => (
+                <Typography
+                  key={index}
+                  sx={{
+                    color: COLORS.WHITE,
+                    fontSize: { xs: 14, md: 16 },
+                    lineHeight: 1.7,
+                    letterSpacing: "0.8px",
+                    textAlign: "justify",
+                  }}
+                >
+                  {sentence.trim()}।
+                </Typography>
+              ))}
+            </Box>
           </Grid>
 
           <Grid size={{ xs: 12, md: 6 }} data-aos="fade-left">

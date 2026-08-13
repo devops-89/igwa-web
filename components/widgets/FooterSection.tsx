@@ -37,7 +37,7 @@ export default function FooterSection() {
         pb: 4,
       }}
     >
-      <Container maxWidth="lg">
+      <Container maxWidth="lg" data-aos="fade-up">
         <Grid container spacing={4} sx={{ mb: 8 }}>
           {FOOTER_LINKS.map((column, colIndex) => (
             <Grid key={colIndex} size={{ xs: 12, sm: 4 }}>

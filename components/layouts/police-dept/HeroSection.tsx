@@ -42,9 +42,10 @@ export default function HeroSection() {
               color: 'white', 
               mb: { xs: 2, md: '5px' },
               letterSpacing: '-2.4px',
-              fontSize: { xs: '3rem', md: '88px' },
+              fontSize: { xs: '2.5rem', sm: '3rem', md: '88px' },
               lineHeight: { xs: 1.1, md: '100%' }
             }}
+            data-aos="fade-up"
           >
             IGWA for Police Departments
           </Typography>
@@ -55,9 +56,11 @@ export default function HeroSection() {
               color: 'white', 
               mb: { xs: 5, md: '59px' },
               letterSpacing: '-1.44px',
-              fontSize: { xs: '1.5rem', md: '35px' },
+              fontSize: { xs: '1.25rem', sm: '1.5rem', md: '35px' },
               lineHeight: { xs: 1.4, md: '28.8px' }
             }}
+            data-aos="fade-up"
+            data-aos-delay="100"
           >
             Less time drafting. More time investigating.
           </Typography>
@@ -71,11 +74,13 @@ export default function HeroSection() {
               fontSize: { xs: '1rem', md: '24px' },
               lineHeight: '28.8px'
             }}
+            data-aos="fade-up"
+            data-aos-delay="200"
           >
             From FIR registration to chargesheet filing, IGWA handles the paperwork layer of a case so your officers spend their hours on the investigation, not the form.
           </Typography>
           
-          <Stack direction={{ xs: 'column', sm: 'row' }} spacing={1} sx={{ justifyContent: 'center', mb: 10 }}>
+          <Stack direction={{ xs: 'column', sm: 'row' }} spacing={1} sx={{ justifyContent: 'center', mb: 10 }} data-aos="fade-up" data-aos-delay="300">
             <Button 
               variant="outlined" 
               sx={{ 
