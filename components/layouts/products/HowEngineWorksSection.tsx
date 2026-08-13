@@ -34,7 +34,7 @@ export default function HowEngineWorksSection() {
         position: 'absolute', 
         top: '120px', 
         bottom: 0, 
-        left: 0, 
+        right: 0, 
         width: { xs: '0', lg: '547px' }, 
         display: { xs: 'none', lg: 'block' }, 
         zIndex: 1 
@@ -49,32 +49,15 @@ export default function HowEngineWorksSection() {
             width: '100%',
             height: 'auto',
           }}
-          data-aos="fade-right"
+          data-aos="fade-left"
         />
       </Box>
 
       <Box sx={{ width: '100%', maxWidth: '1440px', mx: 'auto', position: 'relative', zIndex: 2 }}>
         <Box sx={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center' }}>
-          {/* Left Column - Image Spacer on Desktop */}
-          <Box sx={{ width: { xs: '100%', lg: '41.666%' }, px: { xs: 2, lg: 0 } }}>
-            <Box 
-              component="img"
-              src="/images/product2.png"
-              alt="IGWA Engine"
-              sx={{
-                width: '100%',
-                maxWidth: '547px',
-                height: 'auto',
-                display: { xs: 'block', lg: 'none' }, // Hide on desktop since absolute image is used
-                margin: '0 auto',
-                mb: { xs: 6, lg: 0 }
-              }}
-              data-aos="fade-right"
-            />
-          </Box>
           
-          {/* Right Column - Timeline */}
-          <Box sx={{ width: { xs: '100%', lg: '58.333%' }, px: { xs: 2, lg: 4 } }}>
+          {/* Left Column - Timeline */}
+          <Box sx={{ width: { xs: '100%', lg: '58.333%' }, px: { xs: 2, lg: 4 }, order: { xs: 2, lg: 1 } }}>
             <Box sx={{ mb: { xs: 6, md: 10 }, ml: { xs: 2, md: '44px' } }}>
               <Typography 
                 variant="h2" 
@@ -86,7 +69,7 @@ export default function HowEngineWorksSection() {
                   lineHeight: { xs: 1.2, md: '52.8px' },
                   letterSpacing: '-2.4px'
                 }}
-                data-aos="fade-left"
+                data-aos="fade-right"
               >
                 How the engine works
               </Typography>
@@ -157,6 +140,24 @@ export default function HowEngineWorksSection() {
                 </Box>
               ))}
             </Box>
+          </Box>
+
+          {/* Right Column - Image Spacer on Desktop */}
+          <Box sx={{ width: { xs: '100%', lg: '41.666%' }, px: { xs: 2, lg: 0 }, order: { xs: 1, lg: 2 } }}>
+            <Box 
+              component="img"
+              src="/images/product2.png"
+              alt="IGWA Engine"
+              sx={{
+                width: '100%',
+                maxWidth: '547px',
+                height: 'auto',
+                display: { xs: 'block', lg: 'none' }, // Hide on desktop since absolute image is used
+                margin: '0 auto',
+                mb: { xs: 6, lg: 0 }
+              }}
+              data-aos="fade-left"
+            />
           </Box>
         </Box>
       </Box>
