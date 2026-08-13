@@ -14,12 +14,13 @@ import {
   List,
   ListItem,
   Toolbar,
-  Typography
+  Typography,
 } from "@mui/material";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-
+import logo from "@/images/logo/logo-white.png";
+import Image from "next/image";
 export default function Navbar() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -28,9 +29,9 @@ export default function Navbar() {
     setMobileOpen((prevState) => !prevState);
   };
 
-  const navLinks = hindiNavData.slice(0, 4).map(link => ({
+  const navLinks = hindiNavData.slice(0, 4).map((link) => ({
     label: link.name,
-    href: link.path
+    href: link.path,
   }));
 
   return (
@@ -58,27 +59,21 @@ export default function Navbar() {
               maxWidth: 280,
             }}
           >
-            <Box
-              sx={{
-                width: 3,
-                height: 48,
-                backgroundColor: COLORS.WHITE,
-                flexShrink: 0,
-              }}
+            <Image
+              src={logo}
+              alt=""
+              style={{ width: "100%", height: "100%" }}
             />
-            <Typography
-              sx={{
-                fontWeight: 900,
-                color: COLORS.WHITE,
-                lineHeight: 1.16,
-                fontSize: { xs: "1rem", md: "1.5625rem" },
-                letterSpacing: "-0.046em",
-              }}
-            >
-              Intelligent Governance Workflow Automation
-            </Typography>
           </Box>
-          <Box sx={{ flexGrow: 1, height: '1px', backgroundColor: 'rgba(255, 255, 255, 0.5)', display: { xs: 'none', md: 'block' }, mx: { xs: 2, md: 4 } }} />
+          <Box
+            sx={{
+              flexGrow: 1,
+              height: "1px",
+              backgroundColor: "rgba(255, 255, 255, 0.5)",
+              display: { xs: "none", md: "block" },
+              mx: { xs: 2, md: 4 },
+            }}
+          />
           <Box
             sx={{
               display: { xs: "none", md: "flex" },
@@ -97,7 +92,16 @@ export default function Navbar() {
               {navLinks.map((item, index) => {
                 const isActive = pathname === item.href;
                 return (
-                  <Link key={index} href={item.href} style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: 6 }}>
+                  <Link
+                    key={index}
+                    href={item.href}
+                    style={{
+                      textDecoration: "none",
+                      display: "flex",
+                      alignItems: "center",
+                      gap: 6,
+                    }}
+                  >
                     {isActive && (
                       <Box
                         component="span"
@@ -111,7 +115,11 @@ export default function Navbar() {
                       />
                     )}
                     <Typography
-                      sx={{ fontWeight: isActive ? 700 : 600, color: COLORS.DARK_TEXT, fontSize: "0.875rem" }}
+                      sx={{
+                        fontWeight: isActive ? 700 : 600,
+                        color: COLORS.DARK_TEXT,
+                        fontSize: "0.875rem",
+                      }}
                     >
                       {item.label}
                     </Typography>
@@ -150,22 +158,22 @@ export default function Navbar() {
           </IconButton>
         </Toolbar>
       </Container>
-      
+
       <Drawer
         anchor="right"
         open={mobileOpen}
         onClose={handleDrawerToggle}
         ModalProps={{
-          keepMounted: true, 
+          keepMounted: true,
         }}
         sx={{
           display: { xs: "block", md: "none" },
-          "& .MuiDrawer-paper": { 
-            boxSizing: "border-box", 
-            width: 280, 
-            bgcolor: "rgba(0, 0, 0, 0.7)", 
+          "& .MuiDrawer-paper": {
+            boxSizing: "border-box",
+            width: 280,
+            bgcolor: "rgba(0, 0, 0, 0.7)",
             backdropFilter: "blur(12px)",
-            color: "white" 
+            color: "white",
           },
         }}
       >
@@ -177,15 +185,25 @@ export default function Navbar() {
         <List sx={{ px: 2 }}>
           {navLinks.map((item, index) => (
             <ListItem key={index} disablePadding sx={{ mb: 2 }}>
-              <Link href={item.href} style={{ textDecoration: "none", width: "100%" }} onClick={handleDrawerToggle}>
-                <Typography sx={{ fontWeight: 600, color: "white", fontSize: "1.125rem" }}>
+              <Link
+                href={item.href}
+                style={{ textDecoration: "none", width: "100%" }}
+                onClick={handleDrawerToggle}
+              >
+                <Typography
+                  sx={{ fontWeight: 600, color: "white", fontSize: "1.125rem" }}
+                >
                   {item.label}
                 </Typography>
               </Link>
             </ListItem>
           ))}
           <ListItem disablePadding sx={{ mt: 4 }}>
-            <Link href={hindiNavData[4]?.path || "/contact-us"} passHref style={{ width: "100%" }}>
+            <Link
+              href={hindiNavData[4]?.path || "/contact-us"}
+              passHref
+              style={{ width: "100%" }}
+            >
               <Button
                 variant="contained"
                 fullWidth
@@ -210,5 +228,3 @@ export default function Navbar() {
     </AppBar>
   );
 }
-
-

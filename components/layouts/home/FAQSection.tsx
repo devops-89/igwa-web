@@ -24,25 +24,26 @@ export default function FAQSection() {
     };
 
   return (
-    <Box sx={{ bgcolor: "#000", color: "white", py: { xs: 8, md: 12 } }}>
+    <Box sx={{ bgcolor: "#000", color: "white", py: { xs: 12, md: 16 } }}>
       <Container maxWidth="lg">
-        <Grid container spacing={6}>
-          <Grid size={{ xs: 12, md: 4 }} data-aos="fade-right">
+        <Grid container spacing={{ xs: 6, md: 12 }}>
+          <Grid size={{ xs: 12, md: 5 }} data-aos="fade-right">
             <Typography
               variant="h2"
               sx={{
-                fontWeight: 700,
-                fontSize: { xs: "2rem", md: "3rem" },
-                letterSpacing: "-0.05em",
+                fontWeight: 800,
+                fontSize: { xs: "2.5rem", md: "4rem" },
+                letterSpacing: "-0.04em",
                 lineHeight: 1.1,
+                maxWidth: 400,
               }}
             >
               {hindiFaqData.title}
             </Typography>
           </Grid>
 
-          <Grid size={{ xs: 12, md: 8 }} data-aos="fade-left" data-aos-delay="100">
-            <Box sx={{ maxWidth: 840, mx: "auto" }}>
+          <Grid size={{ xs: 12, md: 7 }} data-aos="fade-left" data-aos-delay="100">
+            <Box sx={{ borderTop: "1px solid rgba(255,255,255,0.1)" }}>
               {hindiFaqData.faqs.map((faq, index) => {
                 const panelId = `panel-${index}`;
                 const isExpanded = expanded === panelId;
@@ -57,42 +58,49 @@ export default function FAQSection() {
                     sx={{
                       bgcolor: "transparent",
                       color: "inherit",
-                      borderBottom: "1px solid rgba(255,255,255,0.12)",
+                      borderBottom: "1px solid rgba(255,255,255,0.1)",
                       "&::before": { display: "none" },
                     }}
                   >
                     <AccordionSummary
                       expandIcon={
                         isExpanded ? (
-                          <RemoveIcon sx={{ color: "white", fontSize: 20 }} />
+                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1" strokeLinecap="round">
+                            <line x1="5" y1="12" x2="19" y2="12" />
+                          </svg>
                         ) : (
-                          <AddIcon sx={{ color: "#aeaeae", fontSize: 20 }} />
+                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" strokeWidth="1" strokeLinecap="round">
+                            <line x1="12" y1="5" x2="12" y2="19" />
+                            <line x1="5" y1="12" x2="19" y2="12" />
+                          </svg>
                         )
                       }
                       sx={{
                         px: 0,
-                        py: 2,
+                        py: { xs: 2.5, md: 3 },
                         "& .MuiAccordionSummary-content": { my: 0 },
                       }}
                     >
                       <Typography
                         sx={{
-                          fontSize: { xs: "1.125rem", md: "1.5rem" },
-                          color: isExpanded ? "white" : "#aeaeae",
-                          letterSpacing: "-0.02em",
+                          fontSize: { xs: "1rem", md: "1.125rem" },
+                          fontWeight: 400,
+                          color: isExpanded ? "white" : "rgba(255,255,255,0.7)",
+                          letterSpacing: "-0.01em",
                           pr: 2,
+                          transition: "color 0.3s ease",
                         }}
                       >
                         {faq.question}
                       </Typography>
                     </AccordionSummary>
-                    <AccordionDetails sx={{ px: 0, pb: 3, pt: 0 }}>
+                    <AccordionDetails sx={{ px: 0, pb: { xs: 3, md: 4 }, pt: 0 }}>
                       <Typography
                         sx={{
-                          fontSize: "1.125rem",
-                          lineHeight: 1.55,
-                          color: "rgba(255,255,255,0.85)",
-                          maxWidth: 708,
+                          fontSize: { xs: "0.875rem", md: "1rem" },
+                          lineHeight: 1.6,
+                          color: "rgba(255,255,255,0.6)",
+                          maxWidth: 700,
                         }}
                       >
                         {faq.answer}

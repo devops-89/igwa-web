@@ -32,7 +32,7 @@ export default function HeroSection() {
           backgroundImage: `url(${heroBg.src})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          height: "100vh",
+          minHeight: "100vh",
           backgroundRepeat: "no-repeat",
         }}
       >
@@ -40,121 +40,157 @@ export default function HeroSection() {
           sx={{
             background:
               "linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%), linear-gradient(180deg, rgba(0, 0, 0, 0.50) 35.1%, rgba(0, 0, 0, 0.16) 53.37%, rgba(0, 0, 0, 1) 100%)",
-            height: "100%",
+            minHeight: "100vh",
             display: "flex",
-            alignItems: "center",
+            flexDirection: "column",
             justifyContent: "center",
+            pt: { xs: 20, md: 28 },
+            pb: { xs: 8, md: 12 },
           }}
         >
           <Container maxWidth="lg">
             <Grid container>
               <Grid size={12} sx={{ margin: "auto" }}>
-                <Typography
-                  sx={{
-                    textAlign: "center",
-                    fontSize: { xs: 40, sm: 48, md: 64 },
-                    fontWeight: 700,
-                    lineHeight: 1.1,
-                    letterSpacing: "-2.4px",
-                  }}
-                  data-aos="fade-up"
-                >
-                  {hindiHeroData.title}
-                </Typography>
-                <Typography
-                  sx={{
-                    fontSize: { xs: 18, sm: 20, md: 24 },
-                    fontWeight: 500,
-                    lineHeight: 1.4,
-                    letterSpacing: "-1.44px",
-                    textAlign: "center",
-                    mt: 3,
-                  }}
-                  data-aos="fade-up"
-                  data-aos-delay="100"
-                >
-                  {hindiHeroData.subtitle}
-                </Typography>
-                <Typography
-                  sx={{
-                    fontSize: { xs: 16, md: 18 },
-                    fontWeight: 500,
-                    lineHeight: 1.5,
-                    letterSpacing: "-1.44px",
-                    textAlign: "center",
-                    mt: 3,
-                    color: "rgba(255, 255, 255, 0.9)",
-                    maxWidth: 900,
-                    mx: "auto",
-                  }}
-                  data-aos="fade-up"
-                  data-aos-delay="200"
-                >
-                  {hindiHeroData.description1}
-                  <br />
-                  {hindiHeroData.description2}
-                </Typography>
-                <Typography
-                  sx={{
-                    fontSize: 14,
-                    fontWeight: 500,
-                    lineHeight: 1.5,
-                    mt: 3,
-                    textAlign: "center",
-                    color: "rgba(255, 255, 255, 0.7)",
-                    maxWidth: 800,
-                    mx: "auto",
-                  }}
-                  data-aos="fade-up"
-                  data-aos-delay="400"
-                >
-                  {hindiHeroData.description4}
-                </Typography>
+                <Box sx={{ maxWidth: 1000, mx: "auto", textAlign: "center" }}>
+                  
+                  {/* Title */}
+                  <Typography
+                    sx={{
+                      fontSize: { xs: 40, sm: 56, md: 72 },
+                      fontWeight: 800,
+                      lineHeight: 1.1,
+                      letterSpacing: "-0.04em",
+                      mb: 3,
+                    }}
+                    data-aos="fade-up"
+                  >
+                    {hindiHeroData.title}
+                  </Typography>
 
-                <Stack
-                  direction={"row"}
-                  sx={{ alignItems: "center", justifyContent: "center", mt: 4 }}
-                  spacing={2}
-                  data-aos="fade-up"
-                  data-aos-delay="300"
-                >
-                  {appStoreButtons.map((val, i) => (
-                    <AppButton key={i}>
-                      <Stack
-                        direction={"row"}
-                        sx={{
-                          alignItems: "center",
-                          justifyContent: "center",
-                        }}
-                        spacing={1}
-                      >
-                        <Image src={val.img} alt="" />
-                        <Stack>
-                          <Typography
-                            sx={{
-                              fontSize: 12,
-                              fontWeight: 500,
-                              lineHeight: "14.4px",
-                              letterSpacing: "-0.6px",
-                            }}
-                          >
-                            {val.title}
-                          </Typography>
-                          <Typography
-                            sx={{
-                              fontSize: 16,
-                              fontFamily: 500,
-                              lineHeight: "19.2px",
-                              letterSpacing: "-0.8px",
-                            }}
-                          >
-                            {val.heading}
-                          </Typography>
+                  {/* Subtitle */}
+                  <Typography
+                    sx={{
+                      fontSize: { xs: 18, sm: 22, md: 28 },
+                      fontWeight: 600,
+                      lineHeight: 1.3,
+                      letterSpacing: "-0.02em",
+                      color: "rgba(255, 255, 255, 0.95)",
+                      mb: 4,
+                    }}
+                    data-aos="fade-up"
+                    data-aos-delay="100"
+                  >
+                    {hindiHeroData.subtitle}
+                  </Typography>
+
+                  {/* Feature Descriptions */}
+                  <Typography
+                    sx={{
+                      fontSize: { xs: 16, md: 20 },
+                      fontWeight: 400,
+                      lineHeight: 1.6,
+                      letterSpacing: "-0.01em",
+                      color: "rgba(255, 255, 255, 0.8)",
+                      maxWidth: 850,
+                      mx: "auto",
+                      mb: 6,
+                    }}
+                    data-aos="fade-up"
+                    data-aos-delay="200"
+                  >
+                    {hindiHeroData.description1}
+                    <br />
+                    <br />
+                    {hindiHeroData.description2}
+                  </Typography>
+
+                  {/* App Store Buttons */}
+                  <Stack
+                    direction={{ xs: "column", sm: "row" }}
+                    sx={{ alignItems: "center", justifyContent: "center", mb: 8 }}
+                    spacing={3}
+                    data-aos="fade-up"
+                    data-aos-delay="300"
+                  >
+                    {appStoreButtons.map((val, i) => (
+                      <AppButton key={i}>
+                        <Stack
+                          direction={"row"}
+                          sx={{
+                            alignItems: "center",
+                            justifyContent: "center",
+                          }}
+                          spacing={1.5}
+                        >
+                          <Image src={val.img} alt="" width={28} height={28} />
+                          <Stack>
+                            <Typography
+                              sx={{
+                                fontSize: 12,
+                                fontWeight: 500,
+                                lineHeight: "14px",
+                                letterSpacing: "-0.02em",
+                                textAlign: "left"
+                              }}
+                            >
+                              {val.title}
+                            </Typography>
+                            <Typography
+                              sx={{
+                                fontSize: 18,
+                                fontWeight: 600,
+                                lineHeight: "20px",
+                                letterSpacing: "-0.02em",
+                                textAlign: "left"
+                              }}
+                            >
+                              {val.heading}
+                            </Typography>
+                          </Stack>
                         </Stack>
-                      </Stack>
-                    </AppButton>
-                  ))}
-                </Stack>
+                      </AppButton>
+                    ))}
+                  </Stack>
+
+                  {/* Disclaimer / Trust Badge */}
+                  <Box
+                    data-aos="fade-up"
+                    data-aos-delay="400"
+                    sx={{
+                      display: "inline-block",
+                      backgroundColor: "rgba(255, 255, 255, 0.05)",
+                      border: "1px solid rgba(255, 255, 255, 0.1)",
+                      backdropFilter: "blur(12px)",
+                      borderRadius: "24px",
+                      px: { xs: 3, md: 5 },
+                      py: { xs: 2.5, md: 3 },
+                      maxWidth: 700,
+                    }}
+                  >
+                    <Typography
+                      sx={{
+                        fontSize: { xs: 16, md: 18 },
+                        fontWeight: 600,
+                        lineHeight: 1.4,
+                        color: "rgba(255, 255, 255, 0.95)",
+                        mb: 1,
+                      }}
+                    >
+                      {hindiHeroData.description3}
+                    </Typography>
+                    <Typography
+                      sx={{
+                        fontSize: { xs: 14, md: 15 },
+                        fontWeight: 400,
+                        lineHeight: 1.5,
+                        color: "rgba(255, 255, 255, 0.6)",
+                      }}
+                    >
+                      {hindiHeroData.description4}
+                    </Typography>
+                  </Box>
+
+                </Box>
               </Grid>
             </Grid>
           </Container>

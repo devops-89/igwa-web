@@ -9,7 +9,16 @@ import { hindiSocialProofData } from "@/constants/hindiGenericData";
 
 export default function SocialProofSection() {
   return (
-    <Box sx={{ bgcolor: "#000", color: "white", py: { xs: 8, md: 12 } }}>
+    <Box
+      sx={{
+        bgcolor: "#000",
+        color: "white",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        height: "100vh",
+      }}
+    >
       <Container maxWidth="lg">
         <Grid container spacing={6} sx={{ alignItems: "center" }}>
           <Grid size={{ xs: 12, md: 5 }} data-aos="fade-right">
@@ -31,12 +40,16 @@ export default function SocialProofSection() {
             </Box>
           </Grid>
 
-          <Grid size={{ xs: 12, md: 7 }} data-aos="fade-left" data-aos-delay="100">
+          <Grid
+            size={{ xs: 12, md: 7 }}
+            data-aos="fade-left"
+            data-aos-delay="100"
+          >
             <Typography
               variant="h2"
               sx={{
                 fontWeight: 700,
-                fontSize: { xs: "2rem", md: "3rem" },
+                fontSize: { xs: "2rem", md: "50px" },
                 letterSpacing: "-0.05em",
                 lineHeight: 1.1,
                 mb: 4,
@@ -47,7 +60,7 @@ export default function SocialProofSection() {
 
             <Typography
               sx={{
-                fontSize: { xs: "1.125rem", md: "1.5rem" },
+                fontSize: { xs: "1.125rem", md: "20px" },
                 lineHeight: 1.125,
                 letterSpacing: "-0.045em",
                 color: "rgba(255,255,255,0.9)",
@@ -55,25 +68,22 @@ export default function SocialProofSection() {
               }}
             >
               {hindiSocialProofData.description1}
-              <br />
-              <br />
+
               {hindiSocialProofData.description2}
             </Typography>
 
             <Typography
               sx={{
-                fontSize: { xs: "1.125rem", md: "1.5rem" },
-                lineHeight: 1.125,
+                fontSize: { xs: "1.125rem", md: "18px" },
+                lineHeight: "25px",
                 letterSpacing: "-0.045em",
                 color: "rgba(255,255,255,0.9)",
               }}
             >
               {hindiSocialProofData.description3}
-              <br />
-              <br />
+
               {hindiSocialProofData.description4}
-              <br />
-              <br />
+
               {hindiSocialProofData.description5}
             </Typography>
           </Grid>
