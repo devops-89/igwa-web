@@ -1,9 +1,15 @@
 "use client";
 
-import React from 'react';
+import { hindiProductsWhyThisMattersData } from "@/constants/hindiGenericData";
+import { productsWhyThisMattersData as en_productsWhyThisMattersData } from "@/constants/genericData";
+import { useLanguage } from "@/context/LanguageContext";
+
 import { Box, Typography } from '@mui/material';
 
 export default function WhyThisMattersSection() {
+  const { language } = useLanguage();
+  const productsWhyThisMattersData = language === 'hi' ? hindiProductsWhyThisMattersData : en_productsWhyThisMattersData;
+
   return (
     <Box
       sx={{
@@ -15,7 +21,6 @@ export default function WhyThisMattersSection() {
         position: 'relative',
         overflow: 'hidden',
         boxSizing: 'border-box',
-        borderTop: '1px solid rgba(255, 255, 255, 0.08)',
       }}
     >
       <Box sx={{ maxWidth: '1440px', mx: 'auto' }}>
@@ -23,25 +28,25 @@ export default function WhyThisMattersSection() {
         <Typography
           variant="body2"
           sx={{
-            fontWeight: 400,
-            fontSize: { xs: '16px', md: '24px' },
+            fontWeight: 800,
+            fontSize: '18px',
             color: 'rgba(255, 255, 255, 0.85)',
             mb: 2.5,
-            letterSpacing: '-1.08px',
+            letterSpacing: '0px',
           }}
           data-aos="fade-up"
         >
-          Why this matters
+          {productsWhyThisMattersData.overline}
         </Typography>
 
         {/* Main Heading with Line Break */}
         <Typography
           variant="h2"
           sx={{
-            fontWeight: 700,
+            fontWeight: 800,
             fontSize: { xs: '2.5rem', md: '48px' },
-            lineHeight: { xs: 1.2, md: '52.8px' },
-            letterSpacing: '-2.4px',
+            lineHeight: 1.3,
+            letterSpacing: '0px',
             color: '#FFFFFF',
             mb: { xs: 3, md: 5 },
             maxWidth: '920px',
@@ -49,8 +54,8 @@ export default function WhyThisMattersSection() {
           data-aos="fade-up"
           data-aos-delay="100"
         >
-          In a legal document, "probably right"<br />
-          isn't good enough.
+          {productsWhyThisMattersData.titlePart1}<br />
+          {productsWhyThisMattersData.titlePart2}
         </Typography>
 
         {/* Paragraph Description */}
@@ -58,16 +63,16 @@ export default function WhyThisMattersSection() {
           variant="body1"
           sx={{
             fontWeight: 400,
-            fontSize: { xs: 18, md: 24 },
-            lineHeight: { xs: 1.4, md: '27px' },
-            letterSpacing: '-1.08px',
+            fontSize: '16px',
+            lineHeight: 1.5,
+            letterSpacing: '0px',
             color: 'rgba(255, 255, 255, 0.75)',
             maxWidth: '780px',
           }}
           data-aos="fade-up"
           data-aos-delay="200"
         >
-          A general-purpose AI model can produce a fluent, confident answer that's still legally wrong. IGWA's engine is deliberately constrained to prevent exactly that — it can only ever surface what's actually in the legal database, and it can never register, finalize, or file anything without an explicit human action.
+          {productsWhyThisMattersData.description}
         </Typography>
       </Box>
     </Box>

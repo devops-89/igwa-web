@@ -1,5 +1,9 @@
 "use client";
 
+import { hindiHeroData } from "@/constants/hindiGenericData";
+import { heroData as en_heroData } from "@/constants/genericData";
+import { useLanguage } from "@/context/LanguageContext";
+
 import React from "react";
 import { Box, Typography, Button, Container, Stack, Grid } from "@mui/material";
 import AppleIcon from "@mui/icons-material/Apple";
@@ -10,19 +14,21 @@ import AppButton from "./components/AppButton";
 import Image from "next/image";
 import apple from "@/images/icons/apple.svg";
 import google from "@/images/icons/playstore.svg";
-import { hindiHeroData } from "@/constants/hindiGenericData";
 
 export default function HeroSection() {
+  const { language } = useLanguage();
+  const heroData = language === 'hi' ? hindiHeroData : en_heroData;
+
   const appStoreButtons = [
     {
       img: apple,
       title: "",
-      heading: hindiHeroData.appStoreBtn,
+      heading: heroData.appStoreBtn,
     },
     {
       img: google,
       title: "",
-      heading: hindiHeroData.googlePlayBtn,
+      heading: heroData.googlePlayBtn,
     },
   ];
   return (
@@ -59,7 +65,7 @@ export default function HeroSection() {
                   }}
                   data-aos="fade-up"
                 >
-                  {hindiHeroData.title}
+                  {heroData.title}
                 </Typography>
                 <Typography
                   sx={{
@@ -73,7 +79,7 @@ export default function HeroSection() {
                   data-aos="fade-up"
                   data-aos-delay="100"
                 >
-                  {hindiHeroData.subtitle}
+                  {heroData.subtitle}
                 </Typography>
                 <Typography
                   sx={{
@@ -90,9 +96,9 @@ export default function HeroSection() {
                   data-aos="fade-up"
                   data-aos-delay="200"
                 >
-                  {hindiHeroData.description1}
+                  {heroData.description1}
                   <br />
-                  {hindiHeroData.description2}
+                  {heroData.description2}
                 </Typography>
                 <Typography
                   sx={{
@@ -108,7 +114,7 @@ export default function HeroSection() {
                   data-aos="fade-up"
                   data-aos-delay="400"
                 >
-                  {hindiHeroData.description4}
+                  {heroData.description4}
                 </Typography>
 
                 <Stack

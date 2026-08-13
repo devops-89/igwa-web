@@ -1,13 +1,19 @@
 "use client";
 
+import { hindiSocialProofData } from "@/constants/hindiGenericData";
+import { socialProofData as en_socialProofData } from "@/constants/genericData";
+import { useLanguage } from "@/context/LanguageContext";
+
 import React from "react";
 import Image from "next/image";
 import { Box, Typography, Container, Grid } from "@mui/material";
-import { hindiSocialProofData } from "@/constants/hindiGenericData";
 
 // Individual avatar images replaced by static user-group image
 
 export default function SocialProofSection() {
+  const { language } = useLanguage();
+  const socialProofData = language === 'hi' ? hindiSocialProofData : en_socialProofData;
+
   return (
     <Box sx={{ bgcolor: "#000", color: "white", py: { xs: 8, md: 12 } }}>
       <Container maxWidth="lg">
@@ -42,7 +48,7 @@ export default function SocialProofSection() {
                 mb: 4,
               }}
             >
-              {hindiSocialProofData.title}
+              {socialProofData.title}
             </Typography>
 
             <Typography
@@ -54,10 +60,10 @@ export default function SocialProofSection() {
                 mb: 3,
               }}
             >
-              {hindiSocialProofData.description1}
+              {socialProofData.description1}
               <br />
               <br />
-              {hindiSocialProofData.description2}
+              {socialProofData.description2}
             </Typography>
 
             <Typography
@@ -68,13 +74,13 @@ export default function SocialProofSection() {
                 color: "rgba(255,255,255,0.9)",
               }}
             >
-              {hindiSocialProofData.description3}
+              {socialProofData.description3}
               <br />
               <br />
-              {hindiSocialProofData.description4}
+              {socialProofData.description4}
               <br />
               <br />
-              {hindiSocialProofData.description5}
+              {socialProofData.description5}
             </Typography>
           </Grid>
         </Grid>

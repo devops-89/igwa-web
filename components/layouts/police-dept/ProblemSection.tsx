@@ -14,14 +14,15 @@ export default function ProblemSection({ overline, title, description }: Problem
       <Container sx={{ maxWidth: '1233px !important', px: { xs: 2, xl: 0 } }}>
         <Typography 
           variant="overline" 
+          data-aos="fade-down"
           sx={{ 
             color: 'white', 
-            letterSpacing: '-1.08px', 
+            letterSpacing: '0px', 
             fontWeight: 400, 
             display: 'block', 
             mb: { xs: 2, md: '21px' },
             fontSize: { xs: '16px', md: '24px' },
-            lineHeight: { xs: 1.5, md: '27px' },
+            lineHeight: 1.5,
             textTransform: 'none'
           }}
         >
@@ -33,12 +34,13 @@ export default function ProblemSection({ overline, title, description }: Problem
             variant="h2" 
             component="h2" 
             dangerouslySetInnerHTML={{ __html: title }}
+            data-aos="fade-up"
             sx={{ 
               color: 'white', 
               fontWeight: 700, 
               fontSize: { xs: '2.5rem', md: '48px' }, 
-              letterSpacing: '-2.4px',
-              lineHeight: { xs: 1.2, md: '52.8px' }
+              letterSpacing: '0px',
+              lineHeight: 1.3
             }}
           />
         </Box>
@@ -47,11 +49,13 @@ export default function ProblemSection({ overline, title, description }: Problem
           <Typography 
             variant="body1" 
             dangerouslySetInnerHTML={{ __html: description }}
+            data-aos="fade-up"
+            data-aos-delay="100"
             sx={{ 
               color: 'white', 
               fontSize: { xs: '1.125rem', md: '24px' }, 
-              lineHeight: { xs: 1.5, md: '27px' },
-              letterSpacing: '-1.08px',
+              lineHeight: 1.5,
+              letterSpacing: '0px',
               fontWeight: 400
             }}
           />

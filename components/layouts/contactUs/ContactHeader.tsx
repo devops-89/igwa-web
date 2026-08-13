@@ -1,11 +1,20 @@
+"use client";
+import { hindiContactUsHeaderData } from "@/constants/hindiGenericData";
+import { contactUsHeaderData as en_contactUsHeaderData } from "@/constants/genericData";
+import { useLanguage } from "@/context/LanguageContext";
+
 import React from 'react';
 import { Box, Typography } from '@mui/material';
 
 export default function ContactHeader() {
+  const { language } = useLanguage();
+  const contactUsHeaderData = language === 'hi' ? hindiContactUsHeaderData : en_contactUsHeaderData;
+
   return (
     <Box sx={{ mb: 8 }}>
       <Typography
         variant="subtitle2"
+        data-aos="fade-down"
         sx={{
           color: '#F5F5F5E5',
           fontWeight: 600,
@@ -14,10 +23,11 @@ export default function ContactHeader() {
           mb: 2,
         }}
       >
-        CONTACT US
+        {contactUsHeaderData.overline}
       </Typography>
       <Typography 
         variant="h2" 
+        data-aos="fade-up"
         sx={{ 
           color: '#FFFFFF', 
           fontWeight: 900,
@@ -28,10 +38,12 @@ export default function ContactHeader() {
           mb: 3
         }}
       >
-        Get in Touch with Us !
+        {contactUsHeaderData.title}
       </Typography>
       <Typography 
         variant="body1" 
+        data-aos="fade-up"
+        data-aos-delay="100"
         sx={{ 
           color: '#F5F5F5CC',
           fontSize: { xs: '1.125rem', md: '1.75rem' },
@@ -40,10 +52,8 @@ export default function ContactHeader() {
           lineHeight: { xs: '1.4', md: '30px' },
           maxWidth: '1197px',
         }}
-      >
-        Have a question, feedback, or need help ? We'd love to hear from you! <br />
-        Fill out the form below or reach out directly using any of our contact details.
-      </Typography>
+        dangerouslySetInnerHTML={{ __html: contactUsHeaderData.description }}
+      />
     </Box>
   );
 }

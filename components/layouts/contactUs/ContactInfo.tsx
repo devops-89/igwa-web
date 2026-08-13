@@ -1,3 +1,8 @@
+"use client";
+import { hindiContactUsInfoData } from "@/constants/hindiGenericData";
+import { contactUsInfoData as en_contactUsInfoData } from "@/constants/genericData";
+import { useLanguage } from "@/context/LanguageContext";
+
 import React from 'react';
 import { Box, Typography, Button } from '@mui/material';
 import CallIcon from '@mui/icons-material/Call';
@@ -5,6 +10,9 @@ import EmailIcon from '@mui/icons-material/Email';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 
 export default function ContactInfo() {
+  const { language } = useLanguage();
+  const contactUsInfoData = language === 'hi' ? hindiContactUsInfoData : en_contactUsInfoData;
+
   const iconContainerStyle = {
     backgroundColor: 'transparent',
     color: '#F5F5F5',
@@ -38,6 +46,7 @@ export default function ContactInfo() {
     >
       {/* 1. Office hours (Left Top) */}
       <Typography
+        data-aos="fade-up"
         sx={{
           gridColumn: { xs: '1 / -1', md: '1 / 2' },
           gridRow: { md: '1 / 2' },
@@ -51,11 +60,13 @@ export default function ContactInfo() {
           pb: { xs: 0, md: 1 }
         }}
       >
-        Office hours and support
+        {contactUsInfoData.officeHoursTitle}
       </Typography>
 
       {/* 2. Date/Time (Right Top on desktop, immediately under heading on mobile) */}
       <Typography
+        data-aos="fade-up"
+        data-aos-delay="100"
         sx={{
           gridColumn: { xs: '1 / -1', md: '2 / 3' },
           gridRow: { md: '1 / 2' },
@@ -69,11 +80,11 @@ export default function ContactInfo() {
           pb: { xs: 0, md: 1 }
         }}
       >
-        Monday - Saturday , 9:00 AM - 6:00 PM EST
+        {contactUsInfoData.officeHoursTime}
       </Typography>
 
       {/* 3. Phone (Left Middle) */}
-      <Box sx={{ 
+      <Box data-aos="fade-up" data-aos-delay="200" sx={{ 
         gridColumn: { xs: '1 / -1', md: '1 / 2' },
         gridRow: { md: '2 / 3' },
         display: 'flex', alignItems: 'center', gap: 3 
@@ -82,12 +93,12 @@ export default function ContactInfo() {
           <CallIcon sx={{ fontSize: '1.5rem' }} />
         </Box>
         <Typography sx={{ color: '#F5F5F5', fontFamily: '"Be Vietnam Pro", sans-serif', fontWeight: 600, fontSize: '1.25rem' }}>
-          +91-8882158983
+          {contactUsInfoData.phone}
         </Typography>
       </Box>
 
       {/* 4. Mail (Left Bottom) */}
-      <Box sx={{ 
+      <Box data-aos="fade-up" data-aos-delay="300" sx={{ 
         gridColumn: { xs: '1 / -1', md: '1 / 2' },
         gridRow: { md: '3 / 4' },
         display: 'flex', alignItems: 'center', gap: 3 
@@ -96,12 +107,12 @@ export default function ContactInfo() {
           <EmailIcon sx={{ fontSize: '1.5rem' }} />
         </Box>
         <Typography sx={{ color: '#F5F5F5', fontFamily: '"Be Vietnam Pro", sans-serif', fontWeight: 600, fontSize: '1.25rem' }}>
-          igwa@gmail.com
+          {contactUsInfoData.email}
         </Typography>
       </Box>
 
       {/* 5. Location (Right Middle) */}
-      <Box sx={{ 
+      <Box data-aos="fade-up" data-aos-delay="400" sx={{ 
         gridColumn: { xs: '1 / -1', md: '2 / 3' },
         gridRow: { md: '2 / 3' },
         display: 'flex', alignItems: 'center', gap: 3 
@@ -111,16 +122,16 @@ export default function ContactInfo() {
         </Box>
         <Box sx={{ display: 'flex', gap: 1, alignItems: 'center' }}>
           <Typography sx={{ color: '#F5F5F5', fontFamily: '"Be Vietnam Pro", sans-serif', fontWeight: 600, fontSize: '1.25rem' }}>
-            igwa office
+            {contactUsInfoData.officeName}
           </Typography>
           <Typography sx={{ color: '#F5F5F5', fontFamily: '"Be Vietnam Pro", sans-serif', fontWeight: 400, fontSize: '1.125rem' }}>
-            new delhi, india
+            {contactUsInfoData.officeLocation}
           </Typography>
         </Box>
       </Box>
 
       {/* 6. Button (Right Bottom) */}
-      <Box sx={{ 
+      <Box data-aos="zoom-in" data-aos-delay="500" sx={{ 
         gridColumn: { xs: '1 / -1', md: '2 / 3' },
         gridRow: { md: '3 / 4' },
         alignSelf: 'start' 
@@ -142,7 +153,7 @@ export default function ContactInfo() {
             }
           }}
         >
-          Get Direction
+          {contactUsInfoData.buttonText}
         </Button>
       </Box>
     </Box>

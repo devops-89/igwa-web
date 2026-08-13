@@ -10,9 +10,10 @@ interface Step {
 interface HowItWorksSectionProps {
   steps: Step[];
   image: string;
+  heading?: string;
 }
 
-export default function HowItWorksSection({ steps, image }: HowItWorksSectionProps) {
+export default function HowItWorksSection({ steps, image, heading }: HowItWorksSectionProps) {
   return (
     <Box sx={{ backgroundColor: '#000000', py: { xs: 8, md: 15 }, width: '100%', position: 'relative', minHeight: { xs: 'auto', md: '1000px' }, display: 'flex', alignItems: 'center' }}>
       {/* Desktop Absolute Track & Sticky Image */}
@@ -65,10 +66,11 @@ export default function HowItWorksSection({ steps, image }: HowItWorksSectionPro
                   fontWeight: 700, 
                   mb: 4,
                   fontSize: { xs: '32px', md: '48px' },
-                  lineHeight: { xs: 1.2, md: '52.8px' }
+                  lineHeight: 1.3,
+                  letterSpacing: '0px'
                 }}
               >
-                How it works
+                {heading || 'How it works'}
               </Typography>
               <Box sx={{ width: '100%', maxWidth: '660px', height: '1px', backgroundColor: '#FFFFFF' }} />
             </Box>
@@ -110,8 +112,8 @@ export default function HowItWorksSection({ steps, image }: HowItWorksSectionPro
                         fontWeight: 700, 
                         mb: 0,
                         fontSize: { xs: '20px', md: '28px' },
-                        lineHeight: { xs: 1.4, md: '52.8px' },
-                        letterSpacing: '-1px'
+                        lineHeight: 1.4,
+                        letterSpacing: '0px'
                       }}
                     >
                       {step.title}
@@ -121,9 +123,9 @@ export default function HowItWorksSection({ steps, image }: HowItWorksSectionPro
                       sx={{ 
                         color: 'rgba(255, 255, 255, 0.7)', 
                         fontWeight: 200,
-                        lineHeight: { xs: 1.5, md: '31.8px' },
+                        lineHeight: 1.5,
                         fontSize: { xs: '16px', md: '24px' },
-                        letterSpacing: '0.6px'
+                        letterSpacing: '0px'
                       }}
                     >
                       {step.description}

@@ -1,11 +1,17 @@
 "use client";
 
+import { hindiWhatIgwaDoesData } from "@/constants/hindiGenericData";
+import { whatIgwaDoesData as en_whatIgwaDoesData } from "@/constants/genericData";
+import { useLanguage } from "@/context/LanguageContext";
+
 import React from "react";
 import Image from "next/image";
 import { Box, Typography, Container, Grid } from "@mui/material";
-import { hindiWhatIgwaDoesData } from "@/constants/hindiGenericData";
 
 export default function WhatIGWADoesSection() {
+  const { language } = useLanguage();
+  const whatIgwaDoesData = language === 'hi' ? hindiWhatIgwaDoesData : en_whatIgwaDoesData;
+
   return (
     <Box sx={{ bgcolor: "#000", color: "white", py: { xs: 8, md: 12 } }}>
       <Container maxWidth="lg">
@@ -19,7 +25,7 @@ export default function WhatIGWADoesSection() {
               mb: 2,
             }}
           >
-            {hindiWhatIgwaDoesData.section2.title}
+            {whatIgwaDoesData.section2.title}
           </Typography>
           <Typography
             sx={{
@@ -28,7 +34,7 @@ export default function WhatIGWADoesSection() {
               color: "rgba(255,255,255,0.9)",
             }}
           >
-            {hindiWhatIgwaDoesData.section2.subtitle}
+            {whatIgwaDoesData.section2.subtitle}
           </Typography>
         </Box>
 
@@ -57,7 +63,7 @@ export default function WhatIGWADoesSection() {
                   mb: 3,
                 }}
               >
-                {hindiWhatIgwaDoesData.section2.features[1].title}
+                {whatIgwaDoesData.section2.features[1].title}
               </Typography>
 
               <Box
@@ -78,7 +84,7 @@ export default function WhatIGWADoesSection() {
                   mb: 4,
                 }}
               >
-                {hindiWhatIgwaDoesData.section2.features[1].description}
+                {whatIgwaDoesData.section2.features[1].description}
               </Typography>
 
               <Box
@@ -191,7 +197,7 @@ export default function WhatIGWADoesSection() {
                       zIndex: 1,
                     }}
                   >
-                    {hindiWhatIgwaDoesData.section2.features[0].title}
+                    {whatIgwaDoesData.section2.features[0].title}
                   </Typography>
                   <Box
                     sx={{
@@ -218,7 +224,7 @@ export default function WhatIGWADoesSection() {
                       letterSpacing: "-0.045em",
                     }}
                   >
-                    {hindiWhatIgwaDoesData.section2.features[0].description}
+                    {whatIgwaDoesData.section2.features[0].description}
                   </Typography>
                 </Box>
               </Box>
@@ -250,7 +256,7 @@ export default function WhatIGWADoesSection() {
                       mb: 2,
                     }}
                   >
-                    {hindiWhatIgwaDoesData.section2.features[2].title}
+                    {whatIgwaDoesData.section2.features[2].title}
                   </Typography>
                   <Box
                     sx={{
@@ -286,7 +292,7 @@ export default function WhatIGWADoesSection() {
                       letterSpacing: "-0.045em",
                     }}
                   >
-                    {hindiWhatIgwaDoesData.section2.features[2].description}
+                    {whatIgwaDoesData.section2.features[2].description}
                   </Typography>
                 </Box>
               </Box>

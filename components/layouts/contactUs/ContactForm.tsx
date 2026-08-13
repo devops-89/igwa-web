@@ -1,9 +1,16 @@
 "use client";
 
+import { hindiContactUsFormData } from "@/constants/hindiGenericData";
+import { contactUsFormData as en_contactUsFormData } from "@/constants/genericData";
+import { useLanguage } from "@/context/LanguageContext";
+
 import React from 'react';
 import { Box, TextField, Checkbox, FormControlLabel, Button, Typography, Link } from '@mui/material';
 
 export default function ContactForm() {
+  const { language } = useLanguage();
+  const contactUsFormData = language === 'hi' ? hindiContactUsFormData : en_contactUsFormData;
+
   const inputLabelProps = {
     sx: { color: '#FFFFFF', fontFamily: '"Inter", sans-serif', fontWeight: 600, fontSize: '1.25rem', lineHeight: '2.25rem', mb: 1 }
   };
@@ -25,10 +32,10 @@ export default function ContactForm() {
   };
 
   return (
-    <Box component="form" sx={{ width: '100%', maxWidth: '987px', mb: 10 }}>
+    <Box component="form" data-aos="fade-up" data-aos-delay="200" sx={{ width: '100%', maxWidth: '987px', mb: 10 }}>
       <Box sx={{ mb: 5 }}>
         <Typography {...inputLabelProps}>
-          Your Name
+          {contactUsFormData.nameLabel}
         </Typography>
         <TextField
           variant="standard"
@@ -40,7 +47,7 @@ export default function ContactForm() {
       <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: { xs: 5, md: '121px' }, mb: 5 }}>
         <Box sx={{ flex: 1, maxWidth: { xs: '100%', md: '433px' } }}>
           <Typography {...inputLabelProps}>
-            Mail
+            {contactUsFormData.emailLabel}
           </Typography>
           <TextField
             variant="standard"
@@ -50,7 +57,7 @@ export default function ContactForm() {
         </Box>
         <Box sx={{ flex: 1, maxWidth: { xs: '100%', md: '433px' } }}>
           <Typography {...inputLabelProps}>
-            Phone Number
+            {contactUsFormData.phoneLabel}
           </Typography>
           <TextField
             variant="standard"
@@ -71,13 +78,13 @@ export default function ContactForm() {
             mb: 0
           }}
         >
-          Message
+          {contactUsFormData.messageLabel}
         </Typography>
         <TextField
           variant="standard"
           fullWidth
           multiline
-          placeholder="Enter your query here..."
+          placeholder={contactUsFormData.messagePlaceholder}
           sx={{
             ...inputStyles,
             textarea: {
@@ -110,7 +117,11 @@ export default function ContactForm() {
             />
           </Box>
           <Typography sx={{ color: '#FFFFFF99', fontFamily: '"Inter", sans-serif', fontSize: '1.25rem', lineHeight: '2.25rem', fontWeight: 400 }}>
-            I agree to the terms of your <Link href="#" sx={{ color: '#FFFFFF99', textDecoration: 'underline', textDecorationThickness: '1px' }}>Privacy policy</Link>.*
+            {contactUsFormData.checkboxTextPart1}
+            <Link href="#" sx={{ color: '#FFFFFF99', textDecoration: 'underline', textDecorationThickness: '1px' }}>
+              {contactUsFormData.checkboxLinkText}
+            </Link>
+            {contactUsFormData.checkboxTextPart2}
           </Typography>
         </Box>
 
@@ -131,7 +142,7 @@ export default function ContactForm() {
             }
           }}
         >
-          SUBMIT
+          {contactUsFormData.submitButtonText}
         </Button>
       </Box>
     </Box>

@@ -1,10 +1,18 @@
 "use client";
 
+import { aboutUsWeAreBuildingData as en_aboutUsWeAreBuildingData } from "@/constants/genericData";
+import { hindiAboutUsWeAreBuildingData } from "@/constants/hindiGenericData";
+import { useLanguage } from "@/context/LanguageContext";
+
 import React from "react";
 import { Box, Typography, Container } from "@mui/material";
 import Image from "next/image";
+ 
 
 export default function WeAreBuilding() {
+  const { language } = useLanguage();
+  const aboutUsWeAreBuildingData = language === 'hi' ? hindiAboutUsWeAreBuildingData : en_aboutUsWeAreBuildingData;
+
   return (
     <Box
       component="section"
@@ -23,51 +31,51 @@ export default function WeAreBuilding() {
           {/* Subheading / Tagline */}
           <Typography
             variant="body2"
+            data-aos="fade-down"
             sx={{
-              fontWeight: 500,
-              fontSize: { xs: "0.8rem", sm: "0.95rem" },
+              fontWeight: 800,
+              fontSize: "18px",
               color: "rgba(255, 255, 255, 0.85)",
               mb: 1.5,
-              letterSpacing: "0.02em",
+              letterSpacing: "0px",
               fontFamily: "inherit",
             }}
           >
-            What We're Building Toward.......
+            {aboutUsWeAreBuildingData.topSubheading}
           </Typography>
 
           {/* Main Heading */}
           <Typography
             variant="h2"
+            data-aos="fade-up"
             sx={{
               fontWeight: 800,
               fontSize: { xs: "1.65rem", sm: "2.5rem", md: "3.75rem" },
-              lineHeight: 1.15,
-              letterSpacing: "-0.03em",
+              lineHeight: 1.2,
+              letterSpacing: "0px",
               color: "#FFFFFF",
               mb: { xs: 2.5, md: 3.5 },
               fontFamily: "inherit",
               maxWidth: "850px",
             }}
           >
-            A system that grows with the process it serves.
+            {aboutUsWeAreBuildingData.topTitle}
           </Typography>
 
           {/* Description Paragraph */}
           <Typography
             variant="body1"
+            data-aos="fade-up"
+            data-aos-delay="100"
             sx={{
               fontWeight: 400,
-              fontSize: { xs: "0.9rem", sm: "1.05rem", md: "1.15rem" },
-              lineHeight: 1.65,
+              fontSize: "16px",
+              lineHeight: 1.5,
               color: "rgba(255, 255, 255, 0.8)",
               fontFamily: "inherit",
             }}
           >
-            IGWA today handles FIR drafting, case diaries, and chargesheets.
-            What's next — CCTNS integration, direct court e-filing, and broader
-            regional language support — is built around the same principle:
-            extend the system to match how justice actually moves in India, not
-            the other way around.
+            {aboutUsWeAreBuildingData.topDescription}
           </Typography>
         </Box>
 
@@ -82,6 +90,7 @@ export default function WeAreBuilding() {
         >
           {/* Left Column: Overlapping Composite Images */}
           <Box
+            data-aos="fade-right"
             sx={{
               position: "relative",
               width: "100%",
@@ -136,40 +145,37 @@ export default function WeAreBuilding() {
           </Box>
 
           {/* Right Column: Heading & Text */}
-          <Box sx={{ maxWidth: "560px" }}>
+          <Box sx={{ maxWidth: "560px" }} data-aos="fade-left">
             <Typography
               variant="h3"
               sx={{
                 fontWeight: 800,
                 fontSize: { xs: "1.5rem", sm: "2.2rem", md: "3rem" },
-                lineHeight: 1.15,
-                letterSpacing: "-0.02em",
+                lineHeight: 1.2,
+                letterSpacing: "0px",
                 color: "#FFFFFF",
                 mb: { xs: 2, md: 3.5 },
                 fontFamily: "inherit",
               }}
             >
-              Grounded in the people who'll actually rely on it.
+              {aboutUsWeAreBuildingData.bottomTitle}
             </Typography>
 
             <Typography
               variant="body1"
               sx={{
                 fontWeight: 400,
-                fontSize: { xs: "0.9rem", sm: "1.05rem", md: "1.15rem" },
-                lineHeight: 1.65,
+                fontSize: "16px",
+                lineHeight: 1.5,
                 color: "rgba(255, 255, 255, 0.8)",
                 fontFamily: "inherit",
               }}
             >
-              Every statutory mapping and document format in{" "}
+              {aboutUsWeAreBuildingData.bottomDescriptionPart1}
               <Box component="span" sx={{ fontWeight: 800, color: "#FFFFFF" }}>
-                IGWA
-              </Box>{" "}
-              is developed in consultation with legal domain experts and,
-              wherever possible, serving police personnel — because a system
-              built around BNSS and BNS, 2023 only earns trust if it's validated
-              by the people accountable to that law every day.
+                {aboutUsWeAreBuildingData.bottomDescriptionHighlight}
+              </Box>
+              {aboutUsWeAreBuildingData.bottomDescriptionPart2}
             </Typography>
           </Box>
         </Box>

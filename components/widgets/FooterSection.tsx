@@ -1,5 +1,9 @@
 "use client";
 
+import { hindiFooterData } from "@/constants/hindiGenericData";
+import { footerData as en_footerData } from "@/constants/genericData";
+import { useLanguage } from "@/context/LanguageContext";
+
 import React from "react";
 import {
   Box,
@@ -9,25 +13,27 @@ import {
   Link as MuiLink,
 } from "@mui/material";
 import { COLORS } from "@/lib/enum";
-import { hindiFooterData } from "@/constants/hindiGenericData";
-
-const FOOTER_LINKS = [
-  [
-    hindiFooterData.productLinks[0],
-    hindiFooterData.productLinks[1],
-    hindiFooterData.productLinks[2],
-    hindiFooterData.securityTitle,
-  ],
-  [
-    hindiFooterData.legalLinks[0],
-    hindiFooterData.securityLinks[1],
-    hindiFooterData.securityLinks[2],
-    hindiFooterData.securityLinks[0],
-  ],
-  hindiFooterData.contactLinks,
-];
 
 export default function FooterSection() {
+  const { language } = useLanguage();
+  const footerData = language === 'hi' ? hindiFooterData : en_footerData;
+
+  const FOOTER_LINKS = [
+    [
+      footerData.productLinks[0],
+      footerData.productLinks[1],
+      footerData.productLinks[2],
+      footerData.securityTitle,
+    ],
+    [
+      footerData.legalLinks[0],
+      footerData.securityLinks[1],
+      footerData.securityLinks[2],
+      footerData.securityLinks[0],
+    ],
+    footerData.contactLinks,
+  ];
+
   return (
     <Box
       sx={{
@@ -72,7 +78,7 @@ export default function FooterSection() {
               mb: 3,
             }}
           >
-            {hindiFooterData.tagline}
+            {footerData.tagline}
           </Typography>
           <Typography
             sx={{
@@ -84,7 +90,7 @@ export default function FooterSection() {
               lineHeight: 1.14,
             }}
           >
-            {hindiFooterData.importantNotice1} {hindiFooterData.importantNotice2} {hindiFooterData.importantNotice3}
+            {footerData.importantNotice1} {footerData.importantNotice2} {footerData.importantNotice3}
           </Typography>
         </Box>
 
@@ -111,7 +117,7 @@ export default function FooterSection() {
             color: COLORS.WHITE_90,
           }}
         >
-          {hindiFooterData.copyright}
+          {footerData.copyright}
         </Typography>
       </Container>
     </Box>

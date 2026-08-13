@@ -147,3 +147,277 @@ export const hindiFooterData = {
   tagline: 'AI से तेज़ ड्राफ़्टिंग। इंसान से सुनिश्चित न्याय।',
   copyright: 'कॉपीराइट © 2026 IGWA. सर्वाधिकार सुरक्षित।'
 };
+
+export const hindiContactUsHeaderData = {
+  overline: "संपर्क करें",
+  title: "हमसे जुड़ें!",
+  description: "कोई सवाल है, सुझाव देना है, या मदद चाहिए? हम आपसे सुनना चाहेंगे!<br />नीचे दिया फ़ॉर्म भरें या हमारी किसी भी संपर्क सुविधा से सीधे बात करें।"
+};
+
+export const hindiContactUsInfoData = {
+  officeHoursTitle: "ऑफ़िस समय और सहायता",
+  officeHoursTime: "सोमवार – शनिवार, सुबह 9:00 से शाम 6:00 बजे तक (EST)",
+  phone: "+91-8882158983",
+  email: "igwa@gmail.com",
+  officeName: "IGWA ऑफिस — ",
+  officeLocation: "नई दिल्ली, भारत",
+  buttonText: "दिशा प्राप्त करें"
+};
+
+export const hindiContactUsFormData = {
+  nameLabel: "आपका नाम",
+  emailLabel: "ईमेल",
+  phoneLabel: "फ़ोन नंबर",
+  messageLabel: "संदेश",
+  messagePlaceholder: "अपनी बात यहां लिखें...",
+  checkboxTextPart1: "मैं ",
+  checkboxLinkText: "प्राइवेसी पॉलिसी",
+  checkboxTextPart2: " की शर्तों से सहमत हूं।*",
+  submitButtonText: "सबमिट करें"
+};
+
+export const hindiProductsUnderTheHoodData = {
+  title: "हर धारा का सबूत है। हर फ़ैसला अधिकारी का।",
+  subtitle: "ड्राफ़्ट AI तैयार करता है, फ़ैसला अधिकारी का रहता है।",
+  description: "IGWA की पूरी बनावट एक तय नियम पर आधारित है — कोई भी कानूनी तथ्य अपने-आप नहीं बनता। हर धारा, हर संदर्भ, हर कानूनी हवाला एक सत्यापित और अपडेटेड लीगल डेटाबेस से लिया जाता है। AI का काम बस इतना है — उसे ढूंढना और साफ़ भाषा में सामने रखना, खुद से बनाना नहीं।",
+  scrollText: "नीचे स्क्रॉल करें"
+};
+
+export const hindiProductsHowEngineWorksData = {
+  title: "इंजन कैसे काम करता है",
+  steps: [
+    {
+      title: "पहचान, निर्माण नहीं",
+      description: "मिली शिकायत के विवरण को एक संरचित लीगल डेटाबेस से मिलाया जाता है, ताकि सही धाराएं सामने आएं। मॉडल अपनी तरफ़ से कुछ भी नहीं जोड़ता।"
+    },
+    {
+      title: "हर धारा का स्रोत साथ में",
+      description: "जो भी धारा दिखाई जाती है, वह अपने असल स्रोत और वर्ज़न से जुड़ी होती है — कभी भी जांची और सत्यापित की जा सकती है।"
+    },
+    {
+      title: "ड्राफ़्टिंग, एक तय दायरे में",
+      description: "FIR, केस डायरी और चार्जशीट की भाषा साफ़ और व्यवस्थित बनती है — सिर्फ़ पुष्ट तथ्यों और संदर्भों के आधार पर, कभी अपने-आप बनाए गए तथ्यों पर नहीं।"
+    },
+    {
+      title: "हर कदम का रिकॉर्ड",
+      description: "हर इनपुट, हर जांच, और हर तैयार किया गया ड्राफ़्ट दर्ज होता है — साथ ही उस पर की गई हर इंसानी बदलाव भी।"
+    }
+  ]
+};
+
+export const hindiProductsHumanInTheLoopData = {
+  part1: "IGWA में ",
+  highlight: "\"इंसान बीच में है\"",
+  part2: " कोई औपचारिकता नहीं है",
+  part3: "— यह इसकी बुनियादी बनावट है।",
+  part4: ""
+};
+
+export const hindiProductsWhyThisMattersData = {
+  overline: "यह मुद्दा क्यों अहम है",
+  titlePart1: "किसी कानूनी दस्तावेज़ में \"शायद सही है\"",
+  titlePart2: "काफ़ी नहीं होता।",
+  description: "एक सामान्य AI मॉडल भरोसेमंद दिखने वाला जवाब दे सकता है जो कानूनी तौर पर पूरी तरह गलत हो। IGWA का इंजन इसी गलती को रोकने के लिए बनाया गया है — यह सिर्फ़ वही दिखाता है जो लीगल डेटाबेस में असल में मौजूद है, और अधिकारी की साफ़ मंज़ूरी के बिना कोई भी दस्तावेज़ रजिस्टर, फ़ाइनल या फ़ाइल नहीं होता।"
+};
+
+
+
+export const hindiPoliceDeptHeroData = {
+  title: "IGWA — पुलिस विभागों के लिए",
+  subtitle: "ड्राफ़्टिंग में कम समय। जांच में ज़्यादा समय।",
+  description: "FIR दर्ज करने से लेकर चार्जशीट फ़ाइल करने तक, IGWA केस के कागज़ी हिस्से को संभालता है, ताकि आपके अधिकारियों के घंटे फ़ॉर्म भरने में नहीं, बल्कि असल जांच में लगें।",
+  buttons: [
+    { text: "पायलट के लिए आवेदन करें" },
+    { text: "वर्कफ़्लो देखें" }
+  ],
+  scrollText: "नीचे स्क्रॉल करें"
+};
+
+export const hindiPoliceDeptProblemData = {
+  overline: "समस्या",
+  title: "कागज़ी काम नौकरी नहीं है।<br />यही वह चीज़ है जो अधिकारी और उसके असल काम के बीच खड़ी हो जाती है।",
+  description: "FIR, रोज़ की केस डायरी, चार्जशीट — हर एक हाथ से लिखी जाती है, हर एक में कोई डेडलाइन छूटने या रिकॉर्ड में गड़बड़ी की गुंजाइश रहती है。<br /><br /><span style='font-weight: 700'>IGWA</span> इन सभी को एक गाइडेड, ज़्यादातर ऑटो-ड्राफ़्टेड वर्कफ़्लो में बदल देता है — जहां फ़ाइनल वर्ज़न पर अधिकारी का नियंत्रण हमेशा बना रहता है।"
+};
+
+export const hindiPoliceDeptHowItWorksData = {
+  heading: 'यह कैसे काम करता है',
+  steps: [
+    {
+      title: 'आने वाली एप्लिकेशन देखें',
+      description: 'इलेक्ट्रॉनिक सबमिशन और हाथ से आई शिकायतें, दोनों एक ही इनबॉक्स में — हाथ से लिखी अर्ज़ियों को OCR खुद पढ़ लेता है।'
+    },
+    {
+      title: 'कानूनी धाराओं की पुष्टि करें',
+      description: 'हर AI सुझाव को दर्ज होने से पहले स्वीकार करें, बदलें, या पूरी तरह बदल दें।'
+    },
+    {
+      title: 'FIR रजिस्टर करें',
+      description: 'FIR नंबर अपने-आप जनरेट होता है — न मैन्युअल नंबरिंग, न डुप्लिकेट होने का डर।'
+    },
+    {
+      title: 'केस असाइन करें',
+      description: 'जांच अधिकारी को तुरंत सूचना मिलती है, थाने के पूरे केसलोड की साफ़ जानकारी के साथ।'
+    },
+    {
+      title: 'केस डायरी तैयार करें',
+      description: 'पहली एंट्री अपलोड किए दस्तावेज़ों से बनती है, रोज़ की अपडेट फ़ील्ड से आवाज़ में दर्ज होती है, फ़ाइनल होने पर लॉक हो जाती है।'
+    },
+    {
+      title: 'चार्जशीट तैयार करें',
+      description: 'FIR, डायरी और सबूत से खुद-ब-खुद बनती है, तय समय-सीमा के अलर्ट के साथ, काउंटर-सिग्नेचर के लिए तैयार।'
+    }
+  ],
+  image: '/images/police/iphone.png'
+};
+
+export const hindiPoliceDeptWhatIgwaDoesData = {
+  features: [
+    { title: 'एक जगह सभी एप्लिकेशन', details: 'सभी इलेक्ट्रॉनिक सबमिशन, ईमेल और हाथ से आई शिकायतें एक ही सेंट्रलाइज्ड इनबॉक्स में प्राप्त करें, जिससे कोई भी केस अनदेखा न रहे।' },
+    { title: 'OCR-आधारित इनटेक', details: 'हाथ से लिखी अर्ज़ियों और पुरानी फाइलों को स्कैन करें। हमारा OCR सिस्टम शुरुआत में हिंदी और अंग्रेज़ी दस्तावेज़ों को अपने-आप पढ़कर डिजिटल टेक्स्ट में बदल देता है।' },
+    { title: 'आसान भाषा में कानूनी मार्गदर्शन', details: 'जटिल कानूनी भाषा को सरल और समझने योग्य निर्देशों में बदलें, ताकि अधिकारी बिना किसी भ्रम के सही BNS धाराओं का चयन कर सकें।' },
+    { title: 'ऑटो-ड्राफ़्टेड, बदली जा सकने वाली FIR एप्लिकेशन', details: 'नागरिक के बयान के आधार पर FIR का पहला ड्राफ्ट सिस्टम खुद तैयार करता है। अधिकारी इसे फाइल करने से पहले अपनी ज़रूरत के हिसाब से पूरी तरह बदल या स्वीकार कर सकते हैं।' },
+    { title: 'सबूत जोड़ने की सुविधा', details: 'केस डायरी और चार्जशीट के साथ सीधे तस्वीरें, वीडियो, ऑडियो रिकॉर्डिंग और स्कैन किए गए दस्तावेज़ अटैच करें, ताकि सारे सबूत एक ही जगह सुरक्षित रहें।' },
+    { title: 'लाइव स्टेटस ट्रैकिंग', details: 'हर केस की प्रगति, पेंडिंग अप्रूवल और आने वाली डेडलाइन्स पर रीयल-टाइम नज़र रखें, ताकि कोई भी कानूनी समय-सीमा न छूटे।' }
+  ],
+  title: 'IGWA क्या करता है',
+  subtitle: 'एक प्लेटफ़ॉर्म, एक ही प्रक्रिया के दो पहलू',
+  trailingTitle: 'हर AI-सहायित कदम — क्या सुझाया गया, क्या बदला गया, किसने पुष्टि की — सब दर्ज और ऑडिट किया जा सकता है।',
+  trailingSubtitle: 'IGWA निर्णय-सहायता है, निर्णय लेने वाला नहीं: जब तक कोई अधिकारी साइन नहीं करता, कोई भी दस्तावेज़ कानूनी मान्यता नहीं रखता।',
+  buttons: [
+    { text: 'अपने थाने में IGWA लाएं', width: '229px' },
+    { text: 'पायलट से शुरुआत करें', width: '155px' }
+  ]
+};
+
+export const hindiAboutUsHeroData = {
+  title: "IGWA के बारे में",
+  subtitle: "हम न्याय को ऑटोमेट नहीं कर रहे, हम बस उसे धीमा करने वाली चीज़ें हटा रहे हैं।",
+  description: "IGWA की शुरुआत एक सीधी-सी बात से हुई: थाने में केस धीमे नहीं चलते क्योंकि अधिकारी परवाह नहीं करते। यह धीमे चलते हैं क्योंकि हर केस के पीछे का कागज़ी काम भारी है, दोहराव भरा है, और छोटी-सी चूक की भी गुंजाइश नहीं छोड़ता और यह पूरा बोझ उस अधिकारी पर पड़ता है, जिसे जांच के साथ-साथ यह ड्राफ्टिंग भी संभालनी होती है।",
+  scrollText: "नीचे स्क्रॉल करें"
+};
+
+export const hindiAboutUsOurStoryData = {
+  overline: "हमारी कहानी",
+  title: "यह प्रोसेस को देखकर बनाया गया है, अंदाज़ा लगाकर नहीं।",
+  paragraph1: "FIR दर्ज करना कागज़ पर आसान लगता है, जब तक आप खुद वह अधिकारी नहीं हैं, जिसे किसी तनाव में दिए गए, अधूरे बयान को एक सटीक कानूनी दस्तावेज़ में ढालना है — फिर वही ढांचा केस डायरी के लिए दोहराना है, और फिर चार्जशीट के लिए — यह सब तब जब स्टेच्यूटरी डेडलाइन लगातार सिर पर चल रही होती है और बाकी केसलोड भी इंतज़ार नहीं करता।",
+  paragraph2Highlight: "IGWA",
+  paragraph2Rest: " को ठीक इस जगह पर काम करने के लिए बनाया गया है — अधिकारी के फ़ैसले या जांच की जगह लेने के लिए नहीं, बल्कि ड्राफ्टिंग, धारा-मैचिंग, और कागज़ी ढांचे को संभालने के लिए, ताकि अधिकारी का समय असल जांच में लगे, फ़ॉर्म भरने में नहीं।"
+};
+
+export const hindiAboutUsWeAreBuildingData = {
+  topSubheading: "हम आगे किस दिशा में बढ़ रहे हैं",
+  topTitle: "एक ऐसा सिस्टम जो थाने के काम के साथ बढ़ता है।",
+  topDescription: "IGWA आज FIR ड्राफ्टिंग, केस डायरी और चार्जशीट संभालता है। आगे क्या है — CCTNS इंटीग्रेशन, कोर्ट में सीधी ई-फ़ाइलिंग, और ज़्यादा क्षेत्रीय भाषाओं का सपोर्ट — यह सब उसी सोच पर बना है: सिस्टम को उस तरीके से बढ़ाना जिस तरह एक थाना और उसका केसलोड असल में काम करता है, न कि किसी फ़ॉर्म की मान्यता के आधार पर।",
+  bottomTitle: "उन लोगों की राय से बनाया गया, जो इसे असल में इस्तेमाल करेंगे।",
+  bottomDescriptionPart1: "",
+  bottomDescriptionHighlight: "IGWA",
+  bottomDescriptionPart2: " का हर कानूनी मैपिंग और दस्तावेज़ फ़ॉर्मेट कानूनी विषय के जानकारों और, जहां संभव हो, कार्यरत पुलिस अधिकारियों की सलाह से विकसित किया गया है — क्योंकि BNSS और BNS, 2023 के आधार पर बना सिस्टम तभी भरोसा कमाता है जब उसे उन्हीं अधिकारियों से परखा जाए, जो हर दिन उस कानून के लिए जवाबदेह हैं।"
+};
+
+export const hindiAboutUsWhatWeBelieveData = {
+  sectionTitle: "हम क्या मानते हैं",
+  cards: [
+    {
+      id: 1,
+      title: "कानूनी धाराएं ढूंढना अधिकारी का बोझ नहीं, सिस्टम का काम होना चाहिए।",
+      description: "किसी अधिकारी को हर बार खुद याद नहीं रखना चाहिए कि किस बयान पर कौन-सी धारा लागू होती है।",
+      watermarkOrientation: "horizontal"
+    },
+    {
+      id: 2,
+      title: "रफ़्तार और सटीकता में चुनाव नहीं करना पड़ता।",
+      description: "तेज़ कागज़ी काम का मतलब है कम गलतियां, ज़्यादा नहीं — डेडलाइन का दबाव कम, जांच के लिए समय ज़्यादा।",
+      watermarkOrientation: "vertical"
+    },
+    {
+      id: 3,
+      title: "AI ड्राफ्ट करता है। अधिकारी फ़ैसला लेता है।",
+      description: "IGWA जो भी कानूनी तथ्य दिखाता है, वह सत्यापित और खोजे जा सकने योग्य होता है — कभी बनाया नहीं जाता — और कोई भी दस्तावेज़ अधिकारी के साइन-ऑफ़ के बिना मान्य नहीं होता।",
+      watermarkOrientation: "vertical"
+    },
+    {
+      id: 4,
+      title: "जवाबदेही एक फ़ीचर है, कोई पाबंदी नहीं।",
+      description: "अपरिवर्तनीय केस डायरी और पूरा ऑडिट ट्रेल किसी कंप्लायंस चेकबॉक्स से कहीं ज़्यादा हैं — यही वह चीज़ है जो अधिकारी के काम को हर स्तर पर भरोसेमंद बनाती है।",
+      watermarkOrientation: "horizontal"
+    }
+  ]
+};
+
+export const hindiAboutSharedBannerData = {
+  trailingTitle: "अगर आप भी थाने के इस काम को बेहतर बनाना चाहते हैं, तो हम बात करना चाहेंगे।",
+  trailingSubtitle: "",
+  buttons: [
+    { text: "हमारे साथ जुड़ें" },
+    { text: "पायलट के लिए आवेदन करें" }
+  ]
+};
+
+// Citizens Data Fallbacks
+
+
+export const hindiCitizensProblemData = {
+  overline: "THE PROBLEM",
+  title: "Most people don't know what to write in an FIR.<br />That shouldn't stop them from filing one.",
+  description: "Victims are often turned away or delayed simply because an application isn't \"in the right format,\" or because they don't know which sections of law apply.<br /><br /><span style=\"font-weight: 700\">IGWA</span> removes that barrier — you talk, IGWA drafts."
+};
+
+export const hindiCitizensHowItWorksData = {
+  heading: 'यह कैसे काम करता है',
+  steps: [
+    {
+      title: 'Speak or type',
+      description: 'What happened, in Hindi or English — no legal terms needed.'
+    },
+    {
+      title: 'See the likely sections',
+      description: 'Sections of law that apply, explained in plain language, each traceable to a verified legal source.'
+    },
+    {
+      title: 'Review your drafted application',
+      description: 'Edit anything before you submit.'
+    },
+    {
+      title: 'Submit to any station',
+      description: 'IGWA is Zero-FIR aware, so jurisdiction confusion won\'t stop you.'
+    },
+    {
+      title: 'Track your case',
+      description: 'Submitted → Under Review → FIR Registered → Assigned → Closed, all visible in real time.'
+    },
+    {
+      title: 'Receive a copy',
+      description: 'of the registered FIR electronically, as the law entitles you to.'
+    }
+  ],
+  image: '/images/police/iphone.png'
+};
+
+export const hindiCitizensWhatIgwaDoesData = {
+  features: [
+    { title: 'Voice-first reporting', details: '' },
+    { title: 'Bilingual support', details: 'Hindi and English at launch.' },
+    { title: 'Plain-language legal guidance', details: '' },
+    { title: 'Auto-drafted, editable FIR application', details: '' },
+    { title: 'Evidence attachment', details: '' },
+    { title: 'Live status tracking', details: '' }
+  ],
+  title: 'What IGWA Does',
+  subtitle: 'One platform, two sides of the same process',
+  trailingTitle: 'Every legal section shown to you is sourced from a verified, versioned database',
+  trailingSubtitle: 'Never guessed by AI and every FIR is registered only after a police officer reviews and confirms it.',
+  buttons: [
+    { text: 'Start your report', width: '163px' }
+  ]
+};
+
+export const hindiCitizensHeroData = {
+  title: "IGWA for Citizens",
+  subtitle: "Report what happened. We'll help you say it right.",
+  description: "You shouldn't need to know the law to report a crime. Describe it in your own words. IGWA handles the legal language and drafts your FIR application for you.",
+  buttons: [
+    { text: "Report an Incident" },
+    { text: "See How It Works" }
+  ],
+  scrollText: "Scroll to Explore"
+};

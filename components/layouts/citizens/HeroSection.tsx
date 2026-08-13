@@ -1,9 +1,16 @@
 "use client";
 
+import { hindiCitizensHeroData } from "@/constants/hindiGenericData";
+import { citizensHeroData as en_citizensHeroData } from "@/constants/genericData";
+import { useLanguage } from "@/context/LanguageContext";
+
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import { Box, Container, Typography } from '@mui/material';
 
 export default function HeroSection() {
+  const { language } = useLanguage();
+  const citizensHeroData = language === 'hi' ? hindiCitizensHeroData : en_citizensHeroData;
+
   return (
     <Box sx={{ width: '100%', position: 'relative' }}>
       {/* Hero Background */}
@@ -35,14 +42,14 @@ export default function HeroSection() {
           
           {/* Main Content */}
           <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', pt: { xs: '150px', md: '426px' } }}>
-            <Typography sx={{ color: '#FFFFFF', fontWeight: 700, fontSize: { xs: '48px', md: '88px' }, fontFamily: '"DM Sans", sans-serif', maxWidth: '731px', letterSpacing: '-2.4px', lineHeight: { xs: 1.1, md: '52.8px' }, mb: { xs: 3, md: '14px' } }}>
-              IGWA for Citizens
+            <Typography sx={{ color: '#FFFFFF', fontWeight: 800, fontSize: { xs: '48px', md: '88px' }, fontFamily: '"DM Sans", sans-serif', maxWidth: '731px', letterSpacing: '0px', lineHeight: 1.2, mb: { xs: 3, md: '14px' } }}>
+              {citizensHeroData.title}
             </Typography>
-            <Typography sx={{ color: '#FFFFFF', fontWeight: 500, fontSize: { xs: '20px', md: '35px' }, fontFamily: '"DM Sans", sans-serif', maxWidth: '932px', letterSpacing: '-1.44px', lineHeight: { xs: 1.4, md: '58.8px' }, mb: { xs: 3, md: '44px' } }}>
-              Report what happened. We'll help you say it right.
+            <Typography sx={{ color: '#FFFFFF', fontWeight: 800, fontSize: '18px', fontFamily: '"DM Sans", sans-serif', maxWidth: '932px', letterSpacing: '0px', lineHeight: 1.4, mb: { xs: 3, md: '44px' } }}>
+              {citizensHeroData.subtitle}
             </Typography>
-            <Typography sx={{ color: 'rgba(255,255,255,0.8)', fontWeight: 500, fontSize: { xs: '16px', md: '24px' }, fontFamily: '"DM Sans", sans-serif', maxWidth: '832px', mx: 'auto', mb: { xs: 5, md: '87px' }, lineHeight: { xs: 1.5, md: '28.8px' }, letterSpacing: '-1.44px' }}>
-              You shouldn't need to know the law to report a crime. Describe it in your own words. IGWA handles the legal language and drafts your FIR application for you.
+            <Typography sx={{ color: 'rgba(255,255,255,0.8)', fontWeight: 400, fontSize: '16px', fontFamily: '"DM Sans", sans-serif', maxWidth: '832px', mx: 'auto', mb: { xs: 5, md: '87px' }, lineHeight: 1.5, letterSpacing: '0px' }}>
+              {citizensHeroData.description}
             </Typography>
 
             <Box sx={{ display: 'flex', gap: '10px', flexWrap: 'wrap', justifyContent: 'center', mb: { xs: 5, md: '57px' } }}>
@@ -69,7 +76,7 @@ export default function HeroSection() {
                   '&:hover': { backgroundColor: 'rgba(255, 255, 255, 0.35)' }
                 }}
               >
-                Report an Incident
+                {citizensHeroData.buttons[0].text}
               </Box>
               <Box 
                 component="button"
@@ -94,7 +101,7 @@ export default function HeroSection() {
                   '&:hover': { backgroundColor: 'rgba(255, 255, 255, 0.35)' }
                 }}
               >
-                See How It Works
+                {citizensHeroData.buttons[1].text}
               </Box>
             </Box>
           </Box>
@@ -102,7 +109,7 @@ export default function HeroSection() {
           {/* Scroll to Explore */}
           <Box sx={{ pb: 8, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 1 }}>
             <Typography sx={{ color: '#FFFFFF', fontSize: '14px', fontFamily: '"DM Sans", sans-serif', letterSpacing: '0.5px' }}>
-              Scroll to Explore
+              {citizensHeroData.scrollText}
             </Typography>
             <Box sx={{ width: '32px', height: '32px', borderRadius: '50%', border: '1px solid rgba(255,255,255,0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               <ArrowDownwardIcon sx={{ color: 'white', fontSize: '16px' }} />

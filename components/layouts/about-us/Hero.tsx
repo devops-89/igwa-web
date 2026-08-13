@@ -1,10 +1,18 @@
 "use client";
 
+import { aboutUsHeroData as en_aboutUsHeroData } from "@/constants/genericData";
+import { hindiAboutUsHeroData } from "@/constants/hindiGenericData";
+import { useLanguage } from "@/context/LanguageContext";
+
 import React from "react";
 import { Box, Typography, Container } from "@mui/material";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
+ 
 
 export default function Hero() {
+  const { language } = useLanguage();
+  const aboutUsHeroData = language === 'hi' ? hindiAboutUsHeroData : en_aboutUsHeroData;
+
   const handleScrollDown = () => {
     window.scrollTo({
       top: window.innerHeight,
@@ -45,54 +53,54 @@ export default function Hero() {
         {/* Main Heading */}
         <Typography
           variant="h1"
+          data-aos="fade-up"
           sx={{
             fontWeight: 800,
             fontSize: { xs: "2.25rem", sm: "3.5rem", md: "5.25rem" },
-            lineHeight: 1.1,
-            letterSpacing: "-0.03em",
+            lineHeight: 1.2,
+            letterSpacing: "0px",
             color: "#FFFFFF",
             mb: { xs: 2, md: 2.5 },
             fontFamily: "inherit",
           }}
         >
-          About IGWA
+          {aboutUsHeroData.title}
         </Typography>
 
         {/* Subheading / Tagline */}
         <Typography
           variant="h2"
+          data-aos="fade-up"
+          data-aos-delay="100"
           sx={{
-            fontWeight: 600,
-            fontSize: { xs: "1rem", sm: "1.35rem", md: "1.75rem" },
-            lineHeight: 1.35,
+            fontWeight: 800,
+            fontSize: "18px",
+            lineHeight: 1.4,
             color: "#FFFFFF",
             mb: { xs: 2.5, md: 3 },
             maxWidth: "850px",
             fontFamily: "inherit",
           }}
         >
-          We're not trying to automate justice, We're trying to remove what
-          slows it down.
+          {aboutUsHeroData.subtitle}
         </Typography>
 
         {/* Description Body Paragraph */}
         <Typography
           variant="body1"
+          data-aos="fade-up"
+          data-aos-delay="200"
           sx={{
             fontWeight: 400,
-            fontSize: { xs: "0.875rem", sm: "1rem", md: "1.15rem" },
-            lineHeight: 1.65,
+            fontSize: "16px",
+            lineHeight: 1.5,
             color: "rgba(255, 255, 255, 0.82)",
             maxWidth: "920px",
             mb: { xs: 12, md: 8 },
             fontFamily: "inherit",
           }}
         >
-          IGWA started with a simple observation: the law doesn't move slowly
-          because people don't care. It moves slowly because the paperwork
-          behind every case is heavy, repetitive, and unforgiving of small
-          mistakes — and that weight falls on both the citizen filing a report
-          and the officer processing it.
+          {aboutUsHeroData.description}
         </Typography>
 
         {/* Scroll Indicator */}
@@ -124,7 +132,7 @@ export default function Hero() {
               letterSpacing: "0.02em",
             }}
           >
-            Scroll to Explore
+            {aboutUsHeroData.scrollText}
           </Typography>
 
           <Box

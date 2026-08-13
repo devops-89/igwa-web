@@ -1,5 +1,9 @@
 "use client";
 
+import { hindiFaqData } from "@/constants/hindiGenericData";
+import { faqData as en_faqData } from "@/constants/genericData";
+import { useLanguage } from "@/context/LanguageContext";
+
 import React, { useState } from "react";
 import {
   Box,
@@ -13,9 +17,11 @@ import {
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 
-import { hindiFaqData } from "@/constants/hindiGenericData";
 
 export default function FAQSection() {
+  const { language } = useLanguage();
+  const faqData = language === 'hi' ? hindiFaqData : en_faqData;
+
   const [expanded, setExpanded] = useState<string | false>("panel-0");
 
   const handleChange =
@@ -37,13 +43,13 @@ export default function FAQSection() {
                 lineHeight: 1.1,
               }}
             >
-              {hindiFaqData.title}
+              {faqData.title}
             </Typography>
           </Grid>
 
           <Grid size={{ xs: 12, md: 8 }} data-aos="fade-left" data-aos-delay="100">
             <Box sx={{ maxWidth: 840, mx: "auto" }}>
-              {hindiFaqData.faqs.map((faq, index) => {
+              {faqData.faqs.map((faq, index) => {
                 const panelId = `panel-${index}`;
                 const isExpanded = expanded === panelId;
 

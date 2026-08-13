@@ -16,13 +16,16 @@ export const metadata: Metadata = {
 
 
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
+import { LanguageProvider } from '@/context/LanguageContext';
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en">
       <body className={dmSans.variable}>
         <AppRouterCacheProvider>
-          <Layoutwrapper>{children}</Layoutwrapper>
+          <LanguageProvider>
+            <Layoutwrapper>{children}</Layoutwrapper>
+          </LanguageProvider>
         </AppRouterCacheProvider>
       </body>
     </html>

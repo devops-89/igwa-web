@@ -1,4 +1,8 @@
 "use client";
+import { hindiCitizensProblemData, hindiCitizensHowItWorksData, hindiCitizensWhatIgwaDoesData } from "@/constants/hindiGenericData";
+import { citizensProblemData as en_citizensProblemData, citizensHowItWorksData as en_citizensHowItWorksData, citizensWhatIgwaDoesData as en_citizensWhatIgwaDoesData } from "@/constants/genericData";
+
+import { useLanguage } from "@/context/LanguageContext";
 
 import React from "react";
 import HeroSection from "./HeroSection";
@@ -7,9 +11,13 @@ import HowItWorksSection from "../police-dept/HowItWorksSection";
 import WhatIgwaDoesSection from "../police-dept/WhatIgwaDoesSection";
 import SharedBannerSection from "../SharedBannerSection";
 import { Box } from "@mui/material";
-import { citizensProblemData, citizensHowItWorksData, citizensWhatIgwaDoesData } from "@/constants/genericData";
 
 export default function CitizensIndex() {
+  const { language } = useLanguage();
+  const citizensProblemData = language === 'hi' ? hindiCitizensProblemData : en_citizensProblemData;
+  const citizensHowItWorksData = language === 'hi' ? hindiCitizensHowItWorksData : en_citizensHowItWorksData;
+  const citizensWhatIgwaDoesData = language === 'hi' ? hindiCitizensWhatIgwaDoesData : en_citizensWhatIgwaDoesData;
+
   return (
     <Box>
       <HeroSection />

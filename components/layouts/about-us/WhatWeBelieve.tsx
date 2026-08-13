@@ -1,4 +1,7 @@
 "use client";
+import { hindiAboutUsWhatWeBelieveData } from "@/constants/hindiGenericData";
+import { aboutUsWhatWeBelieveData as en_aboutUsWhatWeBelieveData } from "@/constants/genericData";
+import { useLanguage } from "@/context/LanguageContext";
 
 import React from "react";
 import { Box, Typography, Container } from "@mui/material";
@@ -41,6 +44,8 @@ const cardsData: CardData[] = [
 ];
 
 export default function WhatWeBelieve() {
+  const { language } = useLanguage();
+  const aboutUsWhatWeBelieveData = language === 'hi' ? hindiAboutUsWhatWeBelieveData : en_aboutUsWhatWeBelieveData;
   return (
     <Box
       component="section"
@@ -106,7 +111,7 @@ export default function WhatWeBelieve() {
               fontFamily: "inherit",
             }}
           >
-            What We Believe
+            {aboutUsWhatWeBelieveData.sectionTitle}
           </Typography>
 
           {/* Right Line with Dot */}
@@ -146,7 +151,7 @@ export default function WhatWeBelieve() {
             width: "100%",
           }}
         >
-          {cardsData.map((card) => (
+          {aboutUsWhatWeBelieveData.cards.map((card: any) => (
             <Box
               key={card.id}
               sx={{

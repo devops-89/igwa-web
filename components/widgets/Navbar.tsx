@@ -1,6 +1,9 @@
 "use client";
 
 import { hindiNavData } from "@/constants/hindiGenericData";
+import { navData as en_navData } from "@/constants/genericData";
+import { useLanguage } from "@/context/LanguageContext";
+
 import { COLORS } from "@/lib/enum";
 import CloseIcon from "@mui/icons-material/Close";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -14,21 +17,42 @@ import {
   List,
   ListItem,
   Toolbar,
-  Typography
+  Typography,
+  Menu,
+  MenuItem
 } from "@mui/material";
+import LanguageIcon from "@mui/icons-material/Language";
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 export default function Navbar() {
+  const { language, setLanguage } = useLanguage();
+  const navData = language === 'hi' ? hindiNavData : en_navData;
+
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [langMenuAnchor, setLangMenuAnchor] = useState<null | HTMLElement>(null);
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
   };
 
-  const navLinks = hindiNavData.slice(0, 4).map(link => ({
+  const handleLangMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
+    setLangMenuAnchor(event.currentTarget);
+  };
+
+  const handleLangMenuClose = () => {
+    setLangMenuAnchor(null);
+  };
+
+  const changeLanguage = (lang: 'en' | 'hi') => {
+    setLanguage(lang);
+    handleLangMenuClose();
+  };
+
+  const navLinks = navData.slice(0, 4).map(link => ({
     label: link.name,
     href: link.path
   }));
@@ -119,7 +143,7 @@ export default function Navbar() {
                 );
               })}
             </Box>
-            <Link href={hindiNavData[4]?.path || "/contact-us"} passHref>
+            <Link href={navData[4]?.path || "/contact-us"} passHref>
               <Button
                 variant="contained"
                 disableElevation
@@ -135,9 +159,57 @@ export default function Navbar() {
                   minWidth: 100,
                 }}
               >
-                {hindiNavData[4]?.name || "बात करें"}
+                {navData[4]?.name || "बात करें"}
               </Button>
             </Link>
+
+            {/* Language Dropdown */}
+            <Box sx={{ ml: 2 }}>
+              <Button
+                onClick={handleLangMenuOpen}
+                endIcon={<KeyboardArrowDownIcon />}
+                startIcon={<LanguageIcon />}
+                sx={{
+                  color: COLORS.DARK_TEXT,
+                  textTransform: 'none',
+                  fontWeight: 600,
+                  fontSize: '0.875rem'
+                }}
+              >
+                {language === 'en' ? 'English' : 'हिंदी'}
+              </Button>
+              <Menu
+                anchorEl={langMenuAnchor}
+                open={Boolean(langMenuAnchor)}
+                onClose={handleLangMenuClose}
+                disableScrollLock={true}
+                sx={{
+                  '& .MuiPaper-root': {
+                    mt: 1,
+                    minWidth: 120,
+                    borderRadius: 2,
+                    boxShadow: '0px 4px 20px rgba(0,0,0,0.1)',
+                    backgroundColor: 'rgba(255, 255, 255, 0.7)',
+                    backdropFilter: 'blur(10px)',
+                  }
+                }}
+              >
+                <MenuItem 
+                  onClick={() => changeLanguage('en')}
+                  selected={language === 'en'}
+                  sx={{ fontWeight: language === 'en' ? 700 : 500 }}
+                >
+                  English
+                </MenuItem>
+                <MenuItem 
+                  onClick={() => changeLanguage('hi')}
+                  selected={language === 'hi'}
+                  sx={{ fontWeight: language === 'hi' ? 700 : 500 }}
+                >
+                  हिंदी
+                </MenuItem>
+              </Menu>
+            </Box>
           </Box>
           <IconButton
             color="inherit"
@@ -185,7 +257,7 @@ export default function Navbar() {
             </ListItem>
           ))}
           <ListItem disablePadding sx={{ mt: 4 }}>
-            <Link href={hindiNavData[4]?.path || "/contact-us"} passHref style={{ width: "100%" }}>
+            <Link href={navData[4]?.path || "/contact-us"} passHref style={{ width: "100%" }}>
               <Button
                 variant="contained"
                 fullWidth
@@ -198,12 +270,45 @@ export default function Navbar() {
                   fontWeight: 700,
                   fontSize: "1rem",
                   py: 1.5,
+                  mb: 2
                 }}
                 onClick={handleDrawerToggle}
               >
-                {hindiNavData[4]?.name || "बात करें"}
+                {navData[4]?.name || "बात करें"}
               </Button>
             </Link>
+          </ListItem>
+          <ListItem disablePadding sx={{ display: 'flex', justifyContent: 'center' }}>
+            <Box sx={{ display: 'flex', gap: 2 }}>
+              <Button 
+                onClick={() => { setLanguage('en'); handleDrawerToggle(); }}
+                variant={language === 'en' ? "contained" : "outlined"}
+                sx={{ 
+                  flex: 1,
+                  borderRadius: '9999px',
+                  bgcolor: language === 'en' ? 'white' : 'transparent',
+                  color: language === 'en' ? 'black' : 'white',
+                  borderColor: 'white',
+                  '&:hover': { bgcolor: language === 'en' ? 'white' : 'rgba(255,255,255,0.1)' }
+                }}
+              >
+                English
+              </Button>
+              <Button 
+                onClick={() => { setLanguage('hi'); handleDrawerToggle(); }}
+                variant={language === 'hi' ? "contained" : "outlined"}
+                sx={{ 
+                  flex: 1,
+                  borderRadius: '9999px',
+                  bgcolor: language === 'hi' ? 'white' : 'transparent',
+                  color: language === 'hi' ? 'black' : 'white',
+                  borderColor: 'white',
+                  '&:hover': { bgcolor: language === 'hi' ? 'white' : 'rgba(255,255,255,0.1)' }
+                }}
+              >
+                हिंदी
+              </Button>
+            </Box>
           </ListItem>
         </List>
       </Drawer>

@@ -108,10 +108,10 @@ export default function WhatIgwaDoesSection({ features, title, subtitle, trailin
           {/* Right Side - Accordion List */}
           <Box sx={{ width: '100%', maxWidth: '634px', ml: 'auto', mt: { xs: 6, md: 0 }, zIndex: 2, position: 'relative' }}>
             <Box sx={{ mb: '21px' }}>
-              <Typography variant="h3" sx={{ color: '#000000', fontWeight: 700, fontFamily: '"DM Sans", sans-serif', fontSize: { xs: '28px', md: '48px' }, letterSpacing: '-2.4px', lineHeight: { xs: 1.2, md: '52.8px' }, mb: '6px' }}>
+              <Typography variant="h3" sx={{ color: '#000000', fontWeight: 700, fontFamily: '"DM Sans", sans-serif', fontSize: { xs: '28px', md: '48px' }, letterSpacing: '0px', lineHeight: 1.3, mb: '6px' }}>
                 {title}
               </Typography>
-              <Typography sx={{ color: 'rgba(0,0,0,0.4)', fontWeight: 400, fontFamily: '"DM Sans", sans-serif', fontSize: { xs: '16px', md: '24px' }, letterSpacing: '-1.08px' }}>
+              <Typography sx={{ color: 'rgba(0,0,0,0.4)', fontWeight: 400, fontFamily: '"DM Sans", sans-serif', fontSize: { xs: '16px', md: '24px' }, letterSpacing: '0px' }}>
                 {subtitle}
               </Typography>
             </Box>
@@ -131,7 +131,7 @@ export default function WhatIgwaDoesSection({ features, title, subtitle, trailin
                         py: 2
                       }}
                     >
-                      <Typography sx={{ color: '#131111', fontWeight: 700, fontSize: { xs: '18px', md: '24px' }, lineHeight: { xs: 1.4, md: '28.8px' }, letterSpacing: '0.6px', fontFamily: '"DM Sans", sans-serif' }}>
+                      <Typography sx={{ color: '#131111', fontWeight: 700, fontSize: { xs: '18px', md: '24px' }, lineHeight: 1.4, letterSpacing: '0px', fontFamily: '"DM Sans", sans-serif' }}>
                         • {feature.title}
                       </Typography>
                       <IconButton size="small" sx={{ color: '#131111' }}>
@@ -141,7 +141,7 @@ export default function WhatIgwaDoesSection({ features, title, subtitle, trailin
                     
                     <Collapse in={isExpanded}>
                       {feature.details && (
-                        <Typography sx={{ color: '#131111', fontWeight: 300, pl: '18px', pb: 2, fontSize: { xs: '16px', md: '20px' }, lineHeight: { xs: 1.5, md: '28.8px' }, letterSpacing: '0.6px', fontFamily: '"DM Sans", sans-serif' }}>
+                        <Typography sx={{ color: '#131111', fontWeight: 300, pl: '18px', pb: 2, fontSize: { xs: '16px', md: '20px' }, lineHeight: 1.5, letterSpacing: '0px', fontFamily: '"DM Sans", sans-serif' }}>
                           {feature.details}
                         </Typography>
                       )}

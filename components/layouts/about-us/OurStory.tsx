@@ -1,9 +1,17 @@
 "use client";
 
+import { aboutUsOurStoryData as en_aboutUsOurStoryData } from "@/constants/genericData";
+import { hindiAboutUsOurStoryData } from "@/constants/hindiGenericData";
+import { useLanguage } from "@/context/LanguageContext";
+
 import React from "react";
 import { Box, Typography, Container } from "@mui/material";
 
+
 export default function OurStory() {
+  const { language } = useLanguage();
+  const aboutUsOurStoryData = language === 'hi' ? hindiAboutUsOurStoryData : en_aboutUsOurStoryData;
+
   return (
     <Box
       component="section"
@@ -32,7 +40,7 @@ export default function OurStory() {
               fontFamily: "inherit",
             }}
           >
-            OUR STORY
+            {aboutUsOurStoryData.overline}
           </Typography>
 
           {/* Main Heading */}
@@ -49,7 +57,7 @@ export default function OurStory() {
               maxWidth: "900px",
             }}
           >
-            Built from watching the process, not guessing at it.
+            {aboutUsOurStoryData.title}
           </Typography>
 
           {/* Paragraph 1 */}
@@ -64,12 +72,7 @@ export default function OurStory() {
               fontFamily: "inherit",
             }}
           >
-            Filing an FIR sounds simple until you're the one doing it, either as
-            someone who doesn't know which section of law applies to what just
-            happened to them, or as an officer who has to translate a stressful,
-            half-clear account into a legally precise document, then repeat that
-            structure for the case diary, and again for the chargesheet, all
-            while a statutory clock is running.
+            {aboutUsOurStoryData.paragraph1}
           </Typography>
 
           {/* Paragraph 2 */}
@@ -84,12 +87,9 @@ export default function OurStory() {
             }}
           >
             <Box component="span" sx={{ fontWeight: 800, color: "#FFFFFF" }}>
-              IGWA
-            </Box>{" "}
-            was built to sit inside that exact gap, not to replace the judgment
-            at either end of it, but to handle the drafting, the
-            section-matching, and the paperwork structure so that judgment has
-            room to actually happen.
+              {aboutUsOurStoryData.paragraph2Highlight}
+            </Box>
+            {aboutUsOurStoryData.paragraph2Rest}
           </Typography>
         </Box>
       </Container>

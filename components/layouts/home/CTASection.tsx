@@ -1,11 +1,17 @@
 "use client";
 
+import { hindiCtaData } from "@/constants/hindiGenericData";
+import { ctaData as en_ctaData } from "@/constants/genericData";
+import { useLanguage } from "@/context/LanguageContext";
+
 import React from "react";
 import Image from "next/image";
 import { Box, Typography, Container, Grid, Button } from "@mui/material";
-import { hindiCtaData } from "@/constants/hindiGenericData";
 
 export default function CTASection() {
+  const { language } = useLanguage();
+  const ctaData = language === 'hi' ? hindiCtaData : en_ctaData;
+
   return (
     <Box sx={{ bgcolor: "#000", color: "white", py: { xs: 8, md: 12 } }}>
       <Container maxWidth="lg">
@@ -21,7 +27,7 @@ export default function CTASection() {
                 mb: 3,
               }}
             >
-              {hindiCtaData.title}
+              {ctaData.title}
             </Typography>
 
             <Typography
@@ -34,9 +40,9 @@ export default function CTASection() {
                 maxWidth: 665,
               }}
             >
-              {hindiCtaData.description3}
+              {ctaData.description3}
               <br />
-              {hindiCtaData.description4}
+              {ctaData.description4}
             </Typography>
 
             <Button
@@ -54,7 +60,7 @@ export default function CTASection() {
                 "&:hover": { backgroundColor: "rgba(255,255,255,0.32)" },
               }}
             >
-              {hindiCtaData.btnText}
+              {ctaData.btnText}
             </Button>
           </Grid>
 

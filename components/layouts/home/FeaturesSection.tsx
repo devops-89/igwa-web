@@ -1,12 +1,19 @@
 "use client";
+import { hindiProblemData, hindiWhatIgwaDoesData } from "@/constants/hindiGenericData";
+import { problemData as en_problemData, whatIgwaDoesData as en_whatIgwaDoesData } from "@/constants/genericData";
+
+import { useLanguage } from "@/context/LanguageContext";
 
 import React from "react";
 import Image from "next/image";
 import { Box, Typography, Container, Grid } from "@mui/material";
 import { COLORS } from "@/lib/enum";
 import phoneHand from "@/images/home/phone_in_hand.png";
-import { hindiProblemData, hindiWhatIgwaDoesData } from "@/constants/hindiGenericData";
 export default function FeaturesSection() {
+  const { language } = useLanguage();
+  const problemData = language === 'hi' ? hindiProblemData : en_problemData;
+  const whatIgwaDoesData = language === 'hi' ? hindiWhatIgwaDoesData : en_whatIgwaDoesData;
+
   return (
     <Box
       sx={{ backgroundColor: "#000", color: "white", py: { xs: 8, md: 12 } }}
@@ -28,7 +35,7 @@ export default function FeaturesSection() {
                 letterSpacing: { xs: "-1px", md: "-2.4px" },
               }}
             >
-              {hindiProblemData.title}
+              {problemData.title}
             </Typography>
 
             <Typography
@@ -42,13 +49,13 @@ export default function FeaturesSection() {
                 fontWeight: 400,
               }}
             >
-              {hindiProblemData.stats.join(" ")}
+              {problemData.stats.join(" ")}
               <br />
               <br />
-              {hindiProblemData.description1}
+              {problemData.description1}
               <br />
               <br />
-              {hindiProblemData.description2}
+              {problemData.description2}
             </Typography>
 
             <Typography
@@ -74,7 +81,7 @@ export default function FeaturesSection() {
               >
                 IGWA{" "}
               </Typography>
-              {hindiProblemData.conclusion.replace("IGWA ", "")} {hindiProblemData.note}
+              {problemData.conclusion.replace("IGWA ", "")} {problemData.note}
             </Typography>
 
             <Typography
@@ -87,7 +94,7 @@ export default function FeaturesSection() {
                 color: COLORS.WHITE,
               }}
             >
-              {hindiWhatIgwaDoesData.section1.title}
+              {whatIgwaDoesData.section1.title}
             </Typography>
 
             <Typography
@@ -99,7 +106,7 @@ export default function FeaturesSection() {
                 mt: 2,
               }}
             >
-              {hindiWhatIgwaDoesData.section1.point1}
+              {whatIgwaDoesData.section1.point1}
             </Typography>
 
             <Typography
@@ -111,13 +118,13 @@ export default function FeaturesSection() {
                 textAlign: "justify",
               }}
             >
-              {hindiWhatIgwaDoesData.section1.point2}
+              {whatIgwaDoesData.section1.point2}
               <br />
               <br />
-              {hindiWhatIgwaDoesData.section1.point3}
+              {whatIgwaDoesData.section1.point3}
               <br />
               <br />
-              {hindiWhatIgwaDoesData.section1.point4.split('। ').join('।\\n').split('\\n').map((sentence, index) => (
+              {whatIgwaDoesData.section1.point4.split('। ').join('।\\n').split('\\n').map((sentence: string, index: number) => (
                 <React.Fragment key={index}>
                   {sentence}
                   <br />

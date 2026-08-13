@@ -1,10 +1,17 @@
 "use client";
 
+import { hindiProductsUnderTheHoodData } from "@/constants/hindiGenericData";
+import { productsUnderTheHoodData as en_productsUnderTheHoodData } from "@/constants/genericData";
+import { useLanguage } from "@/context/LanguageContext";
+
 import React from 'react';
 import { Box, Typography, Container } from '@mui/material';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 
 export default function UnderTheHoodSection() {
+  const { language } = useLanguage();
+  const productsUnderTheHoodData = language === 'hi' ? hindiProductsUnderTheHoodData : en_productsUnderTheHoodData;
+
   return (
     <Box
       sx={{
@@ -40,32 +47,32 @@ export default function UnderTheHoodSection() {
         <Typography
           variant="h1"
           sx={{ 
-            fontWeight: 700, 
+            fontWeight: 800, 
             color: 'white', 
             mb: { xs: 2, md: '5px' },
-            letterSpacing: '-2.4px',
+            letterSpacing: '0px',
             fontSize: { xs: '3rem', md: '88px' },
-            lineHeight: { xs: 1.1, md: '100%' }
+            lineHeight: 1.2
           }}
           data-aos="fade-up"
         >
-          What's Actually Under the Hood
+          {productsUnderTheHoodData.title}
         </Typography>
 
         <Typography
           variant="h5"
           sx={{ 
-            fontWeight: 600, 
+            fontWeight: 800, 
             color: 'white', 
             mb: { xs: 5, md: '40px' },
-            letterSpacing: '-1.44px',
-            fontSize: { xs: '1.5rem', md: '35px' },
-            lineHeight: { xs: 1.4, md: '28.8px' }
+            letterSpacing: '0px',
+            fontSize: '18px',
+            lineHeight: 1.4
           }}
           data-aos="fade-up"
           data-aos-delay="100"
         >
-          The AI drafts. It never decides.
+          {productsUnderTheHoodData.subtitle}
         </Typography>
 
         <Box sx={{ maxWidth: '850px', mx: 'auto' }}>
@@ -74,14 +81,14 @@ export default function UnderTheHoodSection() {
             sx={{ 
               fontWeight: 400, 
               color: 'rgba(255, 255, 255, 0.9)', 
-              fontSize: { xs: 18, md: 24 },
-              lineHeight: { xs: 1.4, md: '27px' },
-              letterSpacing: '-1.08px',
+              fontSize: '16px',
+              lineHeight: 1.5,
+              letterSpacing: '0px',
             }}
             data-aos="fade-up"
             data-aos-delay="200"
           >
-            IGWA's engine is built on one hard rule: no legal fact is ever freely generated. Every section number, citation, and statutory reference comes from a verified, versioned legal database — the AI's job is to find and explain it, not to invent it.
+            {productsUnderTheHoodData.description}
           </Typography>
         </Box>
       </Container>
@@ -110,7 +117,7 @@ export default function UnderTheHoodSection() {
             textShadow: '0 2px 8px rgba(0,0,0,0.6)'
           }}
         >
-          Scroll to Explore
+          {productsUnderTheHoodData.scrollText}
         </Typography>
         <Box
           sx={{
