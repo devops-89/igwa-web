@@ -12,7 +12,7 @@ import { Box } from "@mui/material";
 
 export default function HomeIndex() {
   return (
-    <Box sx={{ overflowX: "hidden", bgcolor: "#000" }}>
+    <Box sx={{ bgcolor: "#000" }}>
       <HeroSection />
       <SlidingLogo />
       <FeaturesSection />

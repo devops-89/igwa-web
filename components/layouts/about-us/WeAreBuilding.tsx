@@ -15,17 +15,53 @@ export default function WeAreBuilding() {
 
   return (
     <Box
+      id="we-are-building"
       component="section"
       sx={{
         width: "100%",
-        backgroundColor: "#000000",
         color: "#FFFFFF",
         py: { xs: 8, md: 16 },
         px: { xs: 2, sm: 3 },
         position: "relative",
+        "@keyframes pulseGlow": {
+          "0%": { transform: "translate(-50%, 0) scale(1)", opacity: 0.5 },
+          "100%": { transform: "translate(-50%, 0) scale(1.1)", opacity: 1 },
+        },
+        "@keyframes pulseGlowRight": {
+          "0%": { transform: "scale(1)", opacity: 0.5 },
+          "100%": { transform: "scale(1.1)", opacity: 1 },
+        },
       }}
     >
-      <Container maxWidth="lg">
+      {/* High-Tech Glowing Orbs - About Us (Teal/Indigo) */}
+      <Box
+        sx={{
+          position: "absolute",
+          top: "10%",
+          left: "50%",
+          transform: "translate(-50%, 0)",
+          width: "60vw",
+          height: "40vw",
+          background: "radial-gradient(ellipse, rgba(20,184,166,0.15) 0%, transparent 60%)",
+          filter: "blur(100px)",
+          zIndex: 0,
+          animation: "pulseGlow 6s infinite alternate",
+        }}
+      />
+      <Box
+        sx={{
+          position: "absolute",
+          bottom: "10%",
+          left: "-10%",
+          width: "50vw",
+          height: "50vw",
+          background: "radial-gradient(circle, rgba(99,102,241,0.2) 0%, transparent 60%)",
+          filter: "blur(100px)",
+          zIndex: 0,
+        }}
+      />
+
+      <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
         {/* Top Part: Title & Description */}
         <Box sx={{ maxWidth: "920px", mb: { xs: 6, md: 12 } }}>
           {/* Subheading / Tagline */}

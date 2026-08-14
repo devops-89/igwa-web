@@ -127,6 +127,7 @@ export default function HeroSection() {
                 lineHeight: '19.2px',
                 letterSpacing: '-0.8px',
                 backgroundColor: 'rgba(0,0,0,0.3)',
+                whiteSpace: 'nowrap',
                 '&:hover': {
                   borderColor: 'white',
                   backgroundColor: 'rgba(255,255,255,0.1)'
@@ -152,6 +153,7 @@ export default function HeroSection() {
                 lineHeight: '19.2px',
                 letterSpacing: '-0.8px',
                 backgroundColor: 'rgba(0,0,0,0.3)',
+                whiteSpace: 'nowrap',
                 '&:hover': {
                   borderColor: 'white',
                   backgroundColor: 'rgba(255,255,255,0.1)'

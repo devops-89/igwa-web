@@ -36,16 +36,53 @@ export default function ContactInfo() {
 
   return (
     <Box 
+      id="contact-info"
       sx={{ 
         display: 'grid', 
         gridTemplateColumns: { xs: '1fr', md: '1fr 1fr' }, 
         columnGap: 4, 
         rowGap: { xs: 3, md: 4 }, 
-        pb: 10 
+        pb: 10,
+        position: 'relative',
+        "@keyframes pulseGlow": {
+          "0%": { transform: "translate(-50%, 0) scale(1)", opacity: 0.5 },
+          "100%": { transform: "translate(-50%, 0) scale(1.1)", opacity: 1 },
+        },
+        "@keyframes pulseGlowRight": {
+          "0%": { transform: "scale(1)", opacity: 0.5 },
+          "100%": { transform: "scale(1.1)", opacity: 1 },
+        },
       }}
       data-aos="fade-up"
       data-aos-delay="400"
     >
+      {/* High-Tech Glowing Orbs - Contact Us (Green/Yellow) */}
+      <Box
+        sx={{
+          position: "absolute",
+          top: "10%",
+          left: "50%",
+          transform: "translate(-50%, 0)",
+          width: "60vw",
+          height: "40vw",
+          background: "radial-gradient(ellipse, rgba(34,197,94,0.15) 0%, transparent 60%)",
+          filter: "blur(100px)",
+          zIndex: 0,
+          animation: "pulseGlow 6s infinite alternate",
+        }}
+      />
+      <Box
+        sx={{
+          position: "absolute",
+          bottom: "10%",
+          left: "-10%",
+          width: "50vw",
+          height: "50vw",
+          background: "radial-gradient(circle, rgba(234,179,8,0.2) 0%, transparent 60%)",
+          filter: "blur(100px)",
+          zIndex: 0,
+        }}
+      />
       {/* 1. Office hours (Left Top) */}
       <Typography
         data-aos="fade-up"

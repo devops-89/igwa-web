@@ -13,6 +13,7 @@ export default function UnderTheHoodSection() {
 
   return (
     <Box
+      id="under-the-hood"
       sx={{
         width: '100%',
         minHeight: { xs: '100vh', md: '1025px' },

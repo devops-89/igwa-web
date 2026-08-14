@@ -21,7 +21,6 @@ export default function AboutUsIndex() {
       component="main"
       sx={{
         width: "100%",
-        overflowX: "hidden",
         bgcolor: "#000",
         color: "#FFFFFF",
       }}

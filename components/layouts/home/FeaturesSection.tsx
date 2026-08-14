@@ -29,6 +29,7 @@ export default function FeaturesSection() {
 
   return (
     <Box
+      id="features"
       sx={{
         backgroundColor: "#000",
         color: "white",
@@ -384,7 +385,7 @@ export default function FeaturesSection() {
                           mb: 1,
                         }}
                       >
-                        पेशेवर ड्राफ़्ट
+                        {whatIgwaDoesData.section1.point3Title}
                       </Typography>
                       <Typography
                         sx={{
@@ -445,7 +446,7 @@ export default function FeaturesSection() {
                           mb: 1,
                         }}
                       >
-                        तनावमुक्त काम
+                        {whatIgwaDoesData.section1.point4Title}
                       </Typography>
                       <Typography
                         sx={{
@@ -454,10 +455,7 @@ export default function FeaturesSection() {
                           lineHeight: 1.6,
                         }}
                       >
-                        {whatIgwaDoesData.section1.point4
-                          .split("।")[0]
-                          .trim()}
-                        ।
+                        {whatIgwaDoesData.section1.point4}
                       </Typography>
                     </Box>
                   </CardContent>

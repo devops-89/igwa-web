@@ -9,7 +9,7 @@ import { Box } from "@mui/material";
 
 export default function ProductsIndex() {
   return (
-    <Box sx={{ overflowX: "hidden", backgroundColor: "#000000" }}>
+    <Box sx={{ backgroundColor: "#000000" }}>
       <UnderTheHoodSection />
       <HowEngineWorksSection />
       <WhyThisMattersSection />

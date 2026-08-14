@@ -2,7 +2,7 @@ export const hindiNavData = [
   { name: "होम", path: "/" },
   { name: "हमारे बारे में", path: "/about" },
   { name: "हमारा प्रोडक्ट", path: "/products" },
-  { name: "सुरक्षा", path: "/police-dept" },
+  { name: "पुलिस के लिए IGWA", path: "/police-dept" },
   { name: "बात करें", path: "/contact-us" },
 ];
 
@@ -39,8 +39,10 @@ export const hindiWhatIgwaDoesData = {
     point1: "जांच हमेशा डेस्क पर नहीं होती।",
     point2:
       "जहाँ भी हों, वहीं से हिंदी या अंग्रेज़ी में अपना केस अपडेट रिकॉर्ड कीजिए।",
+    point3Title: "पेशेवर ड्राफ़्ट",
     point3:
       "IGWA उसे तुरंत एक व्यवस्थित, दिनांकित और पेशेवर केस डायरी एंट्री में बदल देता है।",
+    point4Title: "तनावमुक्त काम",
     point4:
       'लंबी ड्यूटी के बाद दोबारा टाइप करने की ज़रूरत नहीं। फ़ॉर्मेट सुधारने की चिंता नहीं। और "कल कर लेंगे" वाला बोझ भी नहीं।',
   },
@@ -430,3 +432,52 @@ export const hindiCitizensHeroData = {
   ],
   scrollText: "Scroll to Explore"
 };
+
+export const hindiFooterSitemapData = [
+  {
+    title: 'होम',
+    path: '/',
+    links: [
+      { name: 'सुविधाएं', hash: '#features' },
+      { name: 'IGWA क्या करता है', hash: '#what-igwa-does' },
+      { name: 'सोशल प्रूफ', hash: '#social-proof' },
+      { name: 'सामान्य प्रश्न', hash: '#faq' }
+    ]
+  },
+  {
+    title: 'हमारे बारे में',
+    path: '/about',
+    links: [
+      { name: 'हमारी कहानी', hash: '#our-story' },
+      { name: 'हम क्या मानते हैं', hash: '#what-we-believe' },
+      { name: 'हम क्या बना रहे हैं', hash: '#we-are-building' }
+    ]
+  },
+  {
+    title: 'हमारा प्रोडक्ट',
+    path: '/products',
+    links: [
+      { name: 'अंदर की बात', hash: '#under-the-hood' },
+      { name: 'इंजन कैसे काम करता है', hash: '#how-engine-works' },
+      { name: 'यह क्यों मायने रखता है', hash: '#why-this-matters' },
+      { name: 'इंसान बीच में है', hash: '#human-in-the-loop' }
+    ]
+  },
+  {
+    title: 'पुलिस के लिए IGWA',
+    path: '/police-dept',
+    links: [
+      { name: 'समस्या', hash: '#problem' },
+      { name: 'यह कैसे काम करता है', hash: '#how-it-works' },
+      { name: 'सुविधाएं', hash: '#features' }
+    ]
+  },
+  {
+    title: 'बात करें',
+    path: '/contact-us',
+    links: [
+      { name: 'संपर्क फ़ॉर्म', hash: '#contact-form' },
+      { name: 'संपर्क जानकारी', hash: '#contact-info' }
+    ]
+  }
+];

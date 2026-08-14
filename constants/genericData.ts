@@ -2,7 +2,7 @@ export const navData = [
   { name: 'Home', path: '/' },
   { name: 'About Us', path: '/about' },
   { name: 'Products', path: '/products' },
-  { name: 'Security', path: '/police-dept' },
+  { name: 'IGWA for Police', path: '/police-dept' },
   { name: 'Contact Us', path: '/contact-us' }
 ];
 
@@ -300,7 +300,9 @@ export const whatIgwaDoesData = {
     title: 'Speak from the field. The diary updates itself.',
     point1: 'Investigations don\'t always happen at a desk.',
     point2: 'Record your case updates in Hindi or English from wherever you are.',
+    point3Title: 'Professional Draft',
     point3: 'IGWA instantly converts it into a well-structured, dated, and professional case diary entry.',
+    point4Title: 'Stress-free Work',
     point4: 'No re-typing after a long duty. No worrying about formatting. And no burden of "we\'ll do it tomorrow".'
   },
   section2: {
@@ -407,3 +409,52 @@ export const footerData = {
   tagline: 'AI-assisted drafting. Human-verified justice.',
   copyright: 'Copyright © 2026 IGWA. All rights reserved.'
 };
+
+export const footerSitemapData = [
+  {
+    title: 'Home',
+    path: '/',
+    links: [
+      { name: 'Features', hash: '#features' },
+      { name: 'What IGWA Does', hash: '#what-igwa-does' },
+      { name: 'Social Proof', hash: '#social-proof' },
+      { name: 'FAQ', hash: '#faq' }
+    ]
+  },
+  {
+    title: 'About Us',
+    path: '/about',
+    links: [
+      { name: 'Our Story', hash: '#our-story' },
+      { name: 'What We Believe', hash: '#what-we-believe' },
+      { name: 'What We\'re Building', hash: '#we-are-building' }
+    ]
+  },
+  {
+    title: 'Products',
+    path: '/products',
+    links: [
+      { name: 'Under the Hood', hash: '#under-the-hood' },
+      { name: 'How Engine Works', hash: '#how-engine-works' },
+      { name: 'Why This Matters', hash: '#why-this-matters' },
+      { name: 'Human in the Loop', hash: '#human-in-the-loop' }
+    ]
+  },
+  {
+    title: 'IGWA for Police',
+    path: '/police-dept',
+    links: [
+      { name: 'The Problem', hash: '#problem' },
+      { name: 'How It Works', hash: '#how-it-works' },
+      { name: 'Features', hash: '#features' }
+    ]
+  },
+  {
+    title: 'Contact Us',
+    path: '/contact-us',
+    links: [
+      { name: 'Contact Form', hash: '#contact-form' },
+      { name: 'Contact Info', hash: '#contact-info' }
+    ]
+  }
+];

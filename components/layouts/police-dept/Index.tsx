@@ -19,7 +19,7 @@ export default function PoliceDeptIndex() {
   const policeDeptWhatIgwaDoesData = language === 'hi' ? hindiPoliceDeptWhatIgwaDoesData : en_policeDeptWhatIgwaDoesData;
 
   return (
-    <Box sx={{ overflowX: "hidden", bgcolor: "#000" }}>
+    <Box sx={{ bgcolor: "#000" }}>
       <HeroSection />
       <ProblemSection {...hindiPoliceDeptProblemData} />
       <HowItWorksSection {...hindiPoliceDeptHowItWorksData} />

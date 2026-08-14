@@ -31,7 +31,7 @@ export default function ContactForm() {
   };
 
   return (
-    <Box component="form" data-aos="fade-up" data-aos-delay="200" sx={{ width: '100%', maxWidth: '987px', mb: 10 }}>
+    <Box id="contact-form" component="form" data-aos="fade-up" data-aos-delay="200" sx={{ width: '100%', maxWidth: '987px', mb: 10 }}>
       <Box sx={{ mb: 5 }}>
         <Typography {...inputLabelProps}>
           {contactUsFormData.nameLabel}

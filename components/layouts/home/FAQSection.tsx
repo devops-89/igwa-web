@@ -28,7 +28,7 @@ export default function FAQSection() {
     };
 
   return (
-    <Box sx={{ bgcolor: "#000", color: "white", py: { xs: 12, md: 16 } }}>
+    <Box id="faq" sx={{ bgcolor: "#000", color: "white", py: { xs: 12, md: 16 } }}>
       <Container maxWidth="lg">
         <Grid container spacing={{ xs: 6, md: 12 }}>
           <Grid size={{ xs: 12, md: 5 }} data-aos="fade-right">

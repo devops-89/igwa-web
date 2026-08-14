@@ -1,7 +1,7 @@
 "use client";
 
-import { footerData as en_footerData } from "@/constants/genericData";
-import { hindiFooterData } from "@/constants/hindiGenericData";
+import { footerData as en_footerData, footerSitemapData as en_footerSitemapData } from "@/constants/genericData";
+import { hindiFooterData, hindiFooterSitemapData } from "@/constants/hindiGenericData";
 import { useLanguage } from "@/context/LanguageContext";
 
 import { COLORS } from "@/lib/enum";
@@ -17,21 +17,7 @@ export default function FooterSection() {
   const { language } = useLanguage();
   const footerData = language === 'hi' ? hindiFooterData : en_footerData;
 
-  const FOOTER_LINKS = [
-    [
-      footerData.productLinks[0],
-      footerData.productLinks[1],
-      footerData.productLinks[2],
-      footerData.securityTitle,
-    ],
-    [
-      footerData.legalLinks[0],
-      footerData.securityLinks[1],
-      footerData.securityLinks[2],
-      footerData.securityLinks[0],
-    ],
-    footerData.contactLinks,
-  ];
+  const sitemapData = language === 'hi' ? hindiFooterSitemapData : en_footerSitemapData;
 
   return (
     <Box
@@ -48,24 +34,40 @@ export default function FooterSection() {
       <Container maxWidth="lg" data-aos="fade-up">
         {/* Top Links Section */}
         <Grid container spacing={4} sx={{ mb: { xs: 4, md: 8 } }}>
-          {FOOTER_LINKS.map((column, colIndex) => (
-            <Grid key={colIndex} size={{ xs: 12, sm: 4 }}>
-              {column.map((link) => (
+          {sitemapData.map((column, colIndex) => (
+            <Grid key={colIndex} size={{ xs: 12, sm: 6, md: 2.4 }}>
+              <MuiLink
+                href={column.path}
+                underline="none"
+                sx={{
+                  display: "block",
+                  color: COLORS.WHITE,
+                  fontWeight: 800,
+                  fontSize: "1.25rem",
+                  letterSpacing: "-0.02em",
+                  mb: 2,
+                  "&:hover": { opacity: 0.8 },
+                }}
+              >
+                {column.title}
+              </MuiLink>
+              {column.links.map((link, idx) => (
                 <MuiLink
-                  key={link}
-                  href="#"
+                  key={idx}
+                  href={`${column.path}${link.hash}`}
                   underline="none"
                   sx={{
                     display: "block",
-                    color: COLORS.WHITE,
-                    fontWeight: 600,
-                    fontSize: "1.125rem",
-                    letterSpacing: "-0.02em",
-                    lineHeight: 2.5,
-                    "&:hover": { opacity: 0.8 },
+                    color: "rgba(255, 255, 255, 0.7)",
+                    fontWeight: 500,
+                    fontSize: "0.95rem",
+                    letterSpacing: "-0.01em",
+                    lineHeight: 2,
+                    mb: 1,
+                    "&:hover": { color: COLORS.WHITE },
                   }}
                 >
-                  {link}
+                  {link.name}
                 </MuiLink>
               ))}
             </Grid>

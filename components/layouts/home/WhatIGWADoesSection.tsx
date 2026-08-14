@@ -12,7 +12,7 @@ export default function WhatIGWADoesSection() {
   const whatIgwaDoesData = language === 'hi' ? hindiWhatIgwaDoesData : en_whatIgwaDoesData;
 
   return (
-    <Box sx={{ bgcolor: "#000", color: "white", py: { xs: 6, md: 8 } }}>
+    <Box id="what-igwa-does" sx={{ bgcolor: "#000", color: "white", py: { xs: 6, md: 8 } }}>
       <Container maxWidth="lg">
         <Box
           sx={{ textAlign: "center", mb: { xs: 4, md: 5 } }}

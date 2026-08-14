@@ -15,6 +15,7 @@ export default function SocialProofSection() {
 
   return (
     <Box
+      id="social-proof"
       sx={{
         bgcolor: "#000",
         color: "white",

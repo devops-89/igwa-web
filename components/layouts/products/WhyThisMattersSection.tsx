@@ -12,18 +12,52 @@ export default function WhyThisMattersSection() {
 
   return (
     <Box
+      id="why-this-matters"
       sx={{
-        backgroundColor: '#000000',
         color: '#FFFFFF',
         py: { xs: 10, md: 16 },
         px: { xs: 2, sm: 4, md: '95px', lg: '119px' },
         fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif",
         position: 'relative',
-        overflow: 'hidden',
         boxSizing: 'border-box',
+        "@keyframes pulseGlow": {
+          "0%": { transform: "translate(-50%, 0) scale(1)", opacity: 0.5 },
+          "100%": { transform: "translate(-50%, 0) scale(1.1)", opacity: 1 },
+        },
+        "@keyframes pulseGlowRight": {
+          "0%": { transform: "scale(1)", opacity: 0.5 },
+          "100%": { transform: "scale(1.1)", opacity: 1 },
+        },
       }}
     >
-      <Box sx={{ maxWidth: '1440px', mx: 'auto' }}>
+      {/* High-Tech Glowing Orbs - Products (Purple/Pink) */}
+      <Box
+        sx={{
+          position: "absolute",
+          top: "10%",
+          left: "50%",
+          transform: "translate(-50%, 0)",
+          width: "60vw",
+          height: "40vw",
+          background: "radial-gradient(ellipse, rgba(168,85,247,0.15) 0%, transparent 60%)",
+          filter: "blur(100px)",
+          zIndex: 0,
+          animation: "pulseGlow 6s infinite alternate",
+        }}
+      />
+      <Box
+        sx={{
+          position: "absolute",
+          bottom: "10%",
+          left: "-10%",
+          width: "50vw",
+          height: "50vw",
+          background: "radial-gradient(circle, rgba(236,72,153,0.2) 0%, transparent 60%)",
+          filter: "blur(100px)",
+          zIndex: 0,
+        }}
+      />
+      <Box sx={{ maxWidth: '1440px', mx: 'auto', position: 'relative', zIndex: 1 }}>
         {/* Top Tagline / Small Label */}
         <Typography
           variant="body2"

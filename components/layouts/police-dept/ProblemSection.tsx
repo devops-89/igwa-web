@@ -10,8 +10,49 @@ interface ProblemSectionProps {
 
 export default function ProblemSection({ overline, title, description }: ProblemSectionProps) {
   return (
-    <Box sx={{ backgroundColor: '#000000', pt: { xs: '120px', md: '253px' }, pb: { xs: 8, md: 15 }, width: '100%' }}>
-      <Container sx={{ maxWidth: '1233px !important', px: { xs: 2, xl: 0 } }}>
+    <Box id="problem" sx={{ 
+      pt: { xs: '120px', md: '253px' }, 
+      pb: { xs: 8, md: 15 }, 
+      width: '100%',
+      position: 'relative',
+      "@keyframes pulseGlow": {
+        "0%": { transform: "translate(-50%, 0) scale(1)", opacity: 0.5 },
+        "100%": { transform: "translate(-50%, 0) scale(1.1)", opacity: 1 },
+      },
+      "@keyframes pulseGlowRight": {
+        "0%": { transform: "scale(1)", opacity: 0.5 },
+        "100%": { transform: "scale(1.1)", opacity: 1 },
+      },
+    }}>
+      {/* High-Tech Glowing Orbs - Police Dept (Red/Blue) */}
+      <Box
+        sx={{
+          position: "absolute",
+          top: "10%",
+          left: "50%",
+          transform: "translate(-50%, 0)",
+          width: "60vw",
+          height: "40vw",
+          background: "radial-gradient(ellipse, rgba(239,68,68,0.15) 0%, transparent 60%)",
+          filter: "blur(100px)",
+          zIndex: 0,
+          animation: "pulseGlow 6s infinite alternate",
+        }}
+      />
+      <Box
+        sx={{
+          position: "absolute",
+          bottom: "10%",
+          left: "-10%",
+          width: "50vw",
+          height: "50vw",
+          background: "radial-gradient(circle, rgba(59,130,246,0.2) 0%, transparent 60%)",
+          filter: "blur(100px)",
+          zIndex: 0,
+        }}
+      />
+
+      <Container sx={{ maxWidth: '1233px !important', px: { xs: 2, xl: 0 }, position: 'relative', zIndex: 1 }}>
         <Typography 
           variant="overline" 
           data-aos="fade-down"
