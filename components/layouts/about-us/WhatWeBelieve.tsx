@@ -1,10 +1,9 @@
 "use client";
-import { hindiAboutUsWhatWeBelieveData } from "@/constants/hindiGenericData";
 import { aboutUsWhatWeBelieveData as en_aboutUsWhatWeBelieveData } from "@/constants/genericData";
+import { hindiAboutUsWhatWeBelieveData } from "@/constants/hindiGenericData";
 import { useLanguage } from "@/context/LanguageContext";
 
-import React from "react";
-import { Box, Typography, Container } from "@mui/material";
+import { Box, Container, Typography } from "@mui/material";
 
 interface CardData {
   id: number;
@@ -100,16 +99,25 @@ export default function WhatWeBelieve() {
           <Typography
             variant="h2"
             sx={{
-              fontWeight: 800,
-              fontSize: { xs: "1.4rem", sm: "2.2rem", md: "3.5rem" },
-              lineHeight: 1.1,
-              letterSpacing: "-0.02em",
-              color: "#FFFFFF",
+        fontWeight: 900,
+        fontSize: { xs: 28, md: 44, lg: 52 },
+        lineHeight: 1.3,
+        paddingTop: "0.1em",
+        paddingBottom: "0.1em",
+        background: `linear-gradient(180deg, #fff 30%, rgba(255,255,255,0.4) 100%)`,
+        WebkitBackgroundClip: "text",
+        WebkitTextFillColor: "transparent",
+              
+              
+              
+              
+              
               px: { xs: 1.5, sm: 2, md: 4 },
               textAlign: "center",
               whiteSpace: { xs: "normal", sm: "nowrap" },
               fontFamily: "inherit",
             }}
+            data-aos="fade-up"
           >
             {aboutUsWhatWeBelieveData.sectionTitle}
           </Typography>
@@ -171,6 +179,7 @@ export default function WhatWeBelieve() {
                   boxShadow: "0 15px 40px rgba(0, 0, 0, 0.35)",
                 },
               }}
+              data-aos="fade-up"
             >
               {/* Faint IGWA Watermark */}
               {card.watermarkOrientation === "horizontal" ? (

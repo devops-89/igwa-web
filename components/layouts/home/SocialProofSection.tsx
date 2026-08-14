@@ -1,12 +1,11 @@
 "use client";
 
-import { hindiSocialProofData } from "@/constants/hindiGenericData";
 import { socialProofData as en_socialProofData } from "@/constants/genericData";
+import { hindiSocialProofData } from "@/constants/hindiGenericData";
 import { useLanguage } from "@/context/LanguageContext";
 
-import React from "react";
+import { Box, Container, Grid, Typography } from "@mui/material";
 import Image from "next/image";
-import { Box, Typography, Container, Grid } from "@mui/material";
 
 // Individual avatar images replaced by static user-group image
 
@@ -15,7 +14,16 @@ export default function SocialProofSection() {
   const socialProofData = language === 'hi' ? hindiSocialProofData : en_socialProofData;
 
   return (
-    <Box sx={{ bgcolor: "#000", color: "white", py: { xs: 8, md: 12 } }}>
+    <Box
+      sx={{
+        bgcolor: "#000",
+        color: "white",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        height: "100vh",
+      }}
+    >
       <Container maxWidth="lg">
         <Grid container spacing={6} sx={{ alignItems: "center" }}>
           <Grid size={{ xs: 12, md: 5 }} data-aos="fade-right">
@@ -37,12 +45,16 @@ export default function SocialProofSection() {
             </Box>
           </Grid>
 
-          <Grid size={{ xs: 12, md: 7 }} data-aos="fade-left" data-aos-delay="100">
+          <Grid
+            size={{ xs: 12, md: 7 }}
+            data-aos="fade-left"
+            data-aos-delay="100"
+          >
             <Typography
               variant="h2"
               sx={{
                 fontWeight: 700,
-                fontSize: { xs: "2rem", md: "3rem" },
+                fontSize: { xs: "2rem", md: "50px" },
                 letterSpacing: "-0.05em",
                 lineHeight: 1.1,
                 mb: 4,
@@ -53,7 +65,7 @@ export default function SocialProofSection() {
 
             <Typography
               sx={{
-                fontSize: { xs: "1.125rem", md: "1.5rem" },
+                fontSize: { xs: "1.125rem", md: "20px" },
                 lineHeight: 1.125,
                 letterSpacing: "-0.045em",
                 color: "rgba(255,255,255,0.9)",
@@ -61,25 +73,22 @@ export default function SocialProofSection() {
               }}
             >
               {socialProofData.description1}
-              <br />
-              <br />
+
               {socialProofData.description2}
             </Typography>
 
             <Typography
               sx={{
-                fontSize: { xs: "1.125rem", md: "1.5rem" },
-                lineHeight: 1.125,
+                fontSize: { xs: "1.125rem", md: "18px" },
+                lineHeight: "25px",
                 letterSpacing: "-0.045em",
                 color: "rgba(255,255,255,0.9)",
               }}
             >
               {socialProofData.description3}
-              <br />
-              <br />
+
               {socialProofData.description4}
-              <br />
-              <br />
+
               {socialProofData.description5}
             </Typography>
           </Grid>

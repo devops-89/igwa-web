@@ -1,12 +1,11 @@
 "use client";
 
-import { hindiProductsUnderTheHoodData } from "@/constants/hindiGenericData";
 import { productsUnderTheHoodData as en_productsUnderTheHoodData } from "@/constants/genericData";
+import { hindiProductsUnderTheHoodData } from "@/constants/hindiGenericData";
 import { useLanguage } from "@/context/LanguageContext";
 
-import React from 'react';
-import { Box, Typography, Container } from '@mui/material';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
+import { Box, Container, Typography } from '@mui/material';
 
 export default function UnderTheHoodSection() {
   const { language } = useLanguage();
@@ -78,13 +77,15 @@ export default function UnderTheHoodSection() {
         <Box sx={{ maxWidth: '850px', mx: 'auto' }}>
           <Typography
             variant="body1"
-            sx={{ 
-              fontWeight: 400, 
-              color: 'rgba(255, 255, 255, 0.9)', 
-              fontSize: '16px',
-              lineHeight: 1.5,
-              letterSpacing: '0px',
-            }}
+            sx={{
+        fontSize: { xs: 16, md: 20 },
+        fontWeight: 400,
+        lineHeight: 1.6,
+        letterSpacing: "-0.01em",
+        color: "rgba(255, 255, 255, 0.8)", 
+               
+               
+              }}
             data-aos="fade-up"
             data-aos-delay="200"
           >

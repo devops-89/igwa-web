@@ -1,11 +1,10 @@
 "use client";
 
-import { hindiContactUsFormData } from "@/constants/hindiGenericData";
 import { contactUsFormData as en_contactUsFormData } from "@/constants/genericData";
+import { hindiContactUsFormData } from "@/constants/hindiGenericData";
 import { useLanguage } from "@/context/LanguageContext";
 
-import React from 'react';
-import { Box, TextField, Checkbox, FormControlLabel, Button, Typography, Link } from '@mui/material';
+import { Box, Button, Checkbox, Link, TextField, Typography } from '@mui/material';
 
 export default function ContactForm() {
   const { language } = useLanguage();

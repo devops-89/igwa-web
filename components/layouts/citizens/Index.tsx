@@ -19,7 +19,7 @@ export default function CitizensIndex() {
   const citizensWhatIgwaDoesData = language === 'hi' ? hindiCitizensWhatIgwaDoesData : en_citizensWhatIgwaDoesData;
 
   return (
-    <Box>
+    <Box sx={{ overflowX: "hidden", bgcolor: "#000" }}>
       <HeroSection />
       <ProblemSection {...citizensProblemData} />
       <HowItWorksSection {...citizensHowItWorksData} />

@@ -30,15 +30,28 @@ export default function OurStory() {
           <Typography
             variant="overline"
             sx={{
-              display: "block",
-              fontWeight: 700,
-              fontSize: { xs: "0.75rem", sm: "0.9rem" },
-              letterSpacing: "0.12em",
-              color: "rgba(255, 255, 255, 0.9)",
+        display: "inline-block",
+        color: "#ff691f",
+        fontSize: 14,
+        fontWeight: 700,
+        letterSpacing: 2,
+        textTransform: "uppercase",
+        border: "1px solid rgba(255,105,31,0.3)",
+        px: 2,
+        py: 0.5,
+        borderRadius: 20,
+        backgroundColor: "rgba(255,105,31,0.1)",
+        boxShadow: "0 0 15px rgba(255,105,31,0.2)",
+
+              
+              
+              
+              
               mb: 1.5,
-              textTransform: "uppercase",
+              
               fontFamily: "inherit",
             }}
+            data-aos="fade-up"
           >
             {aboutUsOurStoryData.overline}
           </Typography>
@@ -47,15 +60,25 @@ export default function OurStory() {
           <Typography
             variant="h2"
             sx={{
-              fontWeight: 800,
-              fontSize: { xs: "1.65rem", sm: "2.5rem", md: "3.75rem" },
-              lineHeight: 1.15,
-              letterSpacing: "-0.03em",
-              color: "#FFFFFF",
+        fontWeight: 900,
+        fontSize: { xs: 28, md: 44, lg: 52 },
+        lineHeight: 1.3,
+        paddingTop: "0.1em",
+        paddingBottom: "0.1em",
+        background: `linear-gradient(180deg, #fff 30%, rgba(255,255,255,0.4) 100%)`,
+        WebkitBackgroundClip: "text",
+        WebkitTextFillColor: "transparent",
+              
+              
+              
+              
+              
               mb: { xs: 3, md: 5 },
               fontFamily: "inherit",
               maxWidth: "900px",
             }}
+            data-aos="fade-up"
+            data-aos-delay="100"
           >
             {aboutUsOurStoryData.title}
           </Typography>
@@ -64,13 +87,20 @@ export default function OurStory() {
           <Typography
             variant="body1"
             sx={{
-              fontWeight: 400,
-              fontSize: { xs: "0.925rem", sm: "1.05rem", md: "1.2rem" },
-              lineHeight: 1.65,
-              color: "rgba(255, 255, 255, 0.8)",
+        fontSize: { xs: 16, md: 20 },
+        fontWeight: 400,
+        lineHeight: 1.6,
+        letterSpacing: "-0.01em",
+        color: "rgba(255, 255, 255, 0.8)",
+              
+              
+              
+              
               mb: { xs: 2.5, md: 3.5 },
               fontFamily: "inherit",
             }}
+            data-aos="fade-up"
+            data-aos-delay="200"
           >
             {aboutUsOurStoryData.paragraph1}
           </Typography>
@@ -79,12 +109,19 @@ export default function OurStory() {
           <Typography
             variant="body1"
             sx={{
-              fontWeight: 400,
-              fontSize: { xs: "0.925rem", sm: "1.05rem", md: "1.2rem" },
-              lineHeight: 1.65,
-              color: "rgba(255, 255, 255, 0.8)",
+        fontSize: { xs: 16, md: 20 },
+        fontWeight: 400,
+        lineHeight: 1.6,
+        letterSpacing: "-0.01em",
+        color: "rgba(255, 255, 255, 0.8)",
+              
+              
+              
+              
               fontFamily: "inherit",
             }}
+            data-aos="fade-up"
+            data-aos-delay="300"
           >
             <Box component="span" sx={{ fontWeight: 800, color: "#FFFFFF" }}>
               {aboutUsOurStoryData.paragraph2Highlight}

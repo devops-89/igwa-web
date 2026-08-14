@@ -56,14 +56,14 @@ export default function Hero() {
           data-aos="fade-up"
           sx={{
             fontWeight: 800,
-            fontSize: { xs: "2.25rem", sm: "3.5rem", md: "5.25rem" },
-            lineHeight: 1.2,
-            letterSpacing: "0px",
+            fontSize: { xs: 40, sm: 56, md: 72 },
+            lineHeight: 1.1,
+            letterSpacing: "-0.04em",
             color: "#FFFFFF",
             mb: { xs: 2, md: 2.5 },
             fontFamily: "inherit",
           }}
-        >
+          >
           {aboutUsHeroData.title}
         </Typography>
 
@@ -73,15 +73,24 @@ export default function Hero() {
           data-aos="fade-up"
           data-aos-delay="100"
           sx={{
-            fontWeight: 800,
-            fontSize: "18px",
-            lineHeight: 1.4,
-            color: "#FFFFFF",
+        fontWeight: 900,
+        fontSize: { xs: 28, md: 44, lg: 52 },
+        lineHeight: 1.3,
+        paddingTop: "0.1em",
+        paddingBottom: "0.1em",
+        background: `linear-gradient(180deg, #fff 30%, rgba(255,255,255,0.4) 100%)`,
+        WebkitBackgroundClip: "text",
+        WebkitTextFillColor: "transparent",
+            
+            
+            
+            
+            
             mb: { xs: 2.5, md: 3 },
             maxWidth: "850px",
             fontFamily: "inherit",
           }}
-        >
+          >
           {aboutUsHeroData.subtitle}
         </Typography>
 
@@ -91,15 +100,21 @@ export default function Hero() {
           data-aos="fade-up"
           data-aos-delay="200"
           sx={{
-            fontWeight: 400,
-            fontSize: "16px",
-            lineHeight: 1.5,
-            color: "rgba(255, 255, 255, 0.82)",
+        fontSize: { xs: 16, md: 20 },
+        fontWeight: 400,
+        lineHeight: 1.6,
+        letterSpacing: "-0.01em",
+        color: "rgba(255, 255, 255, 0.8)",
+            
+            
+            
+            
+            
             maxWidth: "920px",
             mb: { xs: 12, md: 8 },
             fontFamily: "inherit",
           }}
-        >
+          >
           {aboutUsHeroData.description}
         </Typography>
 
@@ -108,7 +123,7 @@ export default function Hero() {
           onClick={handleScrollDown}
           sx={{
             position: "absolute",
-            bottom: { xs: 20, md: 32 },
+            bottom: { xs: 50, md: 80 },
             left: "50%",
             transform: "translateX(-50%)",
             display: "flex",
@@ -128,7 +143,7 @@ export default function Hero() {
             sx={{
               fontSize: "0.85rem",
               fontWeight: 500,
-              color: "rgba(255, 255, 255, 0.75)",
+              color: "#FFFFFF",
               letterSpacing: "0.02em",
             }}
           >

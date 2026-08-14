@@ -49,11 +49,19 @@ export default function WeAreBuilding() {
             variant="h2"
             data-aos="fade-up"
             sx={{
-              fontWeight: 800,
-              fontSize: { xs: "1.65rem", sm: "2.5rem", md: "3.75rem" },
-              lineHeight: 1.2,
-              letterSpacing: "0px",
-              color: "#FFFFFF",
+        fontWeight: 900,
+        fontSize: { xs: 28, md: 44, lg: 52 },
+        lineHeight: 1.3,
+        paddingTop: "0.1em",
+        paddingBottom: "0.1em",
+        background: `linear-gradient(180deg, #fff 30%, rgba(255,255,255,0.4) 100%)`,
+        WebkitBackgroundClip: "text",
+        WebkitTextFillColor: "transparent",
+              
+              
+              
+              
+              
               mb: { xs: 2.5, md: 3.5 },
               fontFamily: "inherit",
               maxWidth: "850px",
@@ -68,12 +76,13 @@ export default function WeAreBuilding() {
             data-aos="fade-up"
             data-aos-delay="100"
             sx={{
-              fontWeight: 400,
-              fontSize: "16px",
-              lineHeight: 1.5,
-              color: "rgba(255, 255, 255, 0.8)",
-              fontFamily: "inherit",
-            }}
+        fontSize: { xs: 16, md: 20 },
+        fontWeight: 400,
+        lineHeight: 1.6,
+        letterSpacing: "-0.01em",
+        color: "rgba(255, 255, 255, 0.8)",
+              
+              }}
           >
             {aboutUsWeAreBuildingData.topDescription}
           </Typography>
@@ -157,6 +166,7 @@ export default function WeAreBuilding() {
                 mb: { xs: 2, md: 3.5 },
                 fontFamily: "inherit",
               }}
+              data-aos="fade-left"
             >
               {aboutUsWeAreBuildingData.bottomTitle}
             </Typography>
@@ -164,12 +174,15 @@ export default function WeAreBuilding() {
             <Typography
               variant="body1"
               sx={{
-                fontWeight: 400,
-                fontSize: "16px",
-                lineHeight: 1.5,
-                color: "rgba(255, 255, 255, 0.8)",
-                fontFamily: "inherit",
-              }}
+        fontSize: { xs: 16, md: 20 },
+        fontWeight: 400,
+        lineHeight: 1.6,
+        letterSpacing: "-0.01em",
+        color: "rgba(255, 255, 255, 0.8)",
+                
+                }}
+              data-aos="fade-left"
+              data-aos-delay="100"
             >
               {aboutUsWeAreBuildingData.bottomDescriptionPart1}
               <Box component="span" sx={{ fontWeight: 800, color: "#FFFFFF" }}>

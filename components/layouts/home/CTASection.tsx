@@ -1,30 +1,52 @@
 "use client";
 
-import { hindiCtaData } from "@/constants/hindiGenericData";
 import { ctaData as en_ctaData } from "@/constants/genericData";
+import { hindiCtaData } from "@/constants/hindiGenericData";
 import { useLanguage } from "@/context/LanguageContext";
 
-import React from "react";
+import { Box, Button, Container, Typography } from "@mui/material";
 import Image from "next/image";
-import { Box, Typography, Container, Grid, Button } from "@mui/material";
 
 export default function CTASection() {
   const { language } = useLanguage();
   const ctaData = language === 'hi' ? hindiCtaData : en_ctaData;
 
   return (
-    <Box sx={{ bgcolor: "#000", color: "white", py: { xs: 8, md: 12 } }}>
+    <Box sx={{ bgcolor: "#000", color: "white", py: { xs: 8, md: 16 } }}>
       <Container maxWidth="lg">
-        <Grid container spacing={6} sx={{ alignItems: "center" }}>
-          <Grid size={{ xs: 12, md: 6 }} data-aos="fade-right">
+        <Box
+          data-aos="fade-up"
+          sx={{
+            position: "relative",
+            borderRadius: { xs: "32px", md: "48px" },
+            bgcolor: "#0a0a0a",
+            border: "1px solid rgba(255,255,255,0.05)",
+            overflow: "hidden",
+            display: "flex",
+            flexDirection: { xs: "column", md: "row" },
+            alignItems: "center",
+          }}
+        >
+          {/* Text Content */}
+          <Box
+            sx={{
+              p: { xs: 4, md: 8 },
+              flex: 1.2,
+              zIndex: 2,
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+            }}
+          >
             <Typography
               variant="h2"
               sx={{
                 fontWeight: 700,
-                fontSize: { xs: "2rem", md: "3rem" },
-                letterSpacing: "-0.05em",
-                lineHeight: 1.1,
-                mb: 3,
+                fontSize: { xs: "2rem", md: "2.5rem" },
+                color: "white",
+                mb: 1,
+                letterSpacing: "-0.04em",
+                lineHeight: 1.2,
               }}
             >
               {ctaData.title}
@@ -32,65 +54,116 @@ export default function CTASection() {
 
             <Typography
               sx={{
-                fontSize: { xs: "1.125rem", md: "1.5rem" },
-                lineHeight: 1.125,
-                letterSpacing: "-0.045em",
-                color: "rgba(255,255,255,0.9)",
-                mb: 4,
-                maxWidth: 665,
+                fontWeight: 800,
+                fontSize: { xs: "3.5rem", md: "5.5rem" },
+                background: "linear-gradient(180deg, #FFFFFF 0%, #666666 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                mb: 3,
+                lineHeight: 1,
+                letterSpacing: "-0.02em",
               }}
             >
-              {ctaData.description3}
-              <br />
-              {ctaData.description4}
+              {ctaData.subtitle}
             </Typography>
 
-            <Button
+            <Typography
               sx={{
-                backgroundColor: "rgba(255,255,255,0.24)",
-                border: "1px solid rgba(255,255,255,0.12)",
-                backdropFilter: "blur(10px)",
-                borderRadius: "100px",
-                color: "white",
-                px: 3,
-                py: 1.5,
-                fontSize: "1rem",
-                fontWeight: 500,
-                boxShadow: "inset 0px 0px 8px rgba(255,255,255,0.25)",
-                "&:hover": { backgroundColor: "rgba(255,255,255,0.32)" },
+                fontSize: { xs: "1.125rem", md: "1.25rem" },
+                color: "rgba(255,255,255,0.8)",
+                mb: 2,
+                letterSpacing: "-0.02em",
+                lineHeight: 1.6,
               }}
             >
-              {ctaData.btnText}
-            </Button>
-          </Grid>
+              {ctaData.description1} {ctaData.description2}
+            </Typography>
 
-          <Grid size={{ xs: 12, md: 6 }} data-aos="fade-left" data-aos-delay="100">
-            <Box
+            <Typography
               sx={{
-                display: "flex",
-                justifyContent: "center",
-                position: "relative",
+                fontSize: { xs: "1rem", md: "1.125rem" },
+                color: "rgba(255,255,255,0.5)",
+                mb: 5,
+                letterSpacing: "-0.02em",
+                lineHeight: 1.6,
+                maxWidth: "90%",
               }}
             >
-              <Box
+              {ctaData.description3} {ctaData.description4}
+            </Typography>
+
+            <Box>
+              <Button
                 sx={{
-                  position: "relative",
-                  width: "100%",
-                  maxWidth: 420,
-                  aspectRatio: "416 / 456",
-                  transform: "scale(1.6) rotate(10.56deg)",
+                  bgcolor: "#fff",
+                  color: "#000",
+                  borderRadius: "100px",
+                  px: 4,
+                  py: 1.5,
+                  fontSize: "1.125rem",
+                  fontWeight: 600,
+                  textTransform: "none",
+                  "&:hover": { bgcolor: "rgba(255,255,255,0.8)" },
                 }}
               >
-                <Image
-                  src="/images/home/cta-phone.png"
-                  alt="IGWA app on iPhone"
-                  fill
-                  style={{ objectFit: "contain" }}
-                />
-              </Box>
+                {ctaData.btnText}
+              </Button>
             </Box>
-          </Grid>
-        </Grid>
+          </Box>
+
+          {/* Image Content */}
+          <Box
+            sx={{
+              flex: 1,
+              position: "relative",
+              width: "100%",
+              minHeight: { xs: 400, md: 600 },
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "flex-end",
+              mt: { xs: -4, md: 0 },
+            }}
+          >
+            {/* Ambient Glow */}
+            <Box
+              sx={{
+                position: "absolute",
+                top: "50%",
+                left: "50%",
+                transform: "translate(-50%, -50%)",
+                width: "80%",
+                height: "80%",
+                background:
+                  "radial-gradient(circle, rgba(1,113,227,0.15) 0%, transparent 70%)",
+                filter: "blur(40px)",
+                zIndex: 0,
+              }}
+            />
+
+            <Box
+              sx={{
+                position: "relative",
+                width: "100%",
+                maxWidth: 600,
+                aspectRatio: "416 / 456",
+                zIndex: 1,
+                transform: { xs: "translateY(20px) scale(1.2)", md: "translateY(40px) scale(1.6)" },
+                transformOrigin: "bottom center",
+              }}
+            >
+              <Image
+                src="/images/home/cta-phone.png"
+                alt="IGWA Phone"
+                fill
+                style={{
+                  objectFit: "contain",
+                  objectPosition: "bottom center",
+                  filter: "drop-shadow(0 -10px 40px rgba(0,0,0,0.5))",
+                }}
+              />
+            </Box>
+          </Box>
+        </Box>
       </Container>
     </Box>
   );

@@ -1,7 +1,7 @@
 "use client";
 
-import { hindiPoliceDeptHeroData } from "@/constants/hindiGenericData";
 import { policeDeptHeroData as en_policeDeptHeroData } from "@/constants/genericData";
+import { hindiPoliceDeptHeroData } from "@/constants/hindiGenericData";
 import { useLanguage } from "@/context/LanguageContext";
 
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
@@ -10,6 +10,13 @@ import { Box, Button, Container, Stack, Typography } from '@mui/material';
 export default function HeroSection() {
   const { language } = useLanguage();
   const policeDeptHeroData = language === 'hi' ? hindiPoliceDeptHeroData : en_policeDeptHeroData;
+
+  const handleScrollDown = () => {
+    window.scrollTo({
+      top: window.innerHeight,
+      behavior: "smooth",
+    });
+  };
 
   return (
     <Box sx={{ width: '100%', position: 'relative' }}>
@@ -45,13 +52,21 @@ export default function HeroSection() {
             variant="h2" 
             component="h1" 
             data-aos="fade-down"
-            sx={{ 
-              fontWeight: 700, 
-              color: 'white', 
+            sx={{
+        fontWeight: 900,
+        fontSize: { xs: 28, md: 44, lg: 52 },
+        lineHeight: 1.3,
+        paddingTop: "0.1em",
+        paddingBottom: "0.1em",
+        background: `linear-gradient(180deg, #fff 30%, rgba(255,255,255,0.4) 100%)`,
+        WebkitBackgroundClip: "text",
+        WebkitTextFillColor: "transparent", 
+              
+              
+              
+              
+              
               mb: { xs: 2, md: '5px' },
-              letterSpacing: '0px',
-              fontSize: { xs: '3rem', md: '88px' },
-              lineHeight: 1.2
             }}
           >
             {policeDeptHeroData.title}
@@ -61,12 +76,12 @@ export default function HeroSection() {
             data-aos="fade-up"
             data-aos-delay="100"
             sx={{ 
-              fontWeight: 600, 
-              color: 'white', 
+              fontWeight: 600,
+              fontSize: { xs: 18, sm: 22, md: 28 },
+              lineHeight: 1.3,
+              letterSpacing: "-0.02em",
+              color: "rgba(255, 255, 255, 0.95)",
               mb: { xs: 5, md: '59px' },
-              letterSpacing: '0px',
-              fontSize: { xs: '1.5rem', md: '35px' },
-              lineHeight: 1.4
             }}
           >
             {policeDeptHeroData.subtitle}
@@ -75,13 +90,20 @@ export default function HeroSection() {
             variant="body1" 
             data-aos="fade-up"
             data-aos-delay="200"
-            sx={{ 
-              color: 'rgba(255,255,255,0.9)', 
+            sx={{
+        fontSize: { xs: 16, md: 20 },
+        fontWeight: 400,
+        lineHeight: 1.6,
+        letterSpacing: "-0.01em",
+        color: "rgba(255, 255, 255, 0.8)", 
+              
+              
+              
+              
+              
               mb: '60px', 
               maxWidth: '884px',
               mx: 'auto',
-              fontSize: { xs: '1rem', md: '24px' },
-              lineHeight: 1.5
             }}
           >
             {policeDeptHeroData.description}
@@ -141,31 +163,55 @@ export default function HeroSection() {
           </Stack>
         </Container>
 
-        <Box sx={{ position: 'absolute', bottom: 100, zIndex: 2, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-          <Typography 
-            sx={{ 
-              color: 'white', 
-              mb: '12px', 
-              letterSpacing: '0px',
+        {/* Scroll Indicator */}
+        <Box
+          onClick={handleScrollDown}
+          sx={{
+            position: "absolute",
+            bottom: { xs: 50, md: 80 },
+            left: "50%",
+            transform: "translateX(-50%)",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: 1,
+            cursor: "pointer",
+            opacity: 0.8,
+            transition: "opacity 0.2s ease, transform 0.2s ease",
+            "&:hover": {
+              opacity: 1,
+            },
+          }}
+        >
+          <Typography
+            variant="caption"
+            sx={{
+              fontSize: "0.85rem",
               fontWeight: 500,
-              fontSize: '16px',
-              lineHeight: '19.2px'
+              color: "#FFFFFF",
+              letterSpacing: "0.02em",
             }}
           >
             {policeDeptHeroData.scrollText}
           </Typography>
-          <Box 
-            sx={{ 
-              width: '24px', 
-              height: '24px', 
-              borderRadius: '99px', 
-              backgroundColor: 'rgba(255, 255, 255, 0.12)',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center'
+
+          <Box
+            sx={{
+              width: 30,
+              height: 30,
+              borderRadius: "50%",
+              border: "1px solid rgba(255, 255, 255, 0.35)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              animation: "floatDown 2s ease-in-out infinite",
+              "@keyframes floatDown": {
+                "0%, 100%": { transform: "translateY(0)" },
+                "50%": { transform: "translateY(5px)" },
+              },
             }}
           >
-            <ArrowDownwardIcon sx={{ color: 'white', fontSize: '16px' }} />
+            <ArrowDownwardIcon sx={{ fontSize: 16, color: "#FFFFFF" }} />
           </Box>
         </Box>
       </Box>

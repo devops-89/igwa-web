@@ -15,15 +15,27 @@ export default function ProblemSection({ overline, title, description }: Problem
         <Typography 
           variant="overline" 
           data-aos="fade-down"
-          sx={{ 
-            color: 'white', 
-            letterSpacing: '0px', 
-            fontWeight: 400, 
-            display: 'block', 
+          sx={{
+        display: "inline-block",
+        color: "#ff691f",
+        fontSize: 14,
+        fontWeight: 700,
+        letterSpacing: 2,
+        textTransform: "uppercase",
+        border: "1px solid rgba(255,105,31,0.3)",
+        px: 2,
+        py: 0.5,
+        borderRadius: 20,
+        backgroundColor: "rgba(255,105,31,0.1)",
+        boxShadow: "0 0 15px rgba(255,105,31,0.2)", 
+             
+             
+             
+ 
             mb: { xs: 2, md: '21px' },
-            fontSize: { xs: '16px', md: '24px' },
+            
             lineHeight: 1.5,
-            textTransform: 'none'
+            
           }}
         >
           {overline}
@@ -35,13 +47,25 @@ export default function ProblemSection({ overline, title, description }: Problem
             component="h2" 
             dangerouslySetInnerHTML={{ __html: title }}
             data-aos="fade-up"
-            sx={{ 
-              color: 'white', 
-              fontWeight: 700, 
-              fontSize: { xs: '2.5rem', md: '48px' }, 
-              letterSpacing: '0px',
-              lineHeight: 1.3
+            sx={{
+        fontWeight: 900,
+        fontSize: { xs: 28, md: 44, lg: 52 },
+        lineHeight: 1.3,
+        paddingTop: "0.1em",
+        paddingBottom: "0.1em",
+        background: `linear-gradient(180deg, #fff 30%, rgba(255,255,255,0.4) 100%)`,
+        WebkitBackgroundClip: "text",
+        WebkitTextFillColor: "transparent", 
+              
+              
+              
+              
+              
+              
+              
+              
             }}
+            data-aos-delay="100"
           />
         </Box>
         
@@ -51,12 +75,17 @@ export default function ProblemSection({ overline, title, description }: Problem
             dangerouslySetInnerHTML={{ __html: description }}
             data-aos="fade-up"
             data-aos-delay="100"
-            sx={{ 
-              color: 'white', 
-              fontSize: { xs: '1.125rem', md: '24px' }, 
-              lineHeight: 1.5,
-              letterSpacing: '0px',
-              fontWeight: 400
+            sx={{
+        fontSize: { xs: 16, md: 20 },
+        fontWeight: 400,
+        lineHeight: 1.6,
+        letterSpacing: "-0.01em",
+        color: "rgba(255, 255, 255, 0.8)", 
+              
+              
+              
+              
+              
             }}
           />
         </Box>

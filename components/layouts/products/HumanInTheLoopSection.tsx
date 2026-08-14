@@ -1,10 +1,9 @@
 "use client";
 
-import { hindiProductsHumanInTheLoopData } from "@/constants/hindiGenericData";
 import { productsHumanInTheLoopData as en_productsHumanInTheLoopData } from "@/constants/genericData";
+import { hindiProductsHumanInTheLoopData } from "@/constants/hindiGenericData";
 import { useLanguage } from "@/context/LanguageContext";
 
-import React from 'react';
 import { Box, Typography } from '@mui/material';
 
 export default function HumanInTheLoopSection() {
@@ -16,8 +15,8 @@ export default function HumanInTheLoopSection() {
       sx={{
         backgroundColor: '#000000',
         color: '#FFFFFF',
-        py: { xs: 12, md: '180px', lg: '240px' },
-        px: { xs: 3, sm: 6, md: '40px' },
+        py: { xs: 8, sm: 12, md: '180px', lg: '240px' },
+        px: { xs: 2, sm: 4, md: '40px' },
         position: 'relative',
         overflow: 'hidden',
         boxSizing: 'border-box',
@@ -38,11 +37,19 @@ export default function HumanInTheLoopSection() {
         <Typography
           variant="h2"
           sx={{
-            fontWeight: 800,
-            fontSize: { xs: '2.5rem', md: '64px' },
-            lineHeight: 1.25,
-            letterSpacing: '0px',
-            color: '#FFFFFF',
+        fontWeight: 900,
+        fontSize: { xs: 28, md: 44, lg: 52 },
+        lineHeight: 1.3,
+        paddingTop: "0.1em",
+        paddingBottom: "0.1em",
+        background: `linear-gradient(180deg, #fff 30%, rgba(255,255,255,0.4) 100%)`,
+        WebkitBackgroundClip: "text",
+        WebkitTextFillColor: "transparent",
+            
+            
+            
+            
+            
             textAlign: 'center',
             display: 'inline-block',
           }}

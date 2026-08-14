@@ -1,7 +1,7 @@
 "use client";
 
-import { hindiCitizensHeroData } from "@/constants/hindiGenericData";
 import { citizensHeroData as en_citizensHeroData } from "@/constants/genericData";
+import { hindiCitizensHeroData } from "@/constants/hindiGenericData";
 import { useLanguage } from "@/context/LanguageContext";
 
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
@@ -52,7 +52,7 @@ export default function HeroSection() {
               {citizensHeroData.description}
             </Typography>
 
-            <Box sx={{ display: 'flex', gap: '10px', flexWrap: 'wrap', justifyContent: 'center', mb: { xs: 5, md: '57px' } }}>
+            <Box data-aos="fade-up" data-aos-delay="300" sx={{ display: 'flex', gap: '10px', flexWrap: 'wrap', justifyContent: 'center', mb: { xs: 5, md: '57px' } }}>
               <Box 
                 component="button"
                 sx={{ 

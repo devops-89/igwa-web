@@ -61,14 +61,23 @@ export default function HowItWorksSection({ steps, image, heading }: HowItWorksS
             <Box sx={{ mb: { xs: 6, md: 10 }, ml: { xs: 2, md: '44px' } }}>
               <Typography 
                 variant="h2" 
-                sx={{ 
-                  color: '#FFFFFF', 
-                  fontWeight: 700, 
+                sx={{
+        fontWeight: 900,
+        fontSize: { xs: 28, md: 44, lg: 52 },
+        lineHeight: 1.3,
+        paddingTop: "0.1em",
+        paddingBottom: "0.1em",
+        background: `linear-gradient(180deg, #fff 30%, rgba(255,255,255,0.4) 100%)`,
+        WebkitBackgroundClip: "text",
+        WebkitTextFillColor: "transparent", 
+                   
+                   
                   mb: 4,
-                  fontSize: { xs: '32px', md: '48px' },
-                  lineHeight: 1.3,
-                  letterSpacing: '0px'
+                  
+                  
+                  
                 }}
+                data-aos="fade-right"
               >
                 {heading || 'How it works'}
               </Typography>
@@ -115,6 +124,7 @@ export default function HowItWorksSection({ steps, image, heading }: HowItWorksS
                         lineHeight: 1.4,
                         letterSpacing: '0px'
                       }}
+                      data-aos="fade-up"
                     >
                       {step.title}
                     </Typography>
@@ -127,6 +137,8 @@ export default function HowItWorksSection({ steps, image, heading }: HowItWorksS
                         fontSize: { xs: '16px', md: '24px' },
                         letterSpacing: '0px'
                       }}
+                      data-aos="fade-up"
+                      data-aos-delay="100"
                     >
                       {step.description}
                     </Typography>

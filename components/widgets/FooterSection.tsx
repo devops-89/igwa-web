@@ -1,18 +1,17 @@
 "use client";
 
-import { hindiFooterData } from "@/constants/hindiGenericData";
 import { footerData as en_footerData } from "@/constants/genericData";
+import { hindiFooterData } from "@/constants/hindiGenericData";
 import { useLanguage } from "@/context/LanguageContext";
 
-import React from "react";
+import { COLORS } from "@/lib/enum";
 import {
   Box,
-  Typography,
   Container,
   Grid,
   Link as MuiLink,
+  Typography,
 } from "@mui/material";
-import { COLORS } from "@/lib/enum";
 
 export default function FooterSection() {
   const { language } = useLanguage();
@@ -39,12 +38,16 @@ export default function FooterSection() {
       sx={{
         bgcolor: COLORS.BLACK,
         color: COLORS.WHITE,
-        pt: { xs: 8, md: 10 },
-        pb: 4,
+        minHeight: "100vh",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        py: { xs: 6, md: 4 },
       }}
     >
-      <Container maxWidth="lg">
-        <Grid container spacing={4} sx={{ mb: 8 }}>
+      <Container maxWidth="lg" data-aos="fade-up">
+        {/* Top Links Section */}
+        <Grid container spacing={4} sx={{ mb: { xs: 4, md: 8 } }}>
           {FOOTER_LINKS.map((column, colIndex) => (
             <Grid key={colIndex} size={{ xs: 12, sm: 4 }}>
               {column.map((link) => (
@@ -55,10 +58,10 @@ export default function FooterSection() {
                   sx={{
                     display: "block",
                     color: COLORS.WHITE,
-                    fontWeight: 700,
-                    fontSize: "1.5rem",
-                    letterSpacing: "-0.045em",
-                    lineHeight: 2,
+                    fontWeight: 600,
+                    fontSize: "1.125rem",
+                    letterSpacing: "-0.02em",
+                    lineHeight: 2.5,
                     "&:hover": { opacity: 0.8 },
                   }}
                 >
@@ -69,56 +72,68 @@ export default function FooterSection() {
           ))}
         </Grid>
 
-        <Box sx={{ textAlign: "center", mb: 6 }}>
+        {/* Middle Disclaimer Section */}
+        <Box sx={{ textAlign: "center", mb: { xs: 4, md: 8 } }}>
+          <Typography
+            sx={{
+              fontSize: { xs: "0.75rem", md: "0.875rem" },
+              letterSpacing: "-0.02em",
+              color: "rgba(255,255,255,0.8)",
+              maxWidth: 900,
+              mx: "auto",
+              lineHeight: 1.5,
+              mb: { xs: 4, md: 6 },
+            }}
+          >
+            {hindiFooterData.importantNotice1} {hindiFooterData.importantNotice2} {hindiFooterData.importantNotice3}
+          </Typography>
+
           <Typography
             sx={{
               fontWeight: 700,
-              fontSize: { xs: "2rem", md: "3rem" },
-              letterSpacing: "-0.05em",
-              mb: 3,
+              fontSize: { xs: "2rem", md: "3.5rem" },
+              letterSpacing: "-0.04em",
+              lineHeight: 1.1,
+              color: COLORS.WHITE,
             }}
           >
             {footerData.tagline}
           </Typography>
-          <Typography
-            sx={{
-              fontSize: { xs: "0.875rem", md: "1.25rem" },
-              letterSpacing: "-0.05em",
-              color: COLORS.WHITE_90,
-              maxWidth: 900,
-              mx: "auto",
-              lineHeight: 1.14,
-            }}
-          >
-            {footerData.importantNotice1} {footerData.importantNotice2} {footerData.importantNotice3}
-          </Typography>
         </Box>
 
-        <Typography
-          sx={{
-            fontWeight: 700,
-            fontSize: { xs: "8rem", sm: "12rem", md: "18rem", lg: "24rem" },
-            letterSpacing: "-0.024em",
-            textAlign: "center",
-            lineHeight: 0.85,
-            mb: 4,
-            overflow: "hidden",
-          }}
-        >
-          IGWA
-        </Typography>
+        {/* Bottom Massive Text & Copyright */}
+        <Box sx={{ display: "flex", justifyContent: "center", alignItems: "flex-end", flexWrap: { xs: "wrap", md: "nowrap" } }}>
+          <Typography
+            sx={{
+              fontWeight: 800,
+              fontSize: { xs: "8rem", sm: "12rem", md: "16rem", lg: "22rem" },
+              letterSpacing: "-0.05em",
+              lineHeight: 0.75,
+              color: COLORS.WHITE,
+              whiteSpace: "nowrap",
+            }}
+          >
+            IGWA
+          </Typography>
 
-        <Typography
-          sx={{
-            fontWeight: 700,
-            fontSize: "1.25rem",
-            letterSpacing: "-0.05em",
-            textAlign: "right",
-            color: COLORS.WHITE_90,
-          }}
-        >
-          {footerData.copyright}
-        </Typography>
+          <Typography
+            sx={{
+              fontWeight: 600,
+              fontSize: { xs: "0.75rem", md: "0.875rem" },
+              letterSpacing: "-0.02em",
+              textAlign: { xs: "center", md: "left" },
+              color: "rgba(255,255,255,0.7)",
+              ml: { xs: 0, md: 3 },
+              mb: { xs: 0, md: 3 },
+              mt: { xs: 4, md: 0 },
+              lineHeight: 1.4,
+              whiteSpace: "nowrap",
+            }}
+          >
+            कॉपीराइट © 2026<br/>
+            IGWA. सर्वाधिकार सुरक्षित।
+          </Typography>
+        </Box>
       </Container>
     </Box>
   );

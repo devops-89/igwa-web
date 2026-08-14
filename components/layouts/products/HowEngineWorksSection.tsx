@@ -1,13 +1,11 @@
 "use client";
 
-import { hindiProductsHowEngineWorksData } from "@/constants/hindiGenericData";
 import { productsHowEngineWorksData as en_productsHowEngineWorksData } from "@/constants/genericData";
+import { hindiProductsHowEngineWorksData } from "@/constants/hindiGenericData";
 import { useLanguage } from "@/context/LanguageContext";
 
-import React from "react";
+import { Box, Typography } from "@mui/material";
 import Image from "next/image";
-import { Box, Typography, Container, Grid } from "@mui/material";
-import SearchIcon from "@mui/icons-material/Search";
 
 export default function HowEngineWorksSection() {
   const { language } = useLanguage();
@@ -27,17 +25,21 @@ export default function HowEngineWorksSection() {
         zIndex: 1 
       }}>
         <Box 
-          component="img"
-          src="/images/product2.png"
-          alt="IGWA Engine"
           sx={{
             position: 'sticky',
             top: '120px',
             width: '100%',
-            height: 'auto',
           }}
           data-aos="fade-left"
-        />
+        >
+          <Image 
+            src="/images/product2.png"
+            alt="IGWA Engine"
+            width={547}
+            height={547}
+            style={{ width: '100%', height: 'auto' }}
+          />
+        </Box>
       </Box>
 
       <Box sx={{ width: '100%', maxWidth: '1440px', mx: 'auto', position: 'relative', zIndex: 2 }}>
@@ -45,19 +47,23 @@ export default function HowEngineWorksSection() {
           {/* Right Column - Image Spacer on Desktop */}
           <Box sx={{ width: { xs: '100%', lg: '41.666%' }, px: { xs: 2, lg: 0 }, order: { xs: 1, lg: 2 } }}>
             <Box 
-              component="img"
-              src="/images/product2.png"
-              alt="IGWA Engine"
               sx={{
                 width: '100%',
                 maxWidth: '547px',
-                height: 'auto',
                 display: { xs: 'block', lg: 'none' }, // Hide on desktop since absolute image is used
                 margin: '0 auto',
                 mb: { xs: 6, lg: 0 }
               }}
               data-aos="fade-left"
-            />
+            >
+              <Image 
+                src="/images/product2.png"
+                alt="IGWA Engine"
+                width={547}
+                height={547}
+                style={{ width: '100%', height: 'auto' }}
+              />
+            </Box>
           </Box>
           
           {/* Left Column - Timeline */}
@@ -65,15 +71,25 @@ export default function HowEngineWorksSection() {
             <Box sx={{ mb: { xs: 6, md: 10 }, ml: { xs: 2, md: '44px' } }}>
               <Typography 
                 variant="h2" 
-                sx={{ 
-                  color: '#FFFFFF', 
-                  fontWeight: 800, 
-                  mb: 4,
-                  fontSize: { xs: '32px', md: '48px' },
-                  lineHeight: 1.3,
-                  letterSpacing: '0px'
+                sx={{
+        fontWeight: 900,
+        fontSize: { xs: 28, md: 44, lg: 52 },
+        lineHeight: 1.3,
+        paddingTop: "0.1em",
+        paddingBottom: "0.1em",
+        background: `linear-gradient(180deg, #fff 30%, rgba(255,255,255,0.4) 100%)`,
+        WebkitBackgroundClip: "text",
+        WebkitTextFillColor: "transparent", 
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
                 }}
-                data-aos="fade-left"
+                data-aos="fade-right"
               >
                 {productsHowEngineWorksData.title}
               </Typography>
@@ -144,6 +160,24 @@ export default function HowEngineWorksSection() {
                 </Box>
               ))}
             </Box>
+          </Box>
+
+          {/* Right Column - Image Spacer on Desktop */}
+          <Box sx={{ width: { xs: '100%', lg: '41.666%' }, px: { xs: 2, lg: 0 }, order: { xs: 1, lg: 2 } }}>
+            <Box 
+              component="img"
+              src="/images/product2.png"
+              alt="IGWA Engine"
+              sx={{
+                width: '100%',
+                maxWidth: '547px',
+                height: 'auto',
+                display: { xs: 'block', lg: 'none' }, // Hide on desktop since absolute image is used
+                margin: '0 auto',
+                mb: { xs: 6, lg: 0 }
+              }}
+              data-aos="fade-left"
+            />
           </Box>
         </Box>
       </Box>
